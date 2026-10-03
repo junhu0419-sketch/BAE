@@ -198,6 +198,7 @@ body.hell-ui .hell-only{display:block}
 .hell-prompt .ko{font-size:11px;color:#818c9a;margin-top:5px}
 .hell-array{min-height:76px;border:1px solid #313946;border-radius:16px;background:#070b11;padding:12px;display:flex;flex-wrap:wrap;gap:7px;align-items:flex-start}
 .hell-bank{border:1px solid #252d38;border-radius:16px;background:#090e15;padding:13px}.hell-bank-title{font-size:11px;font-weight:900;color:#9aa6b4;letter-spacing:.08em;margin-bottom:8px}
+.hell-btn.skip{background:#2a1a08;border-color:#7a4a12;color:#ffb866}
 .hell-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.hell-btn{border:1px solid #394250;background:#0b1119;color:#f6f8fb;border-radius:11px;padding:10px 16px;font-weight:900;cursor:pointer}.hell-btn.primary{border-color:#ff453a;background:#c92820;color:white;box-shadow:0 6px 18px rgba(255,59,48,.18)}.hell-btn.primary:disabled{opacity:.35;box-shadow:none}.hell-btn.ghost{color:#b4bdc9}
 .hell-status{min-height:18px;text-align:center;font-size:11px;color:#7f8a99}
 .hell-result{border:1px solid #303742;border-radius:20px;padding:28px 20px;text-align:center;background:#080c12;box-shadow:0 24px 50px rgba(0,0,0,.3)}
@@ -395,6 +396,8 @@ body.hell-ui .hell-card-bank .cd {
 #wordPanel .wp-row button.idiom-level small{color:#7c6bb0}
 #wordPanel #rnDay{width:100%}
 #wordPanel #rnStart{width:100%;margin:2px 0 10px}
+.st-e,.rn-e{margin-top:8px;padding:8px 10px;border-radius:10px;background:#f5f3ff;color:#4c1d95;font-size:12px;line-height:1.55;font-weight:600}
+.st-e b,.rn-e b{display:block;font-size:11px;color:#7c3aed;margin-bottom:2px}
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body><div id="loginGate"><form class="lg-box" id="lgForm" novalidate><h2>로그인이 필요해요</h2><p id="lgSub">확인하는 중이에요…</p><input id="lgEmail" type="email" placeholder="이메일" autocomplete="email" hidden><input id="lgPw" type="password" placeholder="비밀번호 (6자 이상)" autocomplete="current-password" hidden><div id="lgMsg"></div><button id="lgGo" type="submit" hidden>로그인</button><button id="lgSw" type="button" hidden>처음이에요 · 회원가입</button></form></div><div class="w">
@@ -702,6 +705,16 @@ function hellShuffleQueue(){
   if(hellCurrent&&hellQueue.length>1&&hellQueue[0]===hellCurrent){const k=hellQueue.findIndex(i=>i!==hellCurrent);if(k>0)[hellQueue[0],hellQueue[k]]=[hellQueue[k],hellQueue[0]];}
   hellCursor=0;
 }
+function hellSkipCurrent(){
+  if(!hellCurrent)return;
+  clearHellTimer();
+  addToVault(hellCurrent,{msg:'HELL에서 "모르겠어요"로 추가'});
+  hellCombo=0;
+  if(hellMode==='time'){hellNextTimeQuestion();}
+  else{hellMasterStreak=0;hellCurrent=hellNextData();hellState='masterSolving';renderHellMaster();}
+  const t=document.createElement('div');t.textContent='📕 복습 보관함에 추가했어요';t.style.cssText='position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 16px;border-radius:12px;font-size:13px;font-weight:800;z-index:9999;box-shadow:0 6px 18px rgba(0,0,0,.4)';
+  document.body.appendChild(t);setTimeout(function(){t.remove()},1400);
+}
 function hellNextData(){
   if(!hellQueue.length||hellCursor>=hellQueue.length)hellShuffleQueue();
   const idx=hellQueue[hellCursor++];
@@ -754,7 +767,7 @@ function updateHellTimer(){
 }
 function hellCheckTime(){
   if(hellState!=='solving')return;
-  if(sessionState.poolIds.length||answerTokenCount()!==sessionState.sourceTokenCount)return;
+  if(sessionState.poolIds.length||!sessionState.answerIds.length)return;
   clearHellTimer();
   const diff=hellDiffData();
   const exactWords=diff.got.length===diff.target.length && diff.got.every((w,i)=>w===diff.target[i]);
@@ -810,7 +823,7 @@ function renderHellTime(){
       '<div class="hell-array" id="hellAnswerZone">'+ans+'</div>'+ 
       '<div class="hell-bank hell-card-bank"><div class="hell-bank-title">WORDS</div><div class="zone pool pool-zone" id="hellPoolZone">'+cards+'</div></div>'+ 
       '<div class="hell-status">'+total+' / '+source+'</div>'+ 
-      '<div class="hell-actions"><button class="hell-btn ghost" id="hellRetryCurrent">↻ 다른 문제</button><button class="hell-btn primary" id="hellTimeSubmit" '+(sessionState.poolIds.length||total!==source?'disabled':'')+'>SUBMIT</button></div>'+ 
+      '<div class="hell-actions"><button class="hell-btn ghost" id="hellRetryCurrent">↻ 다른 문제</button><button class="hell-btn skip" id="hellSkip">🤔 모르겠어요</button><button class="hell-btn primary" id="hellTimeSubmit" '+(sessionState.poolIds.length||!sessionState.answerIds.length?'disabled':'')+'>SUBMIT</button></div>'+ 
     '</div></div>';
   updateHellTimer();
 }
@@ -930,7 +943,7 @@ function renderHellMaster(){
     '<div class="hell-master translation">'+htmlEsc(hellCurrent.korean)+'</div>'+ 
     '<textarea id="hellMasterInput" class="hell-input" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="영어 문장을 직접 입력하세요."></textarea>'+ 
     '<div class="hell-master-foot"><div>해석만 제공됩니다.</div><div class="hell-score"><span>'+hellCurrent.tokens.length+' words</span></div></div>'+ 
-    '<div class="hell-actions"><button class="hell-btn ghost" id="hellMasterMenu">HELL 메뉴</button><button class="hell-btn primary" id="hellMasterSubmit">SUBMIT</button></div>'+ 
+    '<div class="hell-actions"><button class="hell-btn ghost" id="hellMasterMenu">HELL 메뉴</button><button class="hell-btn skip" id="hellSkip">🤔 모르겠어요</button><button class="hell-btn primary" id="hellMasterSubmit">SUBMIT</button></div>'+ 
     '</div></div>';
   requestAnimationFrame(()=>document.getElementById('hellMasterInput')?.focus());
 }
@@ -1189,7 +1202,7 @@ function renderResult(){
   if(state==='solving'){el.innerHTML='';return;}
   const note=detailedStudy(cur),srcNote=sourceNoteHtml(cur);
   if(state==='correct'){el.innerHTML='<div class="res ok"><div class="t">정답! 👍</div>'+note+srcNote+'<div class="r"><b>출처</b>: '+htmlEsc(cur.source)+'</div></div>';return;}
-  if(state==='wrong1'){el.innerHTML='<div class="res no"><div class="t">오답 (1회)</div>배열 순서와 기능어를 다시 확인해봐.</div>';return;}
+  if(state==='wrong1'){el.innerHTML='<div class="res no"><div class="t">오답 (1회)</div>'+(lastDiag&&lastDiag.type==='function'?htmlEsc(lastDiag.msg):'배열 순서와 기능어를 다시 확인해봐.')+'</div>';return;}
   if(state==='wrong2'){el.innerHTML='<div class="res warn"><div class="t">오답 (2회)</div>'+htmlEsc(lastDiag?.msg||'배열과 어형을 다시 확인하세요.')+'</div>';return;}
   if(state==='answer'){el.innerHTML='<div class="res warn"><div class="t">정답 공개</div><div class="a">정답: '+htmlEsc(cur.sentence)+'</div>'+note+srcNote+'<div class="r"><b>해석</b>: '+htmlEsc(cur.korean)+'<br><b>출처</b>: '+htmlEsc(cur.source)+'</div></div>';return;}
   if(state==='revealed'){el.innerHTML='<div class="res no"><div class="t">오답 (3회) — 복습 보관함에 저장했습니다.</div><div class="a">정답: '+htmlEsc(cur.sentence)+'</div>'+note+srcNote+'<div class="r"><b>해석</b>: '+htmlEsc(cur.korean)+'<br><b>출처</b>: '+htmlEsc(cur.source)+'</div></div>';return;}
@@ -1223,7 +1236,7 @@ function render(){
 
   h+='<div class="btns">';
   if(['solving','wrong1','wrong2'].includes(state)){
-    const canCheck=sessionState.poolIds.length===0&&total===source;
+    const canCheck=sessionState.poolIds.length===0&&sessionState.answerIds.length>0;
     h+='<button class="p" id="chk" '+(canCheck?'':'disabled')+'>채점</button><button id="rs">↻ 다시 풀기</button><button id="answerNow">정답 보기</button>';
   }else{
     h+='<button id="retry">↻ 다시 풀기</button><button class="p" id="nx">다음 문제</button>';
@@ -1308,7 +1321,7 @@ function resetQuestion(){
 }
 function showAnswerNow(){state='answer';render();}
 function onCheck(){
-  if(sessionState.poolIds.length>0||answerTokenCount()!==sessionState.sourceTokenCount)return;
+  if(sessionState.poolIds.length>0||!sessionState.answerIds.length)return;
   if(isCorrect()){
     state='correct';
     if(reviewMode)removeFromVault(cur.id);else{LS[curLevel].score++;saveProgress();}
@@ -1316,7 +1329,7 @@ function onCheck(){
   }
   attempts++;
   cur.wrongCount=(cur.wrongCount||0)+1;
-  if(attempts===1){state='wrong1';render();return;}
+  if(attempts===1){lastDiag=diagnose();state='wrong1';render();return;}
   lastDiag=diagnose();
   if(attempts===2){state='wrong2';render();return;}
   state='revealed';addToVault(cur,lastDiag);render();
@@ -1381,6 +1394,7 @@ document.addEventListener('click',e=>{
     if(id==='hellBackToMenu'||id==='hellMasterMenu'){renderHellMenu();return;}
     if(id==='hellTimeSubmit'){hellCheckTime();return;}
     if(id==='hellRetryCurrent'){hellNextTimeQuestion();return;}
+    if(id==='hellSkip'){hellSkipCurrent();return;}
     if(id==='hellMasterSubmit'){checkHellMaster();return;}
     if(id==='hellMasterAccept'){acceptHellMaster();return;}
   }
@@ -1394,7 +1408,7 @@ document.addEventListener('click',e=>{
 document.getElementById('q').addEventListener('click',e=>{
   if(!hellActive)return;
   const t=e.target;
-  if(t.closest('#hellTimeSubmit,#hellBack,#hellStudyCurrent,#hellNext,#hellBackToMenu,#hellRetryCurrent,#hellMasterMenu,#hellMasterSubmit,#hellMasterAccept,#hellTimeStart,#hellMasterStart'))return;
+  if(t.closest('#hellSkip,#hellTimeSubmit,#hellBack,#hellStudyCurrent,#hellNext,#hellBackToMenu,#hellRetryCurrent,#hellMasterMenu,#hellMasterSubmit,#hellMasterAccept,#hellTimeStart,#hellMasterStart'))return;
   const rm=t.closest('.card-remove');
   if(rm){e.stopPropagation();if(hellMode==='time'){const card=rm.closest('.cd');if(card)hellTimeRemove(card.dataset.id);}return;}
   if(hellMode==='time'&&hellState==='solving'){
@@ -2602,58 +2616,58 @@ var V={
 "submission":{ok:[],sense:"제출",other:{"obedience": "복종", "surrender": "굴복"}}
 };
 var IDM=[
-{d:26,w:"bombard someone with questions",m:"질문 공세를 퍼붓다",b:"bombard",x:"",k:""},
-{d:26,w:"discriminate between A and B",m:"A와 B를 구별하다",b:"discriminate",x:"",k:""},
-{d:26,w:"have no parallel",m:"유례가 없다, 비할 데 없다",b:"parallel",x:"",k:""},
-{d:26,w:"put a premium on ~",m:"~을 특히 중요하게 여기다",b:"premium",x:"",k:""},
-{d:26,w:"put up with",m:"~을 참다, 참고 견디다",b:"put up with",x:"We couldn't put up with the noise from next door any longer.",k:"우리는 옆집에서 들려오는 소음을 더 이상 참을 수 없었다."},
-{d:26,w:"back off",m:"뒤로 물러나다; (간섭하지 않고) 물러서다, 그만두다",b:"back off",x:"The boy got frightened and backed off as soon as he saw the dog.",k:"그 남자아이는 개를 보자마자 겁이 먹고 뒤로 물러났다."},
-{d:26,w:"take over",m:"~을 넘겨받다, 인수하다; (정권 등을) 장악하다",b:"take over",x:"His brother recently took over the running of the business.",k:"그의 형은 최근에 사업 운영권을 넘겨받았다."},
-{d:26,w:"convince A of B",m:"A에게 B를 납득시키다",b:"convince A of B",x:"I had written a position paper trying to convince the city council of the need to hire security personnel for the library.",k:"나는 시의회에 도서관의 보안 요원을 고용할 필요성을 납득시키려는 의견서를 작성했다."},
-{d:29,w:"go with one's gut",m:"직감을 따르다",b:"gut",x:"",k:""},
-{d:33,w:"substitute A for B",m:"B를 A로 대체하다",b:"substitute",x:"",k:""},
-{d:33,w:"attribute A to B",m:"A를 B의 결과[덕분]로 보다",b:"attribute",x:"",k:""},
-{d:35,w:"alternate between A and B",m:"A와 B를 번갈아 하다",b:"alternate",x:"",k:""},
-{d:27,w:"leave out",m:"~을 빼놓다, 제외[생략]하다",b:"leave out",x:"The right hemisphere of the brain that intuitively processes information is left out of the planning process.",k:"정보를 직관적으로 처리하는 뇌의 우반구는 계획 수립 과정에서 제외된다."},
-{d:27,w:"break away",m:"((from))(~에서) 달아나다, 벗어나다; (정당·국가 등에서) 독립하다, 탈퇴하다",b:"break away",x:"He broke away from the group to take pictures.",k:"그는 사진을 찍으려고 무리에서 빠져나왔다."},
-{d:27,w:"see about",m:"~을 알아보다, 처리하다",b:"see about",x:"I'll contact the company to see about your refund.",k:"당신의 환불을 알아보기 위해 제가 회사에 연락해보겠습니다."},
-{d:27,w:"settle down",m:"정착하다; 진정하다[되다]",b:"settle down",x:"After years abroad, she finally settled down near her family.",k:"수년간 해외에 있다가, 그녀는 마침내 가족과 가까운 곳에 정착했다."},
-{d:28,w:"launch into",m:"(갑자기 혹은 열정적으로) 시작하다",b:"launch into",x:"Photocopiers' complicated features give people natural reasons to launch into conversation.",k:"복사기의 복잡한 기능들은 사람들에게 대화를 시작할 자연스러운 계기를 제공한다."},
-{d:28,w:"break up",m:"(관계 등이) 끝나다; 부서지다; (신호 등이) 끊기다",b:"break up",x:"The partnership broke up due to financial disagreements.",k:"그 동업 관계는 재정적 의견 충돌로 인해 끝났다."},
-{d:28,w:"carry off",m:"(어려운 일을) 잘 해내다; (상을) 받다, 차지하다",b:"carry off",x:"She's the only designer I know with enough talent to carry this off.",k:"그녀는 이 일을 해낼 수 있을 만큼 충분한 재능이 있는지 내가 아는 유일한 디자이너이다."},
-{d:28,w:"look through",m:"~을 살펴보다, 훑어보다",b:"look through",x:"I've looked through all my papers and have not found anything that would work.",k:"나는 내 모든 서류를 살펴보았지만 효과가 있을 만한 것을 찾지 못했다."},
-{d:29,w:"refrain from",m:"~을 삼가다, 자제하다",b:"refrain from",x:"Visitors were asked to refrain from taking photographs inside the museum.",k:"방문객들은 박물관 내부에서 사진 촬영을 자제해 달라는 요청을 받았다."},
-{d:29,w:"hold down",m:"~을 억제하다; (일자리 등을) 계속 유지하다",b:"hold down",x:"There can be influential factors that hold down the performance of everyone being judged.",k:"평가를 받는 모든 이의 성과를 억제하는 영향력 있는 요인들이 있을 수 있다."},
-{d:29,w:"amount to",m:"(합계가) ~에 달하다; ~와 같다, ~에 해당하다",b:"amount to",x:"The savings would amount to several thousand dollars per family.",k:"그 절감액은 가구당 수천 달러에 달할 것이다."},
-{d:29,w:"ease off",m:"~을 완화하다, 완화되다",b:"ease off",x:"The pain in her leg slowly eased off after taking the medicine.",k:"그녀의 다리 통증은 약을 먹은 후 서서히 완화되었다."},
-{d:30,w:"step in",m:"(문제 해결을 위해) 개입하다",b:"step in",x:"When consumers lack adequate information, governments step in to require that firms provide information.",k:"소비자들에게 충분한 정보가 없으면, 정부가 개입하여 회사에게 정보를 제공하도록 요구한다."},
-{d:30,w:"carry through",m:"~을 완수하다, 해내다",b:"carry through",x:"We are determined to carry our plans through to completion.",k:"우리는 우리의 계획을 완수하기로 결심했다."},
-{d:30,w:"put A into B",m:"A를 B에 들이다",b:"put A into B",x:"All that time, I put my whole heart into looking for work.",k:"그 시간 내내 나는 일자리를 찾는 데 온 마음을 쏟았다."},
-{d:30,w:"live out",m:"(예전에 생각만 하던 것을) 실현하다",b:"live out",x:"It is possible to live out a lie or fantasy logically and consistently on the internet.",k:"인터넷상에서는 거짓말이나 환상을 논리적이고 일관되게 실현하는 것이 가능하다."},
-{d:31,w:"speak for",m:"~을 대변하다, 대신하여 말하다",b:"speak for",x:"She spoke for the entire company at the medical conference.",k:"그녀는 의료 학회에서 회사 전체를 대변했다."},
-{d:31,w:"kick in",m:"작동하기 시작하다, 효과가 나타나기 시작하다",b:"kick in",x:"When we are disturbed by outside forces, our inner machinery kicks in and returns us to a balanced state.",k:"우리가 외부의 힘에 의해 방해를 받을 때, 우리의 내부 조직이 작동하기 시작하여 우리를 균형 잡힌 상태로 돌아오게 한다."},
-{d:31,w:"put down",m:"~을 적어 두다; ~을 진압하다",b:"put down",x:"I need to put down my thoughts on paper before I forget them.",k:"나는 잊어버리기 전에 내 생각을 종이에 적어 두어야 한다."},
-{d:31,w:"ascribe A to B",m:"A를 B의 원인[탓]으로 돌리다",b:"ascribe A to B",x:"He ascribed his failure to bad luck rather than a lack of skill.",k:"그는 자신의 실패를 실력 부족보다는 불운의 탓으로 돌렸다."},
-{d:32,w:"scale up",m:"(규모·양 등을) 확대하다, 늘리다",b:"scale up",x:"Scaling up from small to large is often accompanied by an evolution from simplicity to complexity.",k:"작은 것에서 큰 것으로 규모를 확대하는 것은 흔히 단순함에서 복잡함으로의 진화를 수반한다."},
-{d:32,w:"put across",m:"(생각·의견 등을) 전달하다, 이해시키다",b:"put across",x:"Environmental journalists have to put across their perspective on the environment to lawmakers.",k:"환경 저널리스트들은 입법자들에게 환경에 대한 그들의 관점을 이해시켜야 한다."},
-{d:32,w:"give in",m:"굴복[항복]하다",b:"give in",x:"They never gave in during the tough negotiations last week.",k:"그들은 지난주 힘든 협상 동안 절대 굴복하지 않았다."},
-{d:32,w:"track down",m:"~을 (추적하여) 찾아내다",b:"track down",x:"The police expected it would take longer to track down the criminal.",k:"경찰은 범인을 찾아내는 데 시간이 더 오래 걸릴 것으로 예상했다."},
-{d:33,w:"tell on",m:"~을 고자질하다; ~에 (안 좋은) 영향을 미치다",b:"tell on",x:"Since opponents will attack, the advantages of being proactive and \"telling on oneself\" are too significant to ignore.",k:"상대는 공격할 것이기 때문에, 상황을 앞서서 주도하며 '스스로의 잘못을 밝히는 것'의 이점은 너무 중요해서 무시할 수 없다."},
-{d:33,w:"spell out",m:"철자를 하나하나 말하다[쓰다]; ~을 분명히 설명하다",b:"spell out",x:"Please spell out your name so that I can confirm your reservation.",k:"제가 당신의 예약을 확인할 수 있도록 성함을 철자 하나하나 말씀해 주세요."},
-{d:33,w:"deprive A of B",m:"A에게서 B를 빼앗다",b:"deprive A of B",x:"Humans are the only species that will deliberately deprive themselves of sleep.",k:"인간은 의도적으로 스스로에게서 잠을 박탈하려는 유일한 종이다."},
-{d:34,w:"hold back",m:"(감정을) 억누르다, 참다; ~을 저지하다",b:"hold back",x:"He tried to hold back his tears as he remembered the struggles of his past.",k:"그는 과거의 어려움들을 기억하며 눈물을 참으려고 애썼다."},
-{d:34,w:"cut across",m:"~을 가로지르다; ~에 걸치다, ~을 아우르다",b:"cut across",x:"If we quickly cut across the grassy field, it'll definitely save time.",k:"만약 우리가 그 풀밭을 빠르게 가로질러 간다면, 확실히 시간을 절약할 것이다."},
-{d:34,w:"come away with",m:"(어떤 인상·느낌을) 갖고 떠나다",b:"come away with",x:"To the extent that sufficient context is provided, readers come away with the author's intent.",k:"충분한 맥락이 제공되는 한, 독자들은 저자의 의도를 이해하고 떠나게 된다."},
-{d:35,w:"put in for",m:"~을 신청하다",b:"put in for",x:"When are you going to put in for a department transfer?",k:"부서 이동을 언제 신청하실 건가요?"},
-{d:35,w:"let down",m:"~을 실망시키다",b:"let down",x:"This machine won't let you down, as it's known for being very reliable.",k:"이 기계는 매우 믿을 만하다고 알려져 있기 때문에 당신을 실망시키지 않을 겁니다."},
-{d:35,w:"stick out",m:"~을 내밀다, ~가 튀어나오다; 눈에 띄다",b:"stick out",x:"The paper bag had leaves sticking out of the top.",k:"그 종이봉투의 윗부분에 잎사귀들이 튀어나와 있었다."},
-{d:36,w:"come through",m:"살아남다, 극복하다; (약속대로) 해내다; (정보 등이) 들어오다",b:"come through",x:"The company came through the recession without any major losses.",k:"그 회사는 어떠한 큰 손실도 없이 경기 침체를 극복했다."},
-{d:36,w:"step up",m:"~을 강화하다, 올리다; (책임 등을) 맡다, 나서다",b:"step up",x:"Their bargaining became spirited, with Paul stepping up his price slightly and the seller lowering his slowly.",k:"Paul이 자신의 가격을 조금씩 올리고 판매자가 천천히 내리면서, 그들의 흥정은 활기를 띠게 되었다."},
-{d:36,w:"cut off",m:"~을 잘라 내다; (공급 등을) 끊다; 고립시키다",b:"cut off",x:"Many major companies are changing their business models by cutting off less profitable projects.",k:"많은 주요 기업들은 수익성이 낮은 프로젝트를 정리함으로써 그들의 사업 모델을 변화시키고 있다."},
-{d:36,w:"come down with",m:"(병에) 걸리다",b:"come down with",x:"More people came down with the flu this year than last year.",k:"올해에 작년보다 더 많은 사람들이 독감에 걸렸다."},
-{d:37,w:"get over",m:"~을 극복하다; ~에서 회복하다",b:"get over",x:"Get over the past, or it will prevent you from moving forward.",k:"과거를 극복하라, 그렇지 않으면 과거는 네가 앞으로 나아가지 못하게 할 것이다."},
-{d:37,w:"slip out",m:"(말이) 무심코 튀어나오다; 몰래 빠져나가다",b:"slip out",x:"I didn't mean to mention your absence, but it just slipped out.",k:"당신의 부재를 언급하려던 건 아니었는데, 그 말이 무심코 튀어나왔다."},
-{d:37,w:"live with",m:"(어려움·불안 등을) 감수하다, 안고 살다",b:"live with",x:"They learned to live with each other's imperfections.",k:"그들은 서로의 단점들을 안고 살아가는 법을 배웠다."}
+{d:26,w:"bombard someone with questions",e:"bombard는 중세 프랑스어 bombarde(투석기·초기 대포)에서 왔어요. 대포를 퍼붓듯 질문을 쏟아붓는 그림이에요.",m:"질문 공세를 퍼붓다",b:"bombard",x:"",k:""},
+{d:26,w:"discriminate between A and B",e:"라틴어 discriminare(구분하다) ← dis-(따로) + cernere(가려내다). between A and B = 둘 사이를 가려내다 → 구별하다.",m:"A와 B를 구별하다",b:"discriminate",x:"",k:""},
+{d:26,w:"have no parallel",e:"parallel은 그리스어 para(나란히) + allelon(서로)에서 왔어요. 나란히 놓을 짝이 없다 → 유례가 없다.",m:"유례가 없다, 비할 데 없다",b:"parallel",x:"",k:""},
+{d:26,w:"put a premium on ~",e:"premium은 라틴어 praemium(상, 보상) ← prae(앞서) + emere(취하다). 값어치(보상)를 더 얹어 준다 → 특히 중시하다.",m:"~을 특히 중요하게 여기다",b:"premium",x:"",k:""},
+{d:26,w:"put up with",e:"put up(올려 두다, 받아들여 두다) + with(함께). 불쾌한 것을 내쫓지 않고 '같이 두고 지낸다'고 외우면 쉬워요.",m:"~을 참다, 참고 견디다",b:"put up with",x:"We couldn't put up with the noise from next door any longer.",k:"우리는 옆집에서 들려오는 소음을 더 이상 참을 수 없었다."},
+{d:26,w:"back off",e:"back(뒤로) + off(떨어져). 뒤로 물러나 거리를 둔다는 그림 그대로예요.",m:"뒤로 물러나다; (간섭하지 않고) 물러서다, 그만두다",b:"back off",x:"The boy got frightened and backed off as soon as he saw the dog.",k:"그 남자아이는 개를 보자마자 겁이 먹고 뒤로 물러났다."},
+{d:26,w:"take over",e:"take(잡다) + over(위로 넘어서). 위에서 넘겨받아 잡는다 → 인수하다, 장악하다.",m:"~을 넘겨받다, 인수하다; (정권 등을) 장악하다",b:"take over",x:"His brother recently took over the running of the business.",k:"그의 형은 최근에 사업 운영권을 넘겨받았다."},
+{d:26,w:"convince A of B",e:"라틴어 convincere ← con-(완전히) + vincere(이기다). 상대를 논리로 '이겨서' 믿게 만든다. of = ~에 관해.",m:"A에게 B를 납득시키다",b:"convince A of B",x:"I had written a position paper trying to convince the city council of the need to hire security personnel for the library.",k:"나는 시의회에 도서관의 보안 요원을 고용할 필요성을 납득시키려는 의견서를 작성했다."},
+{d:29,w:"go with one's gut",e:"gut은 원래 '내장, 배'예요. 머리(이성)보다 배 속 느낌(직감)을 따라간다는 뜻이에요.",m:"직감을 따르다",b:"gut",x:"",k:""},
+{d:33,w:"substitute A for B",e:"라틴어 substituere ← sub-(아래에) + statuere(세우다). A를 B 자리에 대신 세운다. for = ~대신.",m:"B를 A로 대체하다",b:"substitute",x:"",k:""},
+{d:33,w:"attribute A to B",e:"라틴어 attribuere ← ad-(~에게) + tribuere(나눠 주다). A를 B에게 할당한다 → B의 결과·덕분으로 돌리다.",m:"A를 B의 결과[덕분]로 보다",b:"attribute",x:"",k:""},
+{d:35,w:"alternate between A and B",e:"라틴어 alternare ← alter(둘 중 다른 하나). A, B 사이를 번갈아 오가다.",m:"A와 B를 번갈아 하다",b:"alternate",x:"",k:""},
+{d:27,w:"leave out",e:"leave(남겨 두다) + out(밖에). 안에 넣지 않고 밖에 남겨 둔다 → 빼놓다.",m:"~을 빼놓다, 제외[생략]하다",b:"leave out",x:"The right hemisphere of the brain that intuitively processes information is left out of the planning process.",k:"정보를 직관적으로 처리하는 뇌의 우반구는 계획 수립 과정에서 제외된다."},
+{d:27,w:"break away",e:"break(끊다) + away(멀리). 끊고 멀리 떨어져 나간다 → 벗어나다, 독립하다.",m:"((from))(~에서) 달아나다, 벗어나다; (정당·국가 등에서) 독립하다, 탈퇴하다",b:"break away",x:"He broke away from the group to take pictures.",k:"그는 사진을 찍으려고 무리에서 빠져나왔다."},
+{d:27,w:"see about",e:"see(살펴보다) + about(~에 관해). ~에 관해 살펴봐 둔다 → 알아보다, 처리하다.",m:"~을 알아보다, 처리하다",b:"see about",x:"I'll contact the company to see about your refund.",k:"당신의 환불을 알아보기 위해 제가 회사에 연락해보겠습니다."},
+{d:27,w:"settle down",e:"settle은 고대 영어 setl(앉는 자리)에서 왔어요. 자리 잡고 아래로 가라앉는다 → 정착하다, 진정되다.",m:"정착하다; 진정하다[되다]",b:"settle down",x:"After years abroad, she finally settled down near her family.",k:"수년간 해외에 있다가, 그녀는 마침내 가족과 가까운 곳에 정착했다."},
+{d:28,w:"launch into",e:"launch는 고대 프랑스어 lancier(창을 던지다) ← lance(창). 창 던지듯 into(안으로) 뛰어들다 → 갑자기 시작하다.",m:"(갑자기 혹은 열정적으로) 시작하다",b:"launch into",x:"Photocopiers' complicated features give people natural reasons to launch into conversation.",k:"복사기의 복잡한 기능들은 사람들에게 대화를 시작할 자연스러운 계기를 제공한다."},
+{d:28,w:"break up",e:"break(깨다) + up(완전히, 조각조각). 산산이 부서진다 → 관계가 끝나다, 부서지다.",m:"(관계 등이) 끝나다; 부서지다; (신호 등이) 끊기다",b:"break up",x:"The partnership broke up due to financial disagreements.",k:"그 동업 관계는 재정적 의견 충돌로 인해 끝났다."},
+{d:28,w:"carry off",e:"carry(나르다) + off(떨어져). 가지고 떠나 버린다 → (상을) 차지하다, 어려운 일을 해내다.",m:"(어려운 일을) 잘 해내다; (상을) 받다, 차지하다",b:"carry off",x:"She's the only designer I know with enough talent to carry this off.",k:"그녀는 이 일을 해낼 수 있을 만큼 충분한 재능이 있는지 내가 아는 유일한 디자이너이다."},
+{d:28,w:"look through",e:"look + through(통과해서). 시선이 처음부터 끝까지 통과한다 → 훑어보다.",m:"~을 살펴보다, 훑어보다",b:"look through",x:"I've looked through all my papers and have not found anything that would work.",k:"나는 내 모든 서류를 살펴보았지만 효과가 있을 만한 것을 찾지 못했다."},
+{d:29,w:"refrain from",e:"라틴어 refrenare ← re-(뒤로) + frenum(고삐, 재갈). 고삐를 당겨 멈춘다 → 삼가다.",m:"~을 삼가다, 자제하다",b:"refrain from",x:"Visitors were asked to refrain from taking photographs inside the museum.",k:"방문객들은 박물관 내부에서 사진 촬영을 자제해 달라는 요청을 받았다."},
+{d:29,w:"hold down",e:"hold(붙잡다) + down(아래로). 눌러서 붙잡아 둔다 → 억제하다, (자리를) 유지하다.",m:"~을 억제하다; (일자리 등을) 계속 유지하다",b:"hold down",x:"There can be influential factors that hold down the performance of everyone being judged.",k:"평가를 받는 모든 이의 성과를 억제하는 영향력 있는 요인들이 있을 수 있다."},
+{d:29,w:"amount to",e:"고대 프랑스어 amonter ← à mont(산 위로). 쌓여서 위로 올라간다 → (합계가) ~에 달하다.",m:"(합계가) ~에 달하다; ~와 같다, ~에 해당하다",b:"amount to",x:"The savings would amount to several thousand dollars per family.",k:"그 절감액은 가구당 수천 달러에 달할 것이다."},
+{d:29,w:"ease off",e:"ease는 고대 프랑스어 aise(편안함). off(떨어져)와 합쳐 힘을 빼고 덜어낸다 → 완화되다.",m:"~을 완화하다, 완화되다",b:"ease off",x:"The pain in her leg slowly eased off after taking the medicine.",k:"그녀의 다리 통증은 약을 먹은 후 서서히 완화되었다."},
+{d:30,w:"step in",e:"step(걸음) + in(안으로). 상황 안으로 걸어 들어간다 → 개입하다.",m:"(문제 해결을 위해) 개입하다",b:"step in",x:"When consumers lack adequate information, governments step in to require that firms provide information.",k:"소비자들에게 충분한 정보가 없으면, 정부가 개입하여 회사에게 정보를 제공하도록 요구한다."},
+{d:30,w:"carry through",e:"carry + through(끝까지 관통해서). 끝까지 날라 간다 → 완수하다.",m:"~을 완수하다, 해내다",b:"carry through",x:"We are determined to carry our plans through to completion.",k:"우리는 우리의 계획을 완수하기로 결심했다."},
+{d:30,w:"put A into B",e:"put(놓다) + into(안으로). A를 B 안에 쏟아 넣는다 → 마음·시간을 들이다.",m:"A를 B에 들이다",b:"put A into B",x:"All that time, I put my whole heart into looking for work.",k:"그 시간 내내 나는 일자리를 찾는 데 온 마음을 쏟았다."},
+{d:30,w:"live out",e:"live + out(끝까지, 밖으로). 머릿속의 삶을 밖으로 꺼내 끝까지 살아낸다 → 실현하다.",m:"(예전에 생각만 하던 것을) 실현하다",b:"live out",x:"It is possible to live out a lie or fantasy logically and consistently on the internet.",k:"인터넷상에서는 거짓말이나 환상을 논리적이고 일관되게 실현하는 것이 가능하다."},
+{d:31,w:"speak for",e:"speak + for(~를 대신해). 누군가를 대신해 말한다 → 대변하다.",m:"~을 대변하다, 대신하여 말하다",b:"speak for",x:"She spoke for the entire company at the medical conference.",k:"그녀는 의료 학회에서 회사 전체를 대변했다."},
+{d:31,w:"kick in",e:"kick(차다) + in. 발로 차서 시동이 걸리듯 작동하기 시작한다.",m:"작동하기 시작하다, 효과가 나타나기 시작하다",b:"kick in",x:"When we are disturbed by outside forces, our inner machinery kicks in and returns us to a balanced state.",k:"우리가 외부의 힘에 의해 방해를 받을 때, 우리의 내부 조직이 작동하기 시작하여 우리를 균형 잡힌 상태로 돌아오게 한다."},
+{d:31,w:"put down",e:"put(놓다) + down(아래로). 내려놓다 → 종이에 적어 두다, 눌러서 가라앉히다(진압하다).",m:"~을 적어 두다; ~을 진압하다",b:"put down",x:"I need to put down my thoughts on paper before I forget them.",k:"나는 잊어버리기 전에 내 생각을 종이에 적어 두어야 한다."},
+{d:31,w:"ascribe A to B",e:"라틴어 ascribere ← ad-(~에게) + scribere(쓰다). A를 B 앞으로 적어 넣는다 → B의 탓으로 돌리다.",m:"A를 B의 원인[탓]으로 돌리다",b:"ascribe A to B",x:"He ascribed his failure to bad luck rather than a lack of skill.",k:"그는 자신의 실패를 실력 부족보다는 불운의 탓으로 돌렸다."},
+{d:32,w:"scale up",e:"scale은 라틴어 scala(사다리). 사다리를 오르듯 규모를 키운다.",m:"(규모·양 등을) 확대하다, 늘리다",b:"scale up",x:"Scaling up from small to large is often accompanied by an evolution from simplicity to complexity.",k:"작은 것에서 큰 것으로 규모를 확대하는 것은 흔히 단순함에서 복잡함으로의 진화를 수반한다."},
+{d:32,w:"put across",e:"put + across(건너편으로). 내 생각을 상대편으로 건네 놓는다 → 이해시키다.",m:"(생각·의견 등을) 전달하다, 이해시키다",b:"put across",x:"Environmental journalists have to put across their perspective on the environment to lawmakers.",k:"환경 저널리스트들은 입법자들에게 환경에 대한 그들의 관점을 이해시켜야 한다."},
+{d:32,w:"give in",e:"give(내주다) + in. 상대에게 내주고 물러난다 → 굴복하다.",m:"굴복[항복]하다",b:"give in",x:"They never gave in during the tough negotiations last week.",k:"그들은 지난주 힘든 협상 동안 절대 굴복하지 않았다."},
+{d:32,w:"track down",e:"track(자취) + down(끝까지). 흔적을 끝까지 따라가 찾아낸다.",m:"~을 (추적하여) 찾아내다",b:"track down",x:"The police expected it would take longer to track down the criminal.",k:"경찰은 범인을 찾아내는 데 시간이 더 오래 걸릴 것으로 예상했다."},
+{d:33,w:"tell on",e:"tell(말하다) + on(~에 대해). ~에 대해 일러바치다. 부담이 ~에 얹혀 영향을 준다는 뜻으로도 써요.",m:"~을 고자질하다; ~에 (안 좋은) 영향을 미치다",b:"tell on",x:"Since opponents will attack, the advantages of being proactive and \"telling on oneself\" are too significant to ignore.",k:"상대는 공격할 것이기 때문에, 상황을 앞서서 주도하며 '스스로의 잘못을 밝히는 것'의 이점은 너무 중요해서 무시할 수 없다."},
+{d:33,w:"spell out",e:"spell(철자) + out(끝까지, 밖으로). 글자를 하나하나 풀어 말한다 → 분명히 설명하다.",m:"철자를 하나하나 말하다[쓰다]; ~을 분명히 설명하다",b:"spell out",x:"Please spell out your name so that I can confirm your reservation.",k:"제가 당신의 예약을 확인할 수 있도록 성함을 철자 하나하나 말씀해 주세요."},
+{d:33,w:"deprive A of B",e:"라틴어 deprivare ← de-(완전히) + privare(빼앗다). of = 분리. A에게서 B를 떼어 낸다.",m:"A에게서 B를 빼앗다",b:"deprive A of B",x:"Humans are the only species that will deliberately deprive themselves of sleep.",k:"인간은 의도적으로 스스로에게서 잠을 박탈하려는 유일한 종이다."},
+{d:34,w:"hold back",e:"hold(붙잡다) + back(뒤로). 붙잡아 뒤에 둔다 → 억누르다, 저지하다.",m:"(감정을) 억누르다, 참다; ~을 저지하다",b:"hold back",x:"He tried to hold back his tears as he remembered the struggles of his past.",k:"그는 과거의 어려움들을 기억하며 눈물을 참으려고 애썼다."},
+{d:34,w:"cut across",e:"cut(자르다) + across(가로질러). 잘라 가듯 가로질러 간다 → 가로지르다, 여러 분야를 아우르다.",m:"~을 가로지르다; ~에 걸치다, ~을 아우르다",b:"cut across",x:"If we quickly cut across the grassy field, it'll definitely save time.",k:"만약 우리가 그 풀밭을 빠르게 가로질러 간다면, 확실히 시간을 절약할 것이다."},
+{d:34,w:"come away with",e:"come away(떠나오다) + with(함께). 어떤 인상을 지닌 채 떠나온다.",m:"(어떤 인상·느낌을) 갖고 떠나다",b:"come away with",x:"To the extent that sufficient context is provided, readers come away with the author's intent.",k:"충분한 맥락이 제공되는 한, 독자들은 저자의 의도를 이해하고 떠나게 된다."},
+{d:35,w:"put in for",e:"put in(제출해 넣다) + for(~을 구하며). 신청서를 넣어 ~을 요청한다 → 신청하다.",m:"~을 신청하다",b:"put in for",x:"When are you going to put in for a department transfer?",k:"부서 이동을 언제 신청하실 건가요?"},
+{d:35,w:"let down",e:"let(내버려 두다) + down(아래로). 붙들던 것을 아래로 내려놓는다 → 기대를 저버리다, 실망시키다.",m:"~을 실망시키다",b:"let down",x:"This machine won't let you down, as it's known for being very reliable.",k:"이 기계는 매우 믿을 만하다고 알려져 있기 때문에 당신을 실망시키지 않을 겁니다."},
+{d:35,w:"stick out",e:"stick(찌르다, 박히다) + out(밖으로). 밖으로 삐져나온다 → 튀어나오다, 눈에 띄다.",m:"~을 내밀다, ~가 튀어나오다; 눈에 띄다",b:"stick out",x:"The paper bag had leaves sticking out of the top.",k:"그 종이봉투의 윗부분에 잎사귀들이 튀어나와 있었다."},
+{d:36,w:"come through",e:"come + through(통과해). 어려움을 통과해서 나온다 → 극복하다, 해내다.",m:"살아남다, 극복하다; (약속대로) 해내다; (정보 등이) 들어오다",b:"come through",x:"The company came through the recession without any major losses.",k:"그 회사는 어떠한 큰 손실도 없이 경기 침체를 극복했다."},
+{d:36,w:"step up",e:"step + up(위로). 한 단계 올라선다 → 강화하다, 책임지고 나서다.",m:"~을 강화하다, 올리다; (책임 등을) 맡다, 나서다",b:"step up",x:"Their bargaining became spirited, with Paul stepping up his price slightly and the seller lowering his slowly.",k:"Paul이 자신의 가격을 조금씩 올리고 판매자가 천천히 내리면서, 그들의 흥정은 활기를 띠게 되었다."},
+{d:36,w:"cut off",e:"cut(자르다) + off(떨어져). 잘라서 분리한다 → 끊다, 고립시키다.",m:"~을 잘라 내다; (공급 등을) 끊다; 고립시키다",b:"cut off",x:"Many major companies are changing their business models by cutting off less profitable projects.",k:"많은 주요 기업들은 수익성이 낮은 프로젝트를 정리함으로써 그들의 사업 모델을 변화시키고 있다."},
+{d:36,w:"come down with",e:"come down(몸이 내려앉다) + with(~과 함께). 병과 함께 몸이 꺾인다 → (병에) 걸리다.",m:"(병에) 걸리다",b:"come down with",x:"More people came down with the flu this year than last year.",k:"올해에 작년보다 더 많은 사람들이 독감에 걸렸다."},
+{d:37,w:"get over",e:"get + over(넘어서). 장애물을 넘어간다 → 극복하다, 회복하다.",m:"~을 극복하다; ~에서 회복하다",b:"get over",x:"Get over the past, or it will prevent you from moving forward.",k:"과거를 극복하라, 그렇지 않으면 과거는 네가 앞으로 나아가지 못하게 할 것이다."},
+{d:37,w:"slip out",e:"slip(미끄러지다) + out(밖으로). 미끄러져 새어 나온다 → 말이 무심코 튀어나오다.",m:"(말이) 무심코 튀어나오다; 몰래 빠져나가다",b:"slip out",x:"I didn't mean to mention your absence, but it just slipped out.",k:"당신의 부재를 언급하려던 건 아니었는데, 그 말이 무심코 튀어나왔다."},
+{d:37,w:"live with",e:"live + with(함께). 힘든 것과 같이 산다 → 감수하다.",m:"(어려움·불안 등을) 감수하다, 안고 살다",b:"live with",x:"They learned to live with each other's imperfections.",k:"그들은 서로의 단점들을 안고 살아가는 법을 배웠다."}
 ];
 var VK='baeyeol_word_vault_v1',HK='baeyeol_word_hellwrong_v1',ALL=[],vault={},HW={},G=null,S=null,raf=0,last=0,sel='all',MODE='n',CNT=20;try{var cs=localStorage.getItem('baeyeol_word_cnt');CNT=cs===null?20:+cs;if(isNaN(CNT)||[0,10,20,30,40].indexOf(CNT)<0)CNT=20}catch(e){CNT=20}
 Object.keys(D).forEach(function(d){D[d].forEach(function(r){ALL.push({d:+d,w:r[0],m:r[1],s:r[2],a:r[3],x:r[4],k:r[5]})})});
@@ -2809,7 +2823,7 @@ function loop(t){
 function card(q,ok){
  return '<div class="rn-card'+(ok?'':' bad')+'"><div class="rn-w">'+(ok?'✅ ':'❌ ')+esc(q.w)+'</div><div class="rn-m">'+esc(q.m)+'</div>'
  +'<div class="rn-x">'+esc(q.x)+'<br><span>'+esc(q.k)+'</span></div>'
- +(q.s?'<div class="rn-r"><em>유</em> '+esc(q.s)+'</div>':'')+(q.a?'<div class="rn-r"><em>반</em> '+esc(q.a)+'</div>':'')+'</div>';
+ +(q.e?'<div class="rn-e"><b>🌱 어원·풀이</b> '+esc(q.e)+'</div>':'')+(q.s?'<div class="rn-r"><em>유</em> '+esc(q.s)+'</div>':'')+(q.a?'<div class="rn-r"><em>반</em> '+esc(q.a)+'</div>':'')+'</div>';
 }
 /* ---------- 예문학습: 시간 제한 없음, 빈칸 5지선다, 유의어·반의어도 정답 ---------- */
 function sp(x){return x?x.split(',').map(function(t){return t.trim()}).filter(Boolean):[]}
@@ -2919,10 +2933,10 @@ function pickIdiom(i,btn){
  }
  S.done=true;btn.classList.add('ok');
  var btns=$('#stCh').children;for(var k=0;k<btns.length;k++)btns[k].disabled=true;
- S.log.push({q:{w:q.w,m:q.m,x:q.x,k:q.x?q.k:'표제어: '+q.b,s:'',a:''},ok:!S.miss});
+ S.log.push({q:{w:q.w,m:q.m,x:q.x,k:q.x?q.k:'표제어: '+q.b,s:'',a:'',e:q.e},ok:!S.miss});
  M.className='st-yes';
  M.innerHTML='<b>'+(S.miss?'정답이에요':'정답!')+'</b> <span class="st-t">'+esc(q.w)+'</span>'
-  +(q.x?'<div class="st-x">'+esc(q.x)+'<br><span>'+esc(q.k)+'</span></div>':'<div class="st-m">표제어: '+esc(q.b)+'</div>');
+  +(q.x?'<div class="st-x">'+esc(q.x)+'<br><span>'+esc(q.k)+'</span></div>':'<div class="st-m">표제어: '+esc(q.b)+'</div>')+(q.e?'<div class="st-e"><b>🌱 어원·풀이</b> '+esc(q.e)+'</div>':'');
  $('#stNext').innerHTML='<button id="stNextBtn" class="rn-big">'+(S.i+1>=S.qs.length?'결과 보기':'다음 문제')+'</button>';
  M.scrollIntoView({block:'nearest'});
 }
