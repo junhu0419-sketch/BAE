@@ -286,9 +286,118 @@ body.hell-ui .hell-card-bank .cd {
 .hell-empty-answer{color:#8b95a3}
 .hell-diff-detail{display:flex;gap:10px;flex-wrap:wrap;margin-top:9px;padding-top:9px;border-top:1px solid rgba(255,255,255,.08);color:#aeb7c4;font-size:12px;line-height:1.7}
 .hell-diff-detail b{color:#ff8a8a}
+#rainOv{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+#rainOv[hidden],#rainOv .rn-pane[hidden]{display:none}
+#rainOv .rn-top{display:flex;align-items:center;gap:12px;padding:10px 14px;border-bottom:1px solid var(--bd);background:var(--card);font-weight:800;font-size:14px}
+#rainOv .rn-top button{border:1px solid var(--bd);background:#fff;border-radius:10px;padding:6px 12px;font-size:15px;cursor:pointer}
+#rainOv .rn-pane{flex:1;display:flex;flex-direction:column;min-height:0}
+#rnHome{padding:28px 20px;gap:14px;align-items:stretch;max-width:520px;margin:0 auto;width:100%}
+#rnHome h2{margin:0;font-size:26px;letter-spacing:-.03em}
+#rnHome p{margin:0;color:var(--mu);font-size:14px}
+#rainOv select{padding:12px;border:1px solid var(--bd);border-radius:12px;font-size:15px;background:#fff}
+#rainOv .rn-big{padding:14px;border:0;border-radius:14px;background:var(--ac);color:#fff;font-size:16px;font-weight:800;cursor:pointer}
+#rainOv .rn-alt{padding:13px;border:1px solid var(--bd);border-radius:14px;background:#fff;color:var(--tx);font-size:15px;font-weight:750;cursor:pointer}
+#rnQ{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--bd)}
+#rnQ small{color:var(--mu);font-weight:700}
+#rnQ b{display:block;margin-top:4px;font-size:19px;line-height:1.4;letter-spacing:-.02em}
+#rnArena{flex:1;position:relative;overflow:hidden;background:linear-gradient(180deg,#eef3ff,#dfe9ff);touch-action:manipulation}
+#rnArena.ok{box-shadow:inset 0 0 0 4px var(--ok)}
+#rnArena.no{box-shadow:inset 0 0 0 4px var(--no)}
+.rn-chip{position:absolute;top:0;left:0;padding:12px 16px;background:#fff;border:2px solid #bfd0f5;border-radius:14px;font-size:20px;font-weight:800;color:var(--tx);white-space:nowrap;user-select:none;-webkit-user-select:none;cursor:pointer;box-shadow:0 4px 12px rgba(37,99,235,.15)}
+#rnRes{overflow-y:auto;padding:16px;gap:10px}
+.rn-sum{font-size:16px;font-weight:700}.rn-sum b{font-size:28px;color:var(--ac)}
+.rn-note{margin:0;color:var(--mu);font-size:13px}
+.rn-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px}
+.rn-card.bad{border-color:#fca5a5;background:var(--nob)}
+.rn-w{font-size:18px;font-weight:850}
+.rn-m{color:var(--mu);font-size:13px;margin:2px 0 8px}
+.rn-x{font-size:14px;line-height:1.55}.rn-x span{color:var(--mu)}
+.rn-r{font-size:13px;margin-top:6px}.rn-r em{font-style:normal;display:inline-block;background:var(--purplebg);color:var(--purple);border-radius:6px;padding:0 6px;margin-right:4px;font-weight:800}
+.rn-btns{display:grid;gap:8px;margin-top:6px}
+#rnSync{color:var(--mu);font-size:12px}
+.rn-blank{display:inline-block;min-width:4.5em;border-bottom:3px solid var(--ac);margin:0 3px}
+#rainOv .rn-hell{background:#b91c1c}
+#rnQ b{font-weight:750}
+#rainOv .rn-lv{grid-template-columns:repeat(2,1fr);margin:0}
+#rainOv .levels button.on.hell-level{border-color:#ff453a;box-shadow:0 0 0 2px rgba(255,69,58,.4)}
+#topSw{display:flex;gap:8px;margin:2px 0 12px}
+#topSw button{flex:1;font-size:15px;font-weight:850;padding:12px 10px;border-radius:14px;border:1px solid var(--bd);background:var(--card);color:var(--mu);cursor:pointer}
+#topSw button.on{background:var(--tx);color:#fff;border-color:var(--tx)}
+.w.wm>:not(h1):not(#authBar):not(#topSw):not(#wordPanel){display:none!important}
+#wordPanel{display:flex;flex-direction:column;gap:14px;padding:6px 0 20px}
+#wordPanel[hidden]{display:none}
+#wordPanel h2{margin:0;font-size:24px;letter-spacing:-.03em}
+#wordPanel p{margin:0;color:var(--mu);font-size:14px}
+#wordPanel select{padding:12px;border:1px solid var(--bd);border-radius:12px;font-size:15px;background:#fff}
+#wordPanel .rn-big{padding:14px;border:0;border-radius:14px;background:var(--ac);color:#fff;font-size:16px;font-weight:800;cursor:pointer}
+#wordPanel .rn-alt{padding:13px;border:1px solid var(--bd);border-radius:14px;background:#fff;color:var(--tx);font-size:15px;font-weight:750;cursor:pointer}
+#wordPanel .rn-lv{grid-template-columns:1fr;margin:0}
+#wordPanel .levels button.on.hell-level{border-color:#ff453a;box-shadow:0 0 0 2px rgba(255,69,58,.4)}
+#rainOv .rn-pane{overflow-y:auto}
+#rnStudy{padding:18px 16px 28px;gap:12px;max-width:640px;margin:0 auto;width:100%}
+.st-n{color:var(--mu);font-weight:800;font-size:13px}
+.st-s{font-size:20px;line-height:1.7;font-weight:700;letter-spacing:-.015em;background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:16px}
+.st-s .rn-blank{min-width:5em}
+.st-h{color:var(--mu);font-size:13px}
+#stCh{display:grid;gap:8px}
+.st-c{padding:14px;border:1.5px solid var(--bd);border-radius:14px;background:#fff;color:var(--tx);font-size:17px;font-weight:750;text-align:left;cursor:pointer}
+.st-c.bad{background:var(--nob);border-color:#fca5a5;color:#991b1b;opacity:.75}
+.st-c.ok{background:var(--okb);border-color:var(--ok);color:#166534}
+.st-c:disabled:not(.bad):not(.ok){opacity:.5}
+#stMsg:empty{display:none}
+.st-no{background:var(--nob);border:1px solid #fca5a5;color:#991b1b;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.55}
+.st-part{background:var(--wb);border:1px solid #fcd34d;color:#92400e;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.55}
+.st-yes{background:var(--okb);border:1px solid #86efac;border-radius:14px;padding:14px;font-size:14px;line-height:1.6}
+.st-t{display:inline-block;margin:2px 8px 2px 0;font-weight:800}
+.st-t em{font-style:normal;font-size:11px;background:#fff;border:1px solid #86efac;color:#166534;border-radius:6px;padding:0 5px;margin-right:4px}
+.st-x{margin-top:8px;font-size:15px}.st-x span{color:var(--mu)}
+.st-m{margin-top:6px;color:var(--mu);font-size:13px}
+.st-o{margin-top:8px;padding-top:8px;border-top:1px dashed #86efac;font-size:13px;color:#166534}
+#wordPanel .levels button.study-level{border-color:#86efac;background:#f0fdf4;color:#166534}
+#wordPanel .levels button.study-level small{color:#4d7c5a}
+#wordPanel .levels button.on.study-level{border-color:#16a34a;box-shadow:0 0 0 2px rgba(22,163,74,.3)}
+#wordPanel .levels button.idiom-level{border-color:#c4b5fd;background:#f5f3ff;color:#5b21b6}
+#wordPanel .levels button.idiom-level small{color:#7c6bb0}
+#wordPanel .levels button.on.idiom-level{border-color:#7c3aed;box-shadow:0 0 0 2px rgba(124,58,237,.3)}
+#loginGate{position:fixed;inset:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:20px}
+#loginGate .lg-box{width:min(400px,100%);display:flex;flex-direction:column;gap:12px}
+#loginGate h2{margin:0;font-size:24px;letter-spacing:-.03em}
+#loginGate p{margin:0;color:var(--mu);font-size:14px;line-height:1.55}
+#loginGate input{padding:13px 14px;border:1px solid var(--bd);border-radius:12px;font-size:16px;background:#fff;color:var(--tx)}
+#loginGate button{padding:14px;border:0;border-radius:14px;font-size:16px;font-weight:800;cursor:pointer}
+#loginGate #lgGo{background:var(--ac);color:#fff}
+#loginGate #lgGo:disabled{opacity:.6}
+#loginGate #lgSw{background:transparent;color:var(--ac);font-size:14px;padding:6px}
+#loginGate #lgMsg{min-height:1.4em;font-size:13px;line-height:1.5;color:#b91c1c}
+#loginGate #lgMsg.good{color:#15803d}
+.wp-sec{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px;margin-bottom:10px}
+.wp-t{font-size:13px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.wp-t i{font-style:normal;background:var(--ac);color:#fff;width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+.wp-t2{font-size:11px;color:var(--mu);font-weight:700;margin:10px 0 6px}
+.wp-cnt{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.wp-cnt button{padding:9px 0;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-weight:800;font-size:13px;cursor:pointer}
+.wp-cnt button.on{border-color:var(--ac);background:#eff6ff;color:#1d4ed8}
+.wp-hint{display:block;color:var(--mu);margin-top:8px;font-size:11px}
+#wordPanel .wp-g{font-size:11px;font-weight:800;color:var(--mu);margin:2px 2px 6px}
+#wordPanel .wp-g span{font-weight:600;margin-left:4px}
+#wordPanel .wp-g:not(:first-child){margin-top:12px}
+#wordPanel .wp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+#wordPanel .wp-rev .rn-alt{margin:0;width:100%}
+#wordPanel .rn-lv{display:block}
+#wordPanel .wp-row button{font-size:13px;font-weight:750;padding:11px 10px;border-radius:12px;border:1px solid var(--bd);background:var(--card);color:var(--tx);cursor:pointer;text-align:left;line-height:1.3}
+#wordPanel .wp-row button small{display:block;color:var(--mu);font-weight:600;font-size:10px;margin-top:3px}
+#wordPanel .wp-row button.on{border-color:var(--ac);background:#eff6ff;color:#1d4ed8;box-shadow:0 0 0 2px rgba(37,99,235,.25)}
+#wordPanel .wp-row button.hell-level{border-color:#6a2d2a;background:#140d0e;color:#ffddd9}
+#wordPanel .wp-row button.hell-level small{color:#aa716e}
+#wordPanel .wp-row button.study-level{border-color:#86efac;background:#f0fdf4;color:#166534}
+#wordPanel .wp-row button.study-level small{color:#4d7c5a}
+#wordPanel .wp-row button.idiom-level{border-color:#c4b5fd;background:#f5f3ff;color:#5b21b6}
+#wordPanel .wp-row button.idiom-level small{color:#7c6bb0}
+#wordPanel #rnDay{width:100%}
+#wordPanel #rnStart{width:100%;margin:2px 0 10px}
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body><div class="w">
+<body><div id="loginGate"><form class="lg-box" id="lgForm" novalidate><h2>로그인이 필요해요</h2><p id="lgSub">확인하는 중이에요…</p><input id="lgEmail" type="email" placeholder="이메일" autocomplete="email" hidden><input id="lgPw" type="password" placeholder="비밀번호 (6자 이상)" autocomplete="current-password" hidden><div id="lgMsg"></div><button id="lgGo" type="submit" hidden>로그인</button><button id="lgSw" type="button" hidden>처음이에요 · 회원가입</button></form></div><div class="w">
 <h1>공통영어2 배열 훈련기</h1><div id="authBar" style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin:0 0 8px;flex-wrap:wrap;font-size:12px"></div><div style="font-size:12px;color:var(--mu);margin-bottom:8px">보통 = 의미단위 + 동사 분리 · 어려움 = 단어 단위</div>
 <div class="modes"><button id="mStudy" class="on">학습모드</button><button id="mReal">실전모드</button></div>
 <div class="levels" id="levels"></div>
@@ -1537,7 +1646,7 @@ loadQuestion();
 (function(){
   const SUPABASE_URL='https://jrouhwbyixkoiflbjurx.supabase.co';
   const SUPABASE_PUBLISHABLE_KEY='sb_publishable_ZrYEr1w3j31rnSaTvN3vcQ_FKeMvFbC';
-  const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,lock:function(n,t,fn){return fn()}}});
   // 이메일 인증은 file://로 돌아올 수 없으므로 로컬 서버 주소를 사용한다.
   // 웹에 배포된 경우에는 현재 페이지 주소를 그대로 사용한다.
   const AUTH_REDIRECT=(location.protocol==='file:')
@@ -1871,4 +1980,1012 @@ loadQuestion();
   sb.auth.onAuthStateChange((_event,session)=>{setTimeout(()=>syncUI(session?.user||null),0);});
 })();
 
-</script></body></html>
+</script><script>
+(function(){
+/* 단어 비 모드 — 데이터: DAY별 [단어, 뜻, 유의어, 반의어, 예문, 해석] */
+var D={26:[
+["fatal","치명적인, 결정적인, 중대한","deadly, lethal, mortal","","The cause of the fatal accident on the highway turned out to be heavy fog.","고속도로에서의 그 치명적인 사고의 원인은 짙은 안개로 밝혀졌다."],
+["definite","명확한, 확고한","clear, explicit","","It is important to have a definite plan before undertaking any new projects.","새로운 프로젝트를 시작하기 전에 명확한 계획을 세우는 것이 중요하다."],
+["abide","(~ by)(규칙 등을) 준수하다; (주로 부정문) 참다, 견디다","obey, follow, comply with, tolerate","","We trust that all parties will abide by the mutual agreement.","우리는 모든 당사자가 상호 합의를 준수할 것이라고 믿는다."],
+["intense","극심한, 강렬한; 치열한; 열정적인","extreme, passionate","","The higher the temperature of the food, the more intense the overall flavor.","음식의 온도가 높을수록 전반적인 풍미가 더 강해진다."],
+["abnormal","비정상적인, 이상한","unusual","normal","I was diagnosed with an abnormal level of cholesterol.","나는 콜레스테롤 수치가 비정상적이라고 진단받았다."],
+["outlaw","불법화하다, 금지하다; 무법자, 도망자","ban, prohibit","","The government has outlawed a number of harmful detergents to protect the environment.","정부는 환경 보호를 위해 많은 유해 세제를 금지했다."],
+["heritage","(문화)유산, 전통","legacy, tradition","","Heritage is more concerned with cultural meanings than with material artifacts.","유산은 물질적인 유물보다는 문화적인 의미와 더 관련이 있다."],
+["bilingual","두 개 언어를 할 줄 아는; 두 개 언어의; 두 개 언어를 하는 사람","","","She is bilingual, so she decided to become an interpreter.","그녀는 두 개 언어를 할 수 있어서 통역사가 되기로 결심했다."],
+["internal","내부의, 내적인; 체내의; 국내의","inner, domestic","external","Firms need to consider both their internal organization and the entire ecosystem for sustainable business performance.","기업들은 지속 가능한 사업 성과를 위해 그들 내부 조직과 전체 생태계를 모두 고려해야 한다."],
+["decay","부패, 부식; 쇠퇴; 부패하다, 썩다; 쇠퇴하다","rot, decomposition, decompose, decline","","Our teeth shrank only slightly, but our jaws shrank more, causing crowding and early decay.","우리의 치아는 조금만 줄었지만 턱은 더 많이 줄어 치아가 붐비고 일찍 썩게 되었다."],
+["piecemeal","단편적인, 조금씩 하는; 조금씩, 점차로","fragmentary","","The process of learning is essentially piecemeal, and, at the level of the personality, fairly superficial.","학습 과정은 본질적으로 단편적이며, 인격적인 수준에서는 상당히 피상적이다."],
+["discriminate","차별하다; 식별[구별]하다","segregate, distinguish","","A person should not be discriminated against on the basis of race.","사람은 인종을 이유로 차별받아서는 안 된다."],
+["expertise","전문 지식[기술]","","","Your life-saving expertise can provide support in emergencies.","당신의 인명 구조 전문 지식은 응급 상황에서 도움을 줄 수 있다."],
+["convict","유죄를 선고하다; 죄수, 수감자","prisoner","acquit","After a long trial, the suspect was finally convicted.","긴 재판 끝에 그 용의자는 마침내 유죄 판결을 받았다."],
+["fierce","사나운, 험악한; 격렬한, 맹렬한","harsh, intense, severe","","The fierce tiger stalked its prey slightly through the dense jungle.","사나운 호랑이가 울창한 정글 사이로 조용히 먹잇감을 뒤쫓았다."],
+["bombard","포격[폭격]하다; (질문·비난 등을) 퍼붓다","bomb","","The jets bombarded the city until it eventually surrendered.","전투기들은 그 도시가 결국 항복할 때까지 폭격했다."],
+["tissue","(생물) 조직; 화장지, 얇은 종이","","","Plants can generate new tissues throughout their life cycle.","식물은 생애 주기 동안 내내 새로운 조직을 생성할 수 있다."],
+["norm","표준, 일반적인 것; ((~s)) 규범","standard","","The norm for meal times varies across different cultures and countries.","식사 시간에 대한 일반적 기준은 다양한 문화와 국가에 따라 다르다."],
+["import","수입하다; 수입, 수입품; 중요성","","export","The first traffic lights in Japan were imported from the United States in the 1930s.","일본 최초의 신호등은 1930년대에 미국에서 수입되었다."],
+["asymmetry","비대칭; 불균형","imbalance","symmetry","Many of Picasso's paintings used asymmetry to create a new look.","피카소의 많은 그림은 비대칭을 이용해 새로운 모습을 만들어 냈다."],
+["blast","폭발; 강한 바람, 돌풍; 폭파하다","explosion, explode","","The loud blast from the construction site startled everyone.","공사장에서의 큰 폭발음이 모두를 깜짝 놀라게 했다."],
+["interfere","(~ in) 간섭[참견]하다; (~ with) 방해하다","intervene, meddle in, intrude, disrupt, impede","","He tends to interfere in everything his coworkers do.","그는 동료들이 하는 모든 일에 참견하는 경향이 있다."],
+["sovereign","주권을 가진, 자주적인; 최고 권력의; 군주, 국왕","autonomous, monarch","","They sought to establish a sovereign state free from foreign influence.","그들은 외세의 영향으로부터 자유로운 주권 국가를 세우고자 했다."],
+["unify","통합[통일]하다","unite","divide","They are looking for a way to unify the two groups for mutual benefit.","그들은 상호 이익을 위해 두 집단을 통합하려고 노력하고 있다."],
+["evaluate","평가하다, 판단하다","assess, judge","","In most organizations, the employee's immediate supervisors evaluate the employees' performance.","대부분의 조직에서, 직원의 직속상관이 직원의 성과를 평가한다."],
+["enforce","(법률 등을) 시행[집행]하다; 강요하다","implement, execute, compel, force","","The more precise the law, the better it is for those who have to obey and enforce it.","법이 정확할수록, 그것을 따르고 집행해야 하는 사람들에게 더 좋다."],
+["flaw","결점, 결함","defect, fault, imperfection","","A fatal flaw was identified in the software updated last month.","지난달에 업데이트된 소프트웨어에서 치명적인 결함이 확인되었다."],
+["astray","길을 잃고, 탈선하여","","","As we all know, even the best-laid plans can go astray.","우리 모두가 알다시피, 가장 잘 짜인 계획조차도 잘못된 방향으로 갈 수 있다."],
+["explode","폭발[폭파]하다; (감정을) 터뜨리다; 급격히 증가하다","blow up, surge","","The bomb exploded and injured dozens of people in the square.","폭탄이 폭발해 광장에 있던 수십 명의 사람들을 다치게 했다."],
+["affluent","부유한, 풍족한","wealthy, prosperous","poor","Affluent neighborhoods are often characterized by their high-end shopping districts and restaurants.","부유한 동네는 흔히 고급 상점가와 식당으로 특징지어진다."],
+["parallel","평행한; 유사한; 유사한[상응하는] 것; 평행선; (~와) 유사하다; 평행하다","similar, equivalent","","The road and the railroad run parallel to each other.","그 도로와 철도는 서로 평행하게 뻗어 있다."],
+["choke","숨이 막히다, 질식시키다; (감정 등으로) 목이 메다","suffocate","","He almost choked on the fish bone he swallowed.","그는 자신이 삼킨 생선 가시 때문에 거의 질식할 뻔했다."],
+["premium","보험료; 할증료; 고급의, 아주 높은","","","A clean driving record often results in lower insurance premiums.","무사고 운전 기록은 보통 더 낮은 자동차 보험료로 이어진다."],
+["memorable","기억할 만한, 인상적인","unforgettable","forgettable","He had beaten last year's champion and enjoyed the memorable victory.","그는 지난해의 우승자를 이기고 기억에 남을 승리를 즐겼다."],
+["memorial","기념비, 기념물; 기념의, 추모의","monument","","We made a memorial for our grandfather who passed away.","우리는 돌아가신 할아버지를 위한 추모비를 만들었다."],
+["pollen","꽃가루","","","Allergies get worse in spring because the air is filled with pollen.","봄에는 공기가 꽃가루로 가득 차기 때문에 알레르기가 더 심해진다."],
+["put up with","~을 참다, 참고 견디다","tolerate, endure, bear","","We couldn't put up with the noise from next door any longer.","우리는 옆집에서 들려오는 소음을 더 이상 참을 수 없었다."],
+["back off","뒤로 물러나다; (간섭하지 않고) 물러서다, 그만두다","retreat, step back","","The boy got frightened and backed off as soon as he saw the dog.","그 남자아이는 개를 보자마자 겁이 먹고 뒤로 물러났다."],
+["take over","~을 넘겨받다, 인수하다; (정권 등을) 장악하다","seize","","His brother recently took over the running of the business.","그의 형은 최근에 사업 운영권을 넘겨받았다."],
+["convince A of B","A에게 B를 납득시키다","","","I had written a position paper trying to convince the city council of the need to hire security personnel for the library.","나는 시의회에 도서관의 보안 요원을 고용할 필요성을 납득시키려는 의견서를 작성했다."]
+],
+27:[["dynamics", "1. 역학(관계) 2. 동력, 원동력", "interaction, relationship, force", "", "The dynamics between different species in an ecosystem can determine its overall health.", "생태계 내 서로 다른 종들 간의 역학 관계는 그 생태계의 전반적인 건강 상태를 결정할 수 있다."],
+["ignorance", "무지, 무식", "unawareness", "", "Although not the explicit goal, the best science can really be seen as refining ignorance.", "비록 명시적인 목표는 아니지만, 최고의 과학은 실제로 무지를 개선하는 것으로 여겨질 수 있다."],
+["naive", "순진한, 천진난만한", "innocent, gullible", "", "The boy was too naive to realize that I was cheating him.", "그 남자아이는 너무 순진해서 내가 그를 속이고 있다는 것을 깨닫지 못했다."],
+["expel", "퇴학시키다, 제명하다; 추방하다, 내쫓다", "dismiss, banish", "", "The player was expelled from the team for breaking team rules.", "그 선수는 팀 규칙을 어겨서 팀에서 제명되었다."],
+["flee", "달아나다, 도망치다", "escape, run away", "", "When he saw the approaching enemy, he fled as quickly as possible.", "그는 다가오는 적을 보자 가능한 한 빠르게 도망갔다."],
+["scheme", "계획, 제도; 음모, 책략; 도식, 분류표; 계략을 꾸미다", "plot, conspiracy", "", "They announced that a new pension scheme would be introduced soon.", "그들은 새로운 연금 제도가 곧 도입될 것이라고 발표했다."],
+["edible", "먹을 수 있는, 식용의", "", "inedible", "These wild mushrooms are edible, but others are poisonous.", "이 야생 버섯들은 먹을 수 있지만, 다른 것들은 독성이 있다."],
+["adverse", "부정적인, 불리한; 반대의, 거스르는", "unfavorable", "", "People ignored the warning signs, which caused adverse situations to present themselves.", "사람들은 경고 신호를 무시했고, 이는 불리한 상황이 나타나게 만들었다."],
+["errand", "심부름, 볼일", "", "", "He sent his kids on an errand to get some eggs before breakfast.", "그는 아침 식사 전에 아이들에게 달걀을 사 오라고 심부름을 보냈다."],
+["spectator", "(특히 스포츠 행사의) 관중, 구경꾼", "", "", "Mass travel to spectator sports, especially football, is now possible.", "특히 축구와 같은 관중 스포츠로의 대중의 이동이 이제 가능하다."],
+["keen", "열망하는; 열정적인; 예리한, 예민한", "eager, enthusiastic", "", "He was keen to meet her about the project and ask her a question.", "그는 그 프로젝트와 관련해 그녀를 만나서 질문을 하고 싶었다."],
+["comet", "혜성", "", "", "The brightness of a comet varies greatly depending on its distance from the Sun.", "혜성의 밝기는 태양과의 거리에 따라 크게 달라진다."],
+["victim", "희생자, 피해자; 제물, 희생물", "sufferer, sacrifice", "", "The charity organizations delivered emergency relief items to the earthquake victims.", "자선단체들은 지진 피해자들에게 긴급 구호품을 전달했다."],
+["cohesion", "화합, 결속력, 응집력", "unity, solidarity", "", "In some communities, labor sharing is a major economic factor of social cohesion.", "일부 지역 사회에서는 노동 분담이 사회적 결속의 주된 경제적 요인이다."],
+["negotiate", "협상(교섭)하다; 성사시키다", "bargain", "", "Overconfidence often hinders people's willingness to make compromises or negotiate rationally.", "과신은 흔히 타협하거나 이성적으로 협상하려는 사람들의 의지를 방해한다."],
+["abstract", "추상적인; 추상(개념); 개요, 요약; 추출하다; 요약하다", "summary, extract, summarize", "concrete", "Many disciplines are better learned by entering into the doing than by mere abstract study.", "많은 학문은 단순히 추상적인 공부보다 실제로 해 보는 것에 의해 더 잘 학습된다."],
+["enrich", "풍요롭게 하다; (질·가치 등을) 높이다", "enhance", "", "We enrich our understanding of the present by applying reason.", "우리는 이성을 적용함으로써 현재에 대한 우리의 이해를 풍부하게 한다."],
+["revive", "소생[회복]시키다, 소생[회복]하다, 부흥시키다", "revitalize", "", "National efforts to revive traditional culture have continued.", "전통문화를 부흥시키려는 국가적 노력이 계속되어왔다."],
+["wrestle", "몸싸움을 벌이다; (문제 등과) 씨름하다", "fight, struggle", "", "Players wrestled for the ball during the heated match on Saturday afternoon.", "선수들은 토요일 오후 치열한 경기 중에 공을 두고 몸싸움을 벌였다."],
+["fling", "내던지다, 내팽개치다", "hurl", "", "He got upset and flung his papers across the room.", "그는 화가 나서 자신의 서류를 방에 내던졌다."],
+["ideology", "이데올로기, 이념, 관념", "", "", "The objectivity expressed on finished maps is what makes them such powerful carriers of ideology.", "완성된 지도에 표현될 객관성이야말로 그것들을 이데올로기의 강력한 전달 수단으로 만드는 것이다."],
+["predetermine", "미리 결정하다, 예정하다", "", "", "Genetics passed from a parent to their child can predetermine future health conditions.", "부모에게서 아이로 전달되는 유전자가 미래의 건강 상태를 미리 결정지을 수 있다."],
+["spectrum", "(빛 등의) 스펙트럼; 범위, 영역", "range, scope", "", "We ought to think of burnout not as a state but as a spectrum.", "우리는 번아웃을 하나의 상태가 아니라 스펙트럼으로 보아야한다."],
+["portion", "부분, 일부; (음식의) 1인분; 몫", "part, serving, share", "", "She spent a large portion of her salary on leisure activities.", "그녀는 월급의 많은 부분을 여가 활동에 썼다."],
+["widespread", "광범위한, 널리 퍼진", "extensive, prevalent", "", "It is not clear how widespread literacy was at that time.", "그 당시에 읽고 쓸 줄 아는 능력이 얼마나 널리 퍼져 있었는지는 분명하지 않다."],
+["mend", "수선하다, 고치다; (상황·관계 등을) 해결하다, 개선하다", "repair, fix, improve, resolve", "", "Mending and restoring objects often requires even more creativity than the original production.", "물건을 고치고 복원하는 것은 흔히 최초 제작보다 훨씬 더 많은 창의력을 필요로 한다."],
+["elastic", "탄력 있는, 탄성의; 융통성 있는; 고무 밴드", "resilient, flexible", "", "Children's pants usually have an elastic waist for easy dressing.", "아동복 바지는 입기 쉽도록 보통 허리가 고무줄로 되어 있다."],
+["wilderness", "황야, 황무지", "", "", "Landscape protection in the US focuses on protecting areas of wilderness, typically in mountainous regions.", "미국의 경관 보호는 대체로 산악지대에 있는 황야 지역을 보호하는 데 초점을 둔다."],
+["affordable", "가격이 알맞은, 감당할 수 있는", "inexpensive, reasonable", "", "Let me show you our top-selling models at affordable prices.", "저희의 가장 잘 팔리는 모델들을 적당한 가격에 보여드리겠습니다."],
+["despise", "경멸하다, 혐오하다", "scorn, detest", "respect, admire", "He despised himself bitterly for getting her in such trouble.", "그는 그녀를 그런 곤경에 빠뜨린 것에 대해 자신을 몹시 경멸했다."],
+["unprecedented", "전례 없는", "", "", "Unprecedented declines in consumer demand impacted the profitability of the airline industry.", "소비자 수요의 전례 없는 감소가 항공 산업의 수익성에 영향을 미쳤다."],
+["contagious", "전염되는, 전염성의", "infectious", "", "Some emotions like enthusiasm can quickly become contagious.", "열정과 같은 일부 감정은 빠르게 전염될 수 있다."],
+["successive", "연속적인, 연이은", "consecutive", "", "She was the champion for four successive years in her weight class.", "그녀는 자신의 체급에서 4년 연속 우승자였다."],
+["undermine", "(자신감·권위 등을) 약화시키다", "weaken", "strengthen", "The importance often placed on external control undermines the development of self-responsibility.", "외부 통제에 흔히 부여되는 중요성이 자율적인 책임감의 발달을 약화시킨다."],
+["underlie", "(~의) 기초가 되다; (~의) 아래에 있다", "", "", "Science underlines everything around us, shaping the way we live.", "과학은 우리 주변에 있는 모든 것의 기초가 되며, 우리가 살아가는 방식을 형성한다."],
+["wholeheartedly", "전적으로, 진심으로", "sincerely, genuinely", "", "The mother congratulated her son wholeheartedly, and he was thrilled.", "어머니는 아들을 진심으로 축하해 주었고 그는 매우 기뻤다."],
+["leave out", "~을 빼놓다, 제외[생략]하다", "omit, exclude", "", "The right hemisphere of the brain that intuitively processes information is left out of the planning process.", "정보를 직관적으로 처리하는 뇌의 우반구는 계획 수립 과정에서 제외된다."],
+["break away", "((from))(~에서) 달아나다, 벗어나다; (정당·국가 등에서) 독립하다, 탈퇴하다", "escape from", "", "He broke away from the group to take pictures.", "그는 사진을 찍으려고 무리에서 빠져나왔다."],
+["see about", "~을 알아보다, 처리하다", "deal with, handle, arrange", "", "I'll contact the company to see about your refund.", "당신의 환불을 알아보기 위해 제가 회사에 연락해보겠습니다."],
+["settle down", "정착하다; 진정하다[되다]", "establish oneself, calm down", "", "After years abroad, she finally settled down near her family.", "수년간 해외에 있다가, 그녀는 마침내 가족과 가까운 곳에 정착했다."]],
+28:[["herd", "떼, 무리; 군중; (사람·가축을) 이동시키다, 몰다", "flock, group, crowd", "", "Traffic was stopped by a herd of cows crossing the road.", "도로를 건너는 소 떼로 인해 차들이 멈춰 섰다."],
+["demonstrate", "입증하다; 설명하다, 시연하다; 시위하다", "illustrate, protest", "", "Her study demonstrated that voters show favoritism toward handsome politicians.", "그녀의 연구는 유권자들이 잘생긴 정치인들에게 편애를 보인다는 것을 입증했다."],
+["jeopardize", "위태롭게 하다, 위험에 빠뜨리다", "endanger, threaten", "", "His insensitive remark during the interview jeopardized his political career.", "인터뷰 중 그의 몰지각한 발언은 그의 정치 경력을 위태롭게 했다."],
+["phobia", "공포증", "fear, dread", "", "A phobia of heights can make it very difficult for people to fly in planes.", "고소 공포증은 사람들이 비행기를 타는 것을 매우 어렵게 만들 수 있다."],
+["bond", "유대; 채권; 접착(제); 유대감을 형성하다; 접착되다[시키다]", "tie", "", "After long absences, elephants in bond groups greet one another with theatrical displays.", "오랜 부재 후에, 친밀 집단의 코끼리들은 극적인 모습을 보이며 서로 인사한다."],
+["discipline", "규율, 훈육; 훈련, 단련; 학문 분야, 학과; 징계하다; 훈육하다", "training, regulation, punish", "", "They use very strict discipline when raising their children.", "그들은 자녀를 기를 때 매우 엄격한 훈육을 한다."],
+["outdated", "시대에 뒤떨어진, 구식의", "old-fashioned, out of date, obsolete", "", "The outdated hotel will be renovated in a modern style.", "그 구식 호텔은 현대식으로 개조될 것이다."],
+["monopoly", "독점(권), 전매(권)", "", "", "The company has a virtual monopoly in the smartphone market.", "그 회사는 스마트폰 시장의 사실상 독점하고 있다."],
+["agenda", "의제, 안건", "", "", "Make sure that everyone in the meeting has an updated copy of the agenda.", "회의 참석자 모두 최신 버전의 안건 사본을 가지고 있는지 확인하십시오."],
+["deluxe", "고급의, 호화로운", "luxurious, premium", "", "We have two different kinds of passes for the festival, Regular and Deluxe.", "저희는 일반과 고급 두 종류의 축제 입장권이 있습니다."],
+["decisive", "결정적인, 중대한; 결단력 있는, 단호한", "crucial, critical, conclusive, determined, resolute", "indecisive", "She has played a decisive role in that peace negotiation.", "그녀는 그 평화 협상에서 결정적인 역할을 해 왔다."],
+["preliminary", "예비의, 준비의; ((주로 ~ies)) 예비 단계, 예선전", "preparatory", "", "Preliminary structural analysis is compulsory before working on sculpture design.", "조형물 설계 작업에 들어가기 전에 사전 구조 분석은 필수적이다."],
+["critique", "비평, 평론; 비평[평론]하다", "review, analysis", "", "Most critics championed the social critique of Douglas's films.", "대부분의 평론가들은 Douglas 영화의 사회 비평을 옹호했다."],
+["mournful", "슬픔에 잠긴, 애절한", "sorrowful, melancholy", "joyful", "They held a mournful funeral after their father's death", "그들은 아버지의 죽음 이후 슬픈 장례식을 거행했다."],
+["cue", "신호, 암시; (연극 등의) 큐 사인; 신호를 주다", "signal", "", "Nonverbal cues are generally better indicators of speaker intent than verbal cues.", "비언어적 신호는 대개 언어적 신호보다 화자의 의도를 더 잘 나타내는 지표이다."],
+["diverse", "다양한, 여러 가지의", "varied, various", "", "It's important that the media provide us with diverse and opposing views.", "매체가 우리에게 다양하고 상반되는 관점을 제공해 주는 것이 중요하다."],
+["minimize", "최소화하다; (중요성 등을) 축소하다", "", "maximize, exaggerate", "Strict standards are needed to minimize environmental problems effectively.", "환경 문제를 효과적으로 최소화하기 위해 엄격한 기준이 필요하다."],
+["erroneous", "(생각·정보 등이) 잘못된, 틀린", "incorrect, inaccurate", "", "They have arrived at some erroneous conclusions based on limited evidence.", "그들은 제한된 증거에 기반해 몇 가지 잘못된 결론에 도달했다."],
+["dimension", "((~s)) 크기, 치수; 측면, 관점; (수학·물리) 차원", "measurement, aspect", "", "We should have checked the dimensions of the desk before buying it.", "우리는 그 책상을 사기 전에 그것의 치수를 확인했어야 했다."],
+["friction", "(물리) 마찰; 갈등, 불화", "conflict, discord", "", "The friction between the tires and the road caused a burnt smell.", "타이어와 도로 사이의 마찰이 탄내를 유발했다."],
+["humanity", "인류, 인간; 인간성", "humankind", "", "The greatest benefit of the arrival of artificial intelligence is that AI will help define humanity.", "인공 지능 도래의 가장 큰 이점은 인공 지능이 인류를 규정하는 데 도움이 될 것이라는 점이다."],
+["alter", "변경하다, 바꾸다[바뀌다]", "change, modify", "", "She altered her original plan to do the assignment in the library.", "그녀는 도서관에서 과제를 하려던 원래 계획을 변경했다."],
+["coherent", "일관성 있는, 논리정연한", "consistent, logical", "incoherent", "Focus on your main point to make your essay more coherent.", "당신의 에세이를 더 일관성 있게 하기 위해 요점에 집중하라."],
+["peninsula", "반도", "", "", "Italy and Korea are similar in that they are both peninsulas.", "이탈리아와 한국은 둘 다 반도라는 점에서 유사하다."],
+["deduct", "빼다, 공제하다", "subtract, remove", "", "The necessary taxes will be deducted from your monthly wages.", "필요한 세금은 당신의 월급에서 공제될 것입니다."],
+["maternity", "어머니[임부]인 상태, 모성", "", "", "The government introduced new regulations to improve maternity care standards.", "정부는 산모 돌봄 기준을 개선하기 위한 새 규정을 도입했다."],
+["transcend", "초월하다, 뛰어넘다", "exceed, surpass", "", "War's larger purpose is always a political purpose that transcends the use of force.", "전쟁의 더 큰 목적은 항상 무력을 초월하는 정치적 목적이다."],
+["council", "(지방) 의회; 협의회, 위원회", "committee, board", "", "The council permitted them to build a factory in the city.", "시의회는 그들이 그 도시에 공장을 짓는 것을 허락했다."],
+["configuration", "배열, 배치; (시스템의) 환경 설정", "layout, arrangement", "", "The keyboard configuration actually prevents the problem of keyboard jam-up.", "키보드의 배열은 사실 키보드가 엉키는 문제를 방지한다."],
+["plague", "전염병, 역병; 괴롭히다, 시달리게 하다", "epidemic, pandemic, torment, afflict", "", "A deadly plague can destroy the entire city unless it is controlled.", "치명적인 전염병은 통제되지 않으면 도시 전체를 파괴할 수 있다."],
+["masterpiece", "걸작, 명작", "", "", "She couldn't wait to see van Gogh's masterpiece in person.", "그녀는 빨리 반 고흐의 걸작을 직접 보고 싶어 했다."],
+["physicist", "물리학자", "", "", "Physicists study the basic scientific principles that control the world.", "물리학자들은 세상을 지배하는 기본적인 과학 원리를 연구한다."],
+["physician", "(내과) 의사", "", "", "The physician identified too much with the patient, so the patient became confused.", "그 의사가 그 환자와 지나치게 동일시했기 때문에, 환자는 혼란스러워졌다."],
+["variable", "변동이 심한, 가변적인; 변수", "changeable, fluctuating", "invariable, constant", "The weather was variable, alternating between rain and sun.", "날씨가 변덕스러워 비가 오다 해가 나다 했다."],
+["satellite", "(인공)위성; (행성의) 위성; 위성 국가·도시", "", "", "The first satellite launched into space was called Sputnik 1.", "우주로 발사된 첫 번째 인공위성은 스푸트니크 1호로 불렸다."],
+["radiate", "내뿜다, 방출하다", "", "", "Heat radiated from the campfire, giving warmth to people near it.", "모닥불에서 열기가 발산되어 주위에 있는 사람들에게 온기를 주었다."],
+["launch into", "(갑자기 혹은 열정적으로) 시작하다", "commence, break into, set about", "", "Photocopiers' complicated features give people natural reasons to launch into conversation.", "복사기의 복잡한 기능들은 사람들에게 대화를 시작할 자연스러운 계기를 제공한다."],
+["break up", "(관계 등이) 끝나다; 부서지다; (신호 등이) 끊기다", "fall apart", "", "The partnership broke up due to financial disagreements.", "그 동업 관계는 재정적 의견 충돌로 인해 끝났다."],
+["carry off", "(어려운 일을) 잘 해내다; (상을) 받다, 차지하다", "accomplish", "", "She's the only designer I know with enough talent to carry this off.", "그녀는 이 일을 해낼 수 있을 만큼 충분한 재능이 있는지 내가 아는 유일한 디자이너이다."],
+["look through", "~을 살펴보다, 훑어보다", "scan, skim", "", "I've looked through all my papers and have not found anything that would work.", "나는 내 모든 서류를 살펴보았지만 효과가 있을 만한 것을 찾지 못했다."]],
+29:[["permeate", "스며들다, 침투하다; (영향 등이) 퍼지다", "penetrate, pervade", "", "Pollution can permeate soil and water, affecting local ecosystems and wildlife.", "오염 물질은 토양이나 물에 침투하여 지역 생태계와 야생 동물에게 영향을 미칠 수 있다."],
+["entangle", "얽어매다, 얽히게 하다", "", "", "The company became entangled in a legal dispute over copyright.", "그 회사는 저작권을 둘러싼 법적 분쟁에 얽히게 되었다."],
+["linger", "오래 남다, 계속되다; (떠나기 싫어) 오래 머물다", "remain, persist", "", "The bitter taste of the medicine still lingered in my mouth.", "그 약의 쓴맛이 내 입 안에 여전히 남아 있었다."],
+["dietary", "음식물의, 식이 요법의", "", "", "Good dietary choices are vital to an individual's health.", "좋은 식단 선택은 개인의 건강에 필수적이다."],
+["investigate", "조사[연구]하다; 수사하다", "examine, probe", "", "Researchers investigated the effects of different media on children.", "연구원들은 각기 다른 매체가 아이들에게 미치는 영향을 조사했다."],
+["gut", "소화관, 내장; 직감; 직감에 따른", "", "", "The doctor explained how food moves through the human gut.", "그 의사는 음식이 인간의 장을 통해 이동하는 방식을 설명했다."],
+["sway", "흔들리다, 흔들다; 동요시키다; 흔들림", "swing", "", "The sign was swaying from side to side in the wind.", "그 표지판은 바람에 좌우로 흔들리고 있었다."],
+["outgrow", "몸이 커져서 맞지 않게 되다; (성장하여 습관 등을) 벗어나다", "", "", "Children often outgrow their clothes in just a few months.", "아이들은 종종 단 몇 달 만에 몸이 커져 옷을 못 입게 된다."],
+["integral", "필수적인", "essential, necessary", "", "Light and water are integral elements of all life.", "빛과 물은 모든 생명체에 필수적인 요소이다."],
+["falsify", "위조하다, 조작하다", "forge, counterfeit", "", "They replaced the official document to falsify the evidence.", "그들은 증거를 조작하기 위해 공식 문서를 교체했다."],
+["notation", "(수학·음악 등의) 기호, 표기법", "", "", "Notation on sheet music was more than a practical method for preserving an expanding repertoire of music.", "악보 표기법은 늘어나는 음악 레퍼토리를 보존하기 위한 실용적인 방법 이상이었다."],
+["encode", "암호로 바꾸다, 부호화하다", "", "decode", "We don't encode music in our brains note by note.", "우리는 뇌에서 음악을 음표 단위로 부호화하지 않는다."],
+["prophecy", "예언; 예언력", "prediction", "", "An ancient prophecy predicts that the world will end in a great flood.", "고대의 한 예언은 세계가 대홍수로 멸망할 것이라고 예측한다."],
+["specify", "(구체적으로) 명시하다", "state, define", "", "The instructions specified the exact measurements needed to correctly build the desk.", "그 설명서는 책상을 제대로 조립하는 데 필요한 정확한 치수를 명시해 두었다."],
+["entitle", "권리[자격]를 주다; (책 등에) 제목을 붙이다", "authorize, qualify", "", "The guarantee entitles you to a replacement or refund.", "그 보증서는 당신에게 교환이나 환불을 받을 권리를 부여한다."],
+["prestigious", "명망 있는, 일류의", "renowned, reputable", "", "She became a member of the prestigious scientific society.", "그녀는 명망 있는 과학 학회의 회원이 되었다."],
+["enthusiasm", "열정, 열의", "passion, eagerness", "apathy", "Good leaders inspire enthusiasm in their organizations.", "훌륭한 리더들은 자신의 조직에 열정을 불어넣는다."],
+["refine", "정제[제련]하다; 개선하다, 다듬다", "purify, improve, polish", "", "The company developed a new method to refine raw sugar more efficiently.", "그 회사는 원당을 더 효율적으로 정제하는 새로운 방식을 개발했다."],
+["disregard", "무시하다, 묵살하다; 무시, 묵살", "ignore, dismiss", "", "She disregarded the negative comments and focused on her goals.", "그녀는 부정적인 말들을 무시하고 자신의 목표에 집중했다."],
+["clumsy", "어설픈, 서투른", "awkward", "", "He gave a clumsy explanation that confused everyone.", "그는 모두를 혼란스럽게 만든 어설픈 설명을 했다."],
+["flicker", "깜박이다; (감정 등이) 스치다; (빛의) 깜박임; (감정의) 스침", "", "", "People claim to see faces in a campfire because of the flickering change in visual information.", "사람들이 모닥불에서 얼굴이 보인다고 주장하는 것은 시각 정보의 깜박이는 변화 때문이다."],
+["opponent", "상대, 적수; 반대자", "rival", "proponent", "Unfortunately, my opponent broke his left ankle while training.", "안타깝게도, 나의 상대 선수는 훈련 중에 왼쪽 발목이 부러졌다."],
+["overflow", "넘치다, 범람하다; 넘침, 범람; 초과 인원, 초과분", "spill over, excess", "", "The bathtub overflowed because someone forgot to turn off the water.", "누군가가 물을 잠그는 것을 잊어버려서 욕조 물이 넘쳐흘렀다."],
+["initiative", "계획; 주도권; 진취성", "", "", "The city launched a green initiative to reduce carbon emissions.", "그 도시는 탄소 배출물을 줄이기 위해 친환경 계획에 착수했다."],
+["guarantee", "보장[약속]하다; 품질 보증을 하다; 보장[약속]; 보증(서)", "assure, assurance", "", "The treaty would guarantee that there would be peace between the two sides.", "그 조약은 양측 간의 평화를 보장할 것이다."],
+["injustice", "불평등, 부당함", "unfairness, inequity", "justice", "She was deeply enraged at the clear injustice of his remark.", "그녀는 그의 발언의 명백한 부당함에 크게 격분했다."],
+["intonation", "억양, 어조", "", "", "Practicing your intonation can significantly improve the quality of your speeches.", "어조를 연습하는 것은 당신의 연설의 질을 크게 향상시킬 수 있다."],
+["normative", "규범적인, 표준의", "", "", "Romans were not the first people to have a normative system.", "로마인들이 규범적 체계를 갖춘 최초의 민족은 아니었다."],
+["milestone", "이정표, 중요한[획기적] 사건", "landmark", "", "Mark the team's achievement of major milestones or goals.", "팀의 주요 이정표나 목표를 달성한 것을 표시하세요."],
+["supreme", "최고의, 최상의", "paramount, ultimate, premier", "", "I am in a state of supreme delight and overwhelming happiness.", "나는 최고의 기쁨과 압도적인 행복 상태에 있다."],
+["multiple", "다수의, 다양한; (수학) 배수", "numerous", "", "Multitasking means doing multiple tasks at one time.", "멀티태스킹은 한 번에 다수의 일을 하는 것을 의미한다."],
+["recess", "휴회, 휴정; 쉬는 시간; 휴회[휴정]하다", "break", "", "The judge declared a five-minute recess in the middle of the trial.", "그 판사는 재판 중간에 5분간의 휴정을 선언했다."],
+["occupant", "거주자, 입주자", "resident, inhabitant", "", "The landlord is responsible for ensuring the safety of all occupants.", "집주인은 모든 거주자의 안전을 보장할 책임이 있다."],
+["objective", "객관적인; 목적, 목표", "goal, purpose, aim", "subjective", "Craftsmanship focuses primarily on objective standards-on the thing in itself.", "장인 정신은 주로 객관적인 기준, 즉 그 자체의 것에 초점을 맞춘다."],
+["objection", "반대, 이의", "protest, opposition", "approval", "They raised an objection to the renovations of their building.", "그들은 자신들의 건물 개조에 대해 이의를 제기했다."],
+["encounter", "(우연히) 만나다; (곤란 등에) 부딪히다; (우연한) 만남", "run into, bump into, come across", "", "He encountered his old colleague at the airport terminal last weekend.", "그는 지난 주말에 공항 터미널에서 옛 동료를 우연히 만났다."],
+["refrain from", "~을 삼가다, 자제하다", "abstain from, avoid", "", "Visitors were asked to refrain from taking photographs inside the museum.", "방문객들은 박물관 내부에서 사진 촬영을 자제해 달라는 요청을 받았다."],
+["hold down", "~을 억제하다; (일자리 등을) 계속 유지하다", "suppress, restrain", "", "There can be influential factors that hold down the performance of everyone being judged.", "평가를 받는 모든 이의 성과를 억제하는 영향력 있는 요인들이 있을 수 있다."],
+["amount to", "(합계가) ~에 달하다; ~와 같다, ~에 해당하다", "add up to", "", "The savings would amount to several thousand dollars per family.", "그 절감액은 가구당 수천 달러에 달할 것이다."],
+["ease off", "~을 완화하다, 완화되다", "reduce, lessen", "", "The pain in her leg slowly eased off after taking the medicine.", "그녀의 다리 통증은 약을 먹은 후 서서히 완화되었다."]],
+30:[["immediately", "즉시, 바로; 바로 옆에, 가까이에", "at once, instantly", "", "When you hear a fire alarm, it's important to evacuate the building immediately.", "화재 경보를 들으면 즉시 건물에서 대피하는 것이 중요하다."],
+["propel", "나아가게 하다, 추진하다; (사람을) 몰아대다", "drive", "", "A powerful engine propelled the rocket into outer space.", "강력한 엔진이 그 로켓을 우주 공간으로 나아가게 했다."],
+["pillar", "기둥, 기념비; (조직·제도 등의) 핵심", "column", "", "The 1940s and 2000s plans may be alike, down to the pillars in the middle of the office.", "1940년대와 2000년대의 설계도는 사무실 한가운데 있는 기둥까지도 비슷할 수 있다."],
+["propaganda", "(정치적·사회적) 선전", "", "", "AI is capable of taking advantage of human passion more effectively than traditional propaganda.", "AI는 전통적인 선전보다 인간의 열망을 더 효과적으로 이용할 수 있다."],
+["curriculum", "교육[교과] 과정, 커리큘럼", "", "", "We're currently offering a personalized 3.5-hour curriculum.", "저희는 현재 개인 맞춤형의 3시간 반짜리 교육 과정을 제공하고 있습니다."],
+["affiliate", "제휴하다, 연계하다; 가입하다; 계열사, 지부", "associate, branch", "", "The university is proud to be affiliated with well-known research organizations around the world.", "그 대학은 전 세계의 유명 연구 기관들과 제휴하는 것을 자랑스럽게 여긴다."],
+["democratize", "민주화하다; 대중화하다", "", "", "The collapse of the old government created an opportunity to democratize the state.", "이전 정부의 붕괴는 국가를 민주화할 기회를 만들어 냈다."],
+["dictate", "받아쓰게 하다; 지시[명령]하다; 영향을 주다", "command", "", "She dictated the customer's order details to the employee.", "그녀는 직원에게 고객의 주문 내역을 받아 적게 했다."],
+["boundary", "경계(선); 한계, 범위", "border, frontier, limit", "", "The boundary between good and bad changes over time.", "좋고 나쁨의 경계는 시간이 지남에 따라 변화한다."],
+["regime", "정권; 제도, 체제", "government, system", "", "The idea of overthrowing the corrupt regime is gaining support.", "부패한 정권을 전복시키려는 생각이 지지를 얻고 있다."],
+["internalize", "(신념·가치 등을) 내면화[내재화]하다", "", "", "Most people internalize the lessons they learned as children.", "대부분의 사람들은 어렸을 때 배운 교훈들을 내재화한다."],
+["assure", "장담하다, 보증하다; 확실하게 하다", "guarantee, ensure", "", "His doctor assured him that he would get better soon.", "그의 의사는 그에게 곧 좋아질 거라고 장담했다."],
+["strategy", "전략, 계획", "tactic", "", "The brain's strategy is to project mental images into visual representations.", "뇌의 전략은 정신적 이미지를 시각적 표현으로 투영하는 것이다."],
+["pinpoint", "정확히 찾아내다[지적하다]; 정확한, 정밀한", "precise", "", "I still have not exactly pinpointed Maddy's character since wickedness takes many forms.", "사악함은 여러 가지 형태를 띠기 때문에, 나는 아직 Maddy의 성격을 정확히 파악하지 못했다."],
+["enclose", "둘러싸다, 에워싸다; 동봉하다", "surround, encircle", "", "The farm is enclosed by wooden fences to keep the animals in.", "그 농장은 동물들을 가두어 놓기 위해 나무 울타리로 둘러싸여 있다."],
+["laden", "잔뜩 실은, 가득한", "loaded, burdened", "", "Non-scientific approaches to reality can include personal value-laden ways of encountering the world.", "현실에 대한 비과학적인 접근은 개인의 가치관이 담긴, 세상을 접하는 방식을 포함할 수 있다."],
+["preoccupy", "마음을 빼앗다, 몰두하게 하다", "absorb, engross", "", "Some people try to escape an emotional experience by preoccupying themselves with eating.", "어떤 사람들은 먹는 것에 몰두함으로써 감정적인 경험에서 벗어나려 한다."],
+["recreate", "되살리다, 재현하다", "reproduce", "", "Digital reading devices fail to recreate certain tactile experiences of reading on paper.", "전자 독서 기기는 종이로 책을 읽을 때의 특정한 촉각적 경험을 재현하지 못한다."],
+["turmoil", "혼란, 소란, 동요", "confusion, chaos", "", "If you preferred the company of a stranger to someone you knew, your social life would be in turmoil.", "만약 당신이 아는 사람보다 낯선 사람과 함께 있는 것을 선호한다면, 당신의 사회생활이 혼란에 빠질 것이다."],
+["insolvent", "파산한, 지급 불능의", "bankrupt", "solvent", "Many small businesses became insolvent as a result of economic decline.", "경제 침체의 결과로 많은 소기업들이 파산하게 되었다."],
+["agriculture", "농업, 농사", "farming", "", "They will determine whether topsoil erosion from agriculture is too great.", "그들은 농업으로 인한 표토(表土)의 부식이 너무 심한지 알아낼 것이다."],
+["combustion", "연소, 불이 탐", "", "", "Combustion requires oxygen, which keeps us alive and active.", "연소는 산소를 필요로 하는데, 산소는 우리를 살아 있게 하고 활동적으로 유지시켜 준다."],
+["probe", "캐묻다, 조사하다; 탐사하다; 조사; (우주) 탐사선", "investigate, examine, explore", "", "Police have arrested a key suspect and are now probing another fraud.", "경찰은 유력 용의자를 체포했고 현재 또 다른 사기 사건을 조사하고 있다."],
+["secure", "확보[획득]하다; 안전하게 하다; 안전한; 확실한", "obtain, acquire, protect, safe, assured", "", "To secure your seat, please arrive at least fifteen minutes prior to departure.", "좌석을 확보하시려면 적어도 출발 15분 전에는 도착해 주세요."],
+["dispute", "논쟁, 분쟁; 반박하다; 다투다, 논쟁하다", "disagreement, argument, challenge, argue", "", "They immediately got into a dispute over the cause of the accident.", "그들은 그 사건의 원인을 두고 즉시 논쟁에 들어갔다."],
+["consult", "상담하다; 상의하다; 참고하다", "counsel, confer, refer to", "", "If any side effects occur, please consult your doctor.", "부작용이 발생하면 의사와 상담하십시오."],
+["enroll", "등록하다[시키다], 입학하다[시키다]", "register, sign up", "", "He enrolled in a weight-reduction program to lose some weight.", "그는 살을 빼기 위해 체중 감량 프로그램에 등록했다."],
+["terrestrial", "지구상의; 육지에 사는", "", "extraterrestrial", "Humans have learned to control a considerable portion of the terrestrial biomass.", "인간은 지구상의 바이오매스[생물량]의 상당 부분을 통제하는 법을 배워 왔다."],
+["transform", "변형시키다, 완전히 바꾸다", "revolutionize, alter", "", "The Nobel Prize commonly honors a scientific discovery for having transformed a field.", "노벨상은 일반적으로 한 분야를 변화시킨 과학적 발견을 기린다."],
+["parasitic", "기생하는; 기생충의", "", "", "Some insects have a parasitic relationship with humans, drinking their blood.", "어떤 곤충들은 인간의 피를 빨아먹으며 인간과 기생 관계를 맺는다."],
+["pictogram", "그림 문자, 그림 그래프", "", "", "The use of identifiable symbols and pictograms on the early tablets is consistent with the need for a lexicon.", "초기 점토판 상의 식별 가능한 기호와 그림 문자의 사용은 어휘 목록의 필요성과 일치한다."],
+["projection", "(비용·규모 등의) 예상, 추정; 투영, 투사", "estimate, forecast", "", "According to projections, the populations of the elderly will increase by 10 percent.", "예측에 따르면, 노인 인구는 10% 증가할 것이다."],
+["literacy", "읽고 쓰는 능력; (특정 분야의) 역량", "", "illiteracy", "The campaign is designed to promote literacy for children.", "그 캠페인은 아이들의 읽고 쓰는 능력을 증진하기 위해 고안되었다."],
+["intelligent", "똑똑한, 지적인; 지능이 있는", "", "unintelligent", "Newton was one of the most intelligent people in history.", "뉴턴은 역사상 가장 똑똑한 사람들 중 한 명이었다."],
+["intellectual", "지적인, 지성의; 지식인", "", "", "Worldwide IQ increases of about three points per decade show the potential of intellectual development.", "전 세계적으로 IQ가 10년마다 약 3점씩 증가하는 것은 지적 발달의 가능성을 보여 준다."],
+["persecution", "(종교적·정치적) 박해, 탄압", "oppression", "", "History is filled with accounts of religious persecution that left entire communities in fear.", "역사는 공동체 전체를 공포에 빠뜨린 종교적 박해에 관한 기록들로 가득하다."],
+["step in", "(문제 해결을 위해) 개입하다", "intervene", "", "When consumers lack adequate information, governments step in to require that firms provide information.", "소비자들에게 충분한 정보가 없으면, 정부가 개입하여 회사에게 정보를 제공하도록 요구한다."],
+["carry through", "~을 완수하다, 해내다", "accomplish, complete", "", "We are determined to carry our plans through to completion.", "우리는 우리의 계획을 완수하기로 결심했다."],
+["put A into B", "A를 B에 들이다", "invest in", "", "All that time, I put my whole heart into looking for work.", "그 시간 내내 나는 일자리를 찾는 데 온 마음을 쏟았다."],
+["live out", "(예전에 생각만 하던 것을) 실현하다", "fulfill, realize", "", "It is possible to live out a lie or fantasy logically and consistently on the internet.", "인터넷상에서는 거짓말이나 환상을 논리적이고 일관되게 실현하는 것이 가능하다."]],
+31:[["loan", "대출(금), 융자(금); 대여; (돈 등을) 빌려주다", "lend", "", "He founded his firm with the aid of a $100 loan from his father.", "그는 아버지에게서 받은 대출금 100달러의 도움으로 자신의 회사를 설립했다."],
+["legacy", "유산, 유물", "inheritance, heritage", "", "Rome left an enduring legacy in many areas.", "로마는 많은 영역에서 영속적인 유산을 남겼다."],
+["extinct", "멸종된, 사라진; (화산이) 활동을 멈춘", "", "", "In all corners of the world, thousands of species go extinct.", "세계 곳곳에서 수천 종이 멸종된다."],
+["banish", "추방하다; (생각 등을) 떨쳐 버리다", "exile, expel, dispel", "", "The king had the power to banish anyone who disagreed with him from his kingdom.", "그 왕은 자신과 의견이 다른 누구든 자신의 왕국에서 추방할 수 있는 권력을 가지고 있었다."],
+["valid", "유효한, 정당한; 타당한", "legitimate, effective, reasonable, logical", "invalid", "We provide a discount for all university students with a valid ID.", "저희는 유효한 학생증이 있는 모든 대학생에게 할인을 제공합니다."],
+["unanimously", "만장일치로", "", "", "The board unanimously agreed to change the rules.", "이사회는 그 규칙들을 바꾸는 것에 만장일치로 동의했다."],
+["pivotal", "중심이 되는, 중추적인", "central, crucial", "minor", "Education plays a pivotal role in shaping future leaders and innovators.", "교육은 미래의 지도자와 혁신가들을 양성하는 데 중추적인 역할을 한다."],
+["beforehand", "미리, 사전에", "in advance", "", "Make sure to book plane tickets beforehand during the peak season.", "성수기에는 반드시 비행기 표를 미리 예약해라."],
+["dehydrate", "탈수 상태가 되다[되게 하다]; (식품을) 건조시키다", "", "", "Smaller animals may easily become dehydrated while traveling across land.", "작은 동물들은 육지를 가로질러 이동하는 동안 쉽게 탈수 상태가 될 수 있다."],
+["flock", "떼, 무리; 떼 지어 가다, 모이다", "herd, crowd, gather", "", "A flock of pigeons scattered when the dog approached quickly.", "개가 빠르게 다가오자 비둘기 떼가 흩어졌다."],
+["commitment", "약속; 전념, 헌신", "promise, obligation, dedication, devotion", "", "If you make a commitment in a negotiation, you have to uphold it.", "당신은 협상에서 약속을 하면 그것을 지켜야 한다."],
+["fraction", "부분, 일부; (수학) 분수", "portion, segment", "", "Only a small fraction of the students were wearing plain clothes.", "그 학생들 중 극히 일부만 사복을 입고 있었다."],
+["incorporate", "포함하다, 통합하다; 법인으로 만들다", "include, integrate", "", "Our website's design incorporates suggestions from users.", "우리 웹 사이트의 디자인은 이용자들의 제안을 포함한다."],
+["county", "(미국 행정 구역의) 카운티, 군(郡)", "", "", "We want artists to explore the natural world of Caroline County.", "우리는 예술가들이 캐롤라인 카운티의 자연 세계를 탐구하기 바랍니다."],
+["rationale", "(이론적) 근거, 이유", "reason", "", "There is a rationale behind choosing similar friends.", "비슷한 친구를 선택하는 데에는 그럴 만한 근거가 있다."],
+["migrate", "이동하다; 이주하다", "", "", "As it gets colder, large groups of ducks begin to migrate south.", "날이 더 추워짐에 따라, 대규모의 오리 떼가 남쪽으로 이동하기 시작한다."],
+["severe", "심각한; (날씨 등이) 혹독한; 엄한, 가혹한", "serious, harsh, strict", "", "Severe mercury poisoning occurred in many people who consumed the fish.", "그 물고기를 먹은 많은 사람들에게 심한 수은 중독이 발생했다."],
+["faculty", "교수진, 교직원; (대학의) 학부; 재능, 능력", "staff, department, ability, capability", "", "The faculty of the law school consists of seven full-time professors.", "법대 교수진은 일곱 명의 전임 교수들로 구성되어 있다."],
+["deadlock", "교착 상태", "", "", "Pressed for time and stuck in a deadlock, she had no idea how to finish the paper.", "시간에 쫓기고 난관에 봉착하여, 그녀는 그 논문을 어떻게 끝내야 할지 전혀 몰랐다."],
+["undergo", "겪다, 경험하다", "go through, experience", "", "As boys grow up, their voices undergo changes and become deeper.", "남자아이들이 성장함에 따라, 그들의 목소리는 변화를 겪고 더 낮아진다."],
+["stack", "무더기, 더미; 쌓다, 쌓이다", "pile, heap", "", "They cut out shapes from a stack of 200 sheets of white paper.", "그들은 200장의 흰 종이 더미에서 모양들을 오려 냈다."],
+["missionary", "선교사", "", "", "He served as a missionary in rural Africa for a dozen years.", "그는 12년 동안 아프리카 시골 지역에서 선교사로 일했다."],
+["unconditional", "무조건적인, 절대적인", "absolute", "conditional", "A parent's love for their child is often described as unconditional.", "자식을 향한 부모의 사랑은 흔히 무조건적인 것으로 묘사된다."],
+["compete", "경쟁하다, 겨루다; ((~in)) (경기 등에) 참가하다", "contest, contend, take part in, participate in", "", "We compete for resources with members of our own species.", "우리는 자원을 두고 우리 종의 구성원들과 경쟁한다."],
+["inclusive", "포함한; 포괄적인; 포용적인", "comprehensive, tolerant", "exclusive", "The estimate for the project is $70,000, inclusive of tax.", "그 프로젝트의 견적은 세금 포함 7만 달러이다."],
+["publicize", "(대중에게) 알리다, 홍보[광고]하다", "announce, promote, advertise", "", "Social media services enabled people to publicize their views on new songs.", "소셜 미디어 서비스는 사람들이 신곡에 대한 자신의 견해를 알릴 수 있게 해 주었다."],
+["presume", "추정[가정]하다; 주제넘게 ~하다", "assume, suppose", "", "It is unwise to presume someone's intentions without asking first.", "먼저 물어보지 않고 누군가의 의도를 추정하는 것은 현명하지 못하다."],
+["launch", "시작[착수]하다; 출시하다; 발사하다; 개시, 출시; 발사", "initiate, release", "", "We've launched online courses, which contain various content about webtoon production.", "저희는 온라인 강좌들을 개설했는데, 그것들은 웹툰 제작에 관한 다양한 콘텐츠를 포함합니다."],
+["unlettered", "글을 못 읽는, 문맹의", "illiterate", "literate", "In the practice of totemism, an unlettered humanity broods upon itself and its place in nature.", "토템 신앙의 풍습에서, 문맹인 인류는 스스로와 자연 속에서의 자신의 위치에 대해 곰곰이 생각한다."],
+["contemporary", "동시대의; 현대의, 당대의; 동시대인, 동년배", "modern", "", "Contemporary artists often influence each other's creative development.", "동시대 예술가들은 종종 서로의 창작 발전에 영향을 준다."],
+["intertwine", "뒤얽히다, 서로 엮다; 밀접하게 관련되다", "entwine", "", "Our lives become intertwined with the people with whom we repeatedly associate.", "우리의 삶은 우리가 반복적으로 어울리는 사람들과 밀접한 관계를 갖게 된다."],
+["diminish", "줄어들다, 줄이다; 깎아내리다, 폄하하다", "decrease, reduce", "", "Extrinsic rewards can control or diminish learning.", "외적 보상은 학습을 통제하거나 감소시킬 수 있다."],
+["sidestep", "(문제 등을) 회피하다; (옆으로) 피하다", "avoid, evade", "", "Scientists may sidestep most of the ethical issues involved in experiments.", "과학자들은 실험에 수반되는 대부분의 윤리적 문제들을 회피할 수도 있다."],
+["comparative", "비교의, 비교를 통한; 상대적인", "", "absolute", "The study offers a comparative analysis of different teaching methods.", "그 연구는 다양한 교수법에 관한 비교 분석을 제공한다."],
+["comparable", "비슷한; ((~to)) 필적하는, 비길 만한", "similar", "", "The two laptops have comparable features and similar battery lives.", "그 두 대의 노트북은 비슷한 기능과 유사한 배터리 수명을 가지고 있다."],
+["sabotage", "(고의적으로) 파괴하다, 방해하다; 방해 행위", "damage, destroy, disrupt, disruption", "", "By withholding help from others, people may unknowingly sabotage their own work.", "다른 사람에게 도움을 주지 않음으로써, 사람들은 자신도 모르게 자신의 일을 망칠 수 있다."],
+["speak for", "~을 대변하다, 대신하여 말하다", "represent", "", "She spoke for the entire company at the medical conference.", "그녀는 의료 학회에서 회사 전체를 대변했다."],
+["kick in", "작동하기 시작하다, 효과가 나타나기 시작하다", "", "", "When we are disturbed by outside forces, our inner machinery kicks in and returns us to a balanced state.", "우리가 외부의 힘에 의해 방해를 받을 때, 우리의 내부 조직이 작동하기 시작하여 우리를 균형 잡힌 상태로 돌아오게 한다."],
+["put down", "~을 적어 두다; ~을 진압하다", "write down, set down, subdue, suppress", "", "I need to put down my thoughts on paper before I forget them.", "나는 잊어버리기 전에 내 생각을 종이에 적어 두어야 한다."],
+["ascribe A to B", "A를 B의 원인[탓]으로 돌리다", "attribute A to B", "", "He ascribed his failure to bad luck rather than a lack of skill.", "그는 자신의 실패를 실력 부족보다는 불운의 탓으로 돌렸다."]],
+32:[["soak", "흠뻑 적시다; 담그다, 담기다", "drench, immerse", "", "His clothes and shoes were soaked by the sudden summer rain.", "그의 옷과 신발이 갑작스러운 여름비에 흠뻑 젖었다."],
+["acquisition", "습득; 취득(물); 인수", "takeover, buyout", "", "His passion for knowledge led to his acquisition of understanding in a variety of subjects.", "그의 지식에 대한 열정은 다양한 주제에 관한 이해의 습득으로 이어졌다."],
+["overturn", "뒤집다, 뒤집히다; (결정·체제 등을) 뒤엎다", "flip over", "", "The car overturned on the slippery road at a sharp curve.", "그 차는 미끄러운 도로 위의 급커브에서 전복되었다."],
+["confirm", "(증거를 들어) 확인해 주다; (예약 등을) 확인[확정]하다", "verify, validate", "", "Some researchers confirmed how the link between temperature and taste works.", "일부 연구자들은 온도와 맛 사이의 연관성이 어떻게 작용하는지를 확인시켜 주었다."],
+["adjacent", "((~ to)) 인접한, 가까운", "adjoining, neighboring", "detached", "The fire started in the building adjacent to the museum.", "그 화재는 박물관에 인접한 건물에서 시작되었다."],
+["accompany", "동행[동반]하다; 수반하다; (음악) 반주하다", "go with", "", "If you don't want to go alone, I can accompany you.", "만약 네가 혼자 가기 싫다면, 내가 너와 동행해 줄 수도 있다."],
+["candid", "솔직한", "frank, honest", "dishonest", "The nonverbal message is designed to indirectly let the partner know one's candid reaction.", "그 비언어적 메시지는 상대방에게 자신의 솔직한 반응을 간접적으로 알려주기 위해 의도된다."],
+["sympathy", "동정, 연민; 공감, 지지", "compassion, pity", "", "You may show sympathy by expressing your concerns or by avoiding any mention.", "당신은 염려를 표현하거나 어떤 언급도 하지 않음으로써 연민을 표할 수 있다."],
+["deficit", "적자; 부족(액), 결핍", "shortage, lack", "surplus", "The country's rapidly growing deficit has brought about tax increases.", "그 나라의 급속히 늘어나는 적자가 세금 인상을 초래했다."],
+["sociology", "사회학", "", "", "Sociology is the study of human societies and behavior.", "사회학은 인간 사회와 행동에 관한 연구이다."],
+["casualty", "사상자, 피해자", "victim", "", "There were no official reports of civilian casualties from the terrorist attack.", "그 테러 공격의 민간인 사상자에 대한 공식 보도는 없었다."],
+["confess", "(죄 등을) 자백하다; (감정·사실 등을) 인정[고백]하다", "admit, own up to, acknowledge", "", "The suspect finally confessed that he had stolen the money.", "용의자는 마침내 자신이 그 돈을 훔쳤다고 자백했다."],
+["span", "기간, 시간; 폭, 범위; (기간·범위 등에) 걸치다", "period, duration, extent, range, cover, extend", "", "Like all individuals, cells have a life span.", "모든 개체와 마찬가지로, 세포도 수명이 있다."],
+["disparity", "격차, 불균형", "difference, gap, inequality", "", "The wealth disparity has widened along with industrial development.", "산업 발전과 더불어 빈부 격차도 심해졌다."],
+["sentiment", "정서, 감정; 감상", "emotion, feeling", "", "Her words were filled with noble sentiments, born of her absolute sincerity.", "그녀의 말은 지극한 진심에서 우러나온 고귀한 감정으로 가득 차 있었다."],
+["verse", "시, 운문; (시의) 연, (노래의) 절", "poetry, poem, stanza, line", "", "Verse typically features rhyme and metaphor, in contrast to prose.", "운문은 산문과 대조적으로 보통 운율과 은유를 특징으로 한다."],
+["conceit", "자만심", "arrogance", "humility, modesty", "Socrates feared that people would be filled with the conceit of wisdom instead of real wisdom.", "소크라테스는 사람들이 진정한 지혜 대신 지혜에 대한 자만심으로 가득 차게 될까 봐 두려워했다."],
+["fiber", "섬유, 섬유질", "", "", "Fiber, vitamins, and minerals are crucial for health.", "섬유질, 비타민, 그리고 미네랄은 건강에 매우 중요하다."],
+["external", "외부의, 밖의; 대외적인", "", "internal", "Dogs usually aren't affected by external circumstances the way people are.", "개들은 보통 사람들처럼 외부 환경의 영향을 받지 않는다."],
+["morale", "사기, 의욕", "confidence, spirit", "", "Morale amongst the entire team of players is very high at the moment.", "현재 팀 전체 선수들의 사기가 매우 높다."],
+["obstruct", "(진로·일의 진행 등을) 막다, 방해하다", "block, hinder, impede", "", "Plato considered color to be an unnecessary ornament that obstructed the truth.", "플라톤은 색상을 진리를 방해하는 불필요한 장식물로 여겼다."],
+["protest", "항의, 반대, 시위; 항의[반대]하다", "objection, demonstration, object, complain", "", "Students organized a protest against the university's tuition fee increase.", "학생들은 대학의 등록금 인상에 반대하는 시위를 조직했다."],
+["discrepancy", "차이, 불일치", "difference, disparity, contrast", "", "There is sometimes a discrepancy between verbal and nonverbal messages.", "언어적 메시지와 비언어적 메시지 간에는 간혹 불일치가 있다."],
+["counterpart", "상대, 대응물", "equivalent", "", "The Korean soccer team unexpectedly beat its German counterpart.", "한국 축구팀은 뜻밖에 독일의 상대 팀을 이겼다."],
+["diplomatic", "외교(상의); 외교에 능한, 요령 있는", "tactful", "undiplomatic", "The incident caused significant diplomatic problems between the countries.", "그 사건은 국가 간의 중대한 외교적 문제를 일으켰다."],
+["betrayal", "배신, 배반", "treachery, disloyalty", "loyalty", "Everybody felt a sense of betrayal at the news of her resignation.", "모두가 그녀의 사임 소식에 배신감을 느꼈다."],
+["invert", "뒤집다, 도치시키다", "reverse, overturn", "", "To make an upside-down cake, bake it and then invert the pan onto a plate.", "업사이드다운 케이크를 만들기 위해서는, 그것을 굽고 나서 팬을 접시 위에 뒤집어라."],
+["commodity", "상품, 원자재; 유용한 것", "product, merchandise", "", "With the advent of an information society, the concept of information as a commodity has emerged.", "정보 사회의 도래와 함께, 하나의 상품으로서 정보라는 개념이 등장했다."],
+["blossom", "(특히 과실수의) 꽃; 꽃이 피다; (형편 등이) 좋아지다, 발전하다", "bloom", "", "During the spring season, the park sparkles with millions of blossoms and lights.", "봄철에 그 공원은 수많은 꽃과 조명들로 반짝인다."],
+["disdain", "업신여기다, 경멸하다; 업신여김, 경멸", "despise, scorn, look down on, contempt", "", "The leader disdained any form of corruption within the organization.", "그 지도자는 조직 내 어떤 형태의 부패도 경멸했다."],
+["recruit", "모집하다; 징집하다; 신입 사원; 신병", "hire, enlist, draft, newcomer", "", "She recruited qualified female pilots, who joined the air force.", "그녀는 자격을 갖춘 여성 조종사들을 모집했는데, 그들은 공군에 입대했다."],
+["contempt", "경멸, 멸시", "disdain, scorn, disrespect", "respect", "The victims' families looked at the criminal with contempt.", "피해자들의 가족들은 범인을 경멸의 눈초리로 쳐다보았다."],
+["tempt", "유혹하다, 꾀다", "entice, attract", "", "Advertisements often tempt people into buying products on impulse.", "광고는 흔히 사람들이 충동적으로 제품을 구매하도록 유혹한다."],
+["ethnic", "민족의, 인종의", "racial", "", "American society is made up of citizens of diverse ethnic backgrounds.", "미국 사회는 다양한 인종적 배경을 가진 국민들로 구성되어 있다."],
+["ethical", "도덕상의, 윤리적인", "moral", "unethical", "Ethical decision-making is not always easy because there are always gray areas that create dilemmas.", "윤리적 의사 결정이 항상 쉬운 것은 아닌데, 딜레마를 만들어 내는 회색 지대가 늘 있기 때문이다."],
+["autobiography", "자서전", "", "", "Instead of writing his autobiography himself, Mark Twain said it out loud and someone else wrote it down.", "마크 트웨인은 자신의 자서전을 직접 쓰는 대신에, 그것을 소리 내어 말했고 다른 사람이 받아 적었다."],
+["scale up", "(규모·양 등을) 확대하다, 늘리다", "expand, enlarge, increase", "", "Scaling up from small to large is often accompanied by an evolution from simplicity to complexity.", "작은 것에서 큰 것으로 규모를 확대하는 것은 흔히 단순함에서 복잡함으로의 진화를 수반한다."],
+["put across", "(생각·의견 등을) 전달하다, 이해시키다", "convey", "", "Environmental journalists have to put across their perspective on the environment to lawmakers.", "환경 저널리스트들은 입법자들에게 환경에 대한 그들의 관점을 이해시켜야 한다."],
+["give in", "굴복[항복]하다", "yield, surrender, cave in", "", "They never gave in during the tough negotiations last week.", "그들은 지난주 힘든 협상 동안 절대 굴복하지 않았다."],
+["track down", "~을 (추적하여) 찾아내다", "trace, locate", "", "The police expected it would take longer to track down the criminal.", "경찰은 범인을 찾아내는 데 시간이 더 오래 걸릴 것으로 예상했다."]],
+33:[["alongside", "옆에, 나란히; ~와 함께, 동시에", "beside, next to", "", "The police car parked alongside the vehicle in the accident to assist with traffic control.", "경찰차는 교통 통제를 돕기 위해 사고와 연관된 차량 옆에 주차했다."],
+["tribal", "부족의, 종족의", "", "", "A rain dance is an old tribal tradition in parts of the Americas.", "기우(祈雨)춤은 미주 일부 지역의 오래된 부족 전통이다."],
+["bribe", "뇌물; 뇌물을 주다, 매수하다", "", "", "He refused to take the bribe and reported the incident instead.", "그는 뇌물을 받기를 거절하고 대신 그 사건을 신고했다."],
+["ingenuity", "독창성, 창의력", "creativity, originality, inventiveness", "", "Clues from experiments and observations require great ingenuity to solve.", "실험과 관찰에서 얻은 단서들은 해결하는 데 있어 엄청난 창의력을 필요로 한다."],
+["redundant", "불필요한, 쓸모없는", "unnecessary, superfluous", "", "Computers have made many paper records redundant in most cases.", "컴퓨터는 대부분의 경우에 우리의 종이 기록을 불필요하게 만들었다."],
+["interpersonal", "대인 관계의", "", "", "Her interpersonal abilities allowed her to work well in diverse teams.", "그녀의 대인 관계 능력은 그녀가 다양한 팀에서 일을 잘할 수 있게 해 주었다."],
+["outset", "((the ~)) 착수, 시작, 발단", "beginning, inception", "", "The thing about creativity is that at the outset, you can't tell which ideas will succeed and which will fail.", "창의성에 관한 중요한 것은, 당신이 처음에는 어떤 아이디어가 성공할지와 어떤 아이디어가 실패할지를 알 수 없다는 것이다."],
+["downturn", "(경기 등의) 침체, 하락", "decline, recession", "upturn, boom", "If there is a downturn in the economy, sales will be down.", "만약 경기 침체가 일어나면 매출이 줄어들 것이다."],
+["interrupt", "방해하다, 중단시키다", "disturb, bother", "", "Office workers are regularly interrupted by ringing phones.", "사무실 직원들은 울려 대는 전화 때문에 주기적으로 방해를 받는다."],
+["marital", "결혼(생활)의, 부부의", "", "", "The survey includes questions about age, address, occupation, and marital status.", "그 설문에는 나이, 주소, 직업, 그리고 혼인 여부에 관한 질문이 포함되어 있다."],
+["substitute", "대용품, 대리인; 대체[대신]하다", "replacement, replace", "", "Many people use almond milk as a substitute for dairy milk.", "많은 사람들이 유제품 우유에 대한 대용품으로 아몬드 우유를 사용한다."],
+["fabricate", "조작[날조]하다; 제작[조립]하다", "invent, make up, forge, manufacture", "", "They were caught trying to fabricate evidence to deceive the police.", "그들은 경찰을 속이기 위해 증거를 조작하려다 붙잡혔다."],
+["impartial", "공정한, 치우치지 않은", "fair, unbiased, neutral", "biased, partial", "A parent isn't always impartial and therefore cannot be an effective referee when children fight.", "부모가 항상 공정한 것은 아니며, 따라서 자녀들이 싸울 때 유능한 중재자가 될 수 없다."],
+["waterproof", "방수의; 방수 처리하다", "", "", "Waterproof bags keep our belongings safe while we are trekking in the rain.", "방수가 되는 가방은 우리가 빗속에서 트레킹을 할 때 우리의 소지품들을 안전하게 지켜 준다."],
+["resort", "((~ to)) (부득이하게) 의지하다; 휴양지, 리조트; 수단, 방편; 의지, 호소", "turn to, depend on, rely on", "", "Police learn a variety of methods to handle dangerous situations without resorting to violence.", "경찰은 폭력에 의존하지 않고 위험한 상황을 처리하는 다양한 방법을 배운다."],
+["predominate", "지배하다, 우위를 차지하다", "dominate, prevail", "", "Leaders' decisions involve weighing all competing interests and determining which one predominates.", "지도자들의 결정은 모든 상충하는 이해관계를 따져 보고 어느 것이 우위를 차지하는지 결정하는 것을 포함한다."],
+["psychic", "초자연적인; 정신의; 심령술사, 초능력자", "supernatural, mental", "", "The film mainly features teenagers with a variety of psychic powers.", "그 영화는 다양한 초능력을 가진 십 대들을 주된 특징으로 한다."],
+["emperor", "황제", "ruler, monarch", "", "People generally believe that the Caesar salad is named after a Roman emperor.", "사람들은 일반적으로 시저 샐러드가 로마 황제의 이름을 따서 지어진 것이라고 믿는다."],
+["fatigue", "(심신의) 피로, 피곤", "exhaustion", "", "Leaving no time for the things that are important to us can lead to fatigue.", "우리에게 중요한 것들을 위해 시간을 남겨 놓지 않는 것은 피로로 이어질 수 있다."],
+["clutter", "잡동사니, 어수선함; 어지럽히다", "mess, disorder, litter, mess up", "", "His desk is a clutter of books and leftover lunch.", "그의 책상은 책들과 먹다 남은 점심으로 어수선한 상태이다."],
+["mandatory", "법에 정해진, 의무적인", "compulsory, required, obligatory", "", "We are familiar with the mandatory nutritional information on food products.", "우리는 식품에 표시된 의무적인 영양 정보에 익숙하다."],
+["likewise", "마찬가지로", "similarly, in the same way", "", "She remained calm during the crisis; likewise, I tried to stay composed.", "그녀는 위기 상황에서 침착함을 유지했고, 마찬가지로 나도 침착하게 있으려고 노력했다."],
+["whereby", "(그것에 의하여) ~하는, 그로써", "", "", "We engage in reflection, whereby we can mature.", "우리는 성찰을 하고, 그로 인해 성숙해질 수 있다."],
+["prosecute", "기소하다, 공소를 제기하다", "charge, indict", "", "They were prosecuted for making and using fake identification.", "그들은 가짜 신분증을 만들고 사용한 혐의로 기소되었다."],
+["worthwhile", "가치 있는, 보람 있는", "valuable, rewarding", "worthless", "I do not feel the tiredness in my legs, for the journey has been truly worthwhile.", "여행이 정말로 가치 있었기 때문에, 나는 다리에 피로를 느끼지 않는다."],
+["equality", "평등, 균등", "", "inequality", "The movement for equality has continued to gain steady support through the years, including equal pay.", "동등한 임금을 포함하여, 평등을 위한 운동은 수년간 계속해서 지지를 얻고 있다."],
+["antisocial", "반사회적인; 비사교적인", "unsociable", "social, sociable", "Many historic sites are suffering from antisocial behavior such as littering.", "많은 유적지가 쓰레기 투기와 같은 반사회적 행위로 피해를 입고 있다."],
+["barren", "척박한; 열매를 맺지 못하는", "infertile, desolate", "fertile", "In the barren desert, nothing grew for miles around.", "그 척박한 사막에서는 주위의 수 마일에 아무것도 자라지 않았다."],
+["monument", "기념비; 기념비적인[역사적인] 건축물", "memorial", "", "The monument was built to honor soldiers who died in battle.", "그 기념비는 전사한 군인들을 기리기 위해 세워졌다."],
+["reptile", "파충류", "", "", "Reptiles, like crocodiles, lay eggs that hatch outside the mother's body.", "악어와 같은 파충류는 어미의 몸 밖에서 부화하는 알을 낳는다."],
+["plantation", "(대규모) 농장, 플랜테이션", "", "", "The plantation is known for producing organic herbs used in natural medicines.", "그 농장은 천연 의약품에 사용되는 유기농 허브를 생산하는 것으로 알려져 있다."],
+["nominal", "명목상의, 이름뿐인; 아주 적은, 하찮은", "minimal, trivial", "", "The nominal leader of the organization has no real power.", "그 조직의 명목상의 리더는 실제 권력이 전혀 없다."],
+["eminent", "저명한", "well-known, renowned", "", "Studies of eminent scientists in the 1950s strongly supported this theory.", "1950년대의 저명한 과학자들의 연구가 이 이론을 강력히 뒷받침했다."],
+["imminent", "임박한, 곧 닥칠", "impending", "", "With an imminent deadline, the team worked overtime to finish the project.", "마감 기한이 임박하자, 그 팀은 프로젝트를 끝내기 위해 초과 근무를 했다."],
+["attribute", "결과[탓/덕분]로 보다; 속성, 특성", "ascribe, trait, feature", "", "The coach attributed the team's victory to excellent teamwork.", "코치는 팀의 승리를 훌륭한 팀워크 덕분이라고 보았다."],
+["contribute", "기여하다; 기부[기증]하다; (~의) 원인이 되다; 기고하다", "donate, endow", "", "The automotive industry has contributed to the economic growth of the country.", "자동차 산업은 그 국가의 경제 성장에 기여해 왔다."],
+["bureaucracy", "관료제, 관료(조직)", "", "", "The system of bureaucracy in the government often slows the creation of new policies and laws.", "정부의 관료제 시스템은 흔히 새로운 정책과 법률의 제정을 지연시킨다."],
+["tell on", "~을 고자질하다; ~에 (안 좋은) 영향을 미치다", "", "", "Since opponents will attack, the advantages of being proactive and \"telling on oneself\" are too significant to ignore.", "상대는 공격할 것이기 때문에, 상황을 앞서서 주도하며 '스스로의 잘못을 밝히는 것'의 이점은 너무 중요해서 무시할 수 없다."],
+["spell out", "철자를 하나하나 말하다[쓰다]; ~을 분명히 설명하다", "clarify, specify", "", "Please spell out your name so that I can confirm your reservation.", "제가 당신의 예약을 확인할 수 있도록 성함을 철자 하나하나 말씀해 주세요."],
+["deprive A of B", "A에게서 B를 빼앗다", "strip A of B, rob A of B", "", "Humans are the only species that will deliberately deprive themselves of sleep.", "인간은 의도적으로 스스로에게서 잠을 박탈하려는 유일한 종이다."]],
+34:[["liberal", "자유주의의, 진보적인; 후한, 관대한", "tolerant, generous", "conservative", "The book provides a politically liberal interpretation of historical events.", "그 책은 역사적 사건들에 대해 정치적으로 자유주의적인 해석을 제공한다."],
+["dissent", "반대(의견), 이의; ((~ from)) 반대하다", "disagreement, disagree with", "agreement, consent to, agree with", "The proposal was passed without any dissent.", "그 제안은 어떠한 반대도 없이 통과되었다."],
+["boost", "신장시키다, 북돋우다; 격려, 힘, 부양책; 증가", "", "", "Retailers often boost sales with accompanying support such as assembly services.", "소매업자들은 흔히 조립 서비스 같은 부가적인 지원을 통해 매출을 신장시킨다."],
+["flatter", "아첨하다, 알랑거리다; (실제보다) 돋보이게 하다", "", "", "They flatter me only when they are going to ask for a favor.", "그들은 부탁을 하려고 할 때만 나에게 알랑거린다."],
+["pitfall", "(숨겨진) 위험, 함정", "trap, hazard, danger", "", "Thanks to her experience, she could avoid the common pitfalls of investing.", "경험 덕분에, 그녀는 투자의 일반적인 함정들을 피할 수 있었다."],
+["convert", "전환하다, 개조하다; 개종하다", "transform, switch, alter", "", "Commercial dairy operations usually convert millions of gallons of water into milk.", "상업적 낙농 업체는 보통 수백만 갤런의 물을 우유로 전환한다."],
+["peril", "위험(물)", "danger, hazard, threat, risk", "safety", "Some children regard the natural world as a place filled with animals in peril.", "어떤 아이들은 자연 세계를 위험에 처한 동물들로 가득한 장소로 여긴다."],
+["germ", "세균, 미생물; 기원, 시초", "bacterium, microbe, origin, root", "", "Wash your hands thoroughly so you don't get germs on the food.", "음식에 세균을 묻히지 않도록 손을 철저히 씻어라."],
+["renovate", "개조하다, 보수하다", "remodel, refurbish", "", "They renovated their kitchen in the latest style by adding smart appliances.", "그들은 스마트 가전제품을 더하여 주방을 최신식으로 개조했다."],
+["ranch", "(대규모) 목장", "farm, pasture, meadow", "", "He works on the ranch, herding cattle daily to earn a living.", "그는 생계 유지를 위해 매일 소를 몰며 목장에서 일한다."],
+["benevolent", "자비로운, 인정 많은", "generous, charitable", "malevolent", "The benevolent woman helped the student pay for classes.", "그 인정 많은 여자는 그 학생이 수업료 내는 것을 도와주었다."],
+["stalk", "(식물의) 줄기[대]; 몰래 접근하다", "", "", "To make the sack lighter, she quickly filled her last sack with corn stalks.", "자루를 더 가볍게 하기 위해, 그녀는 자신의 마지막 자루를 옥수숫대로 빠르게 채웠다."],
+["portable", "휴대용의, 들고 다닐 수 있는", "compact, mobile", "", "Some schools allow students to use portable calculators.", "일부 학교들은 학생들이 휴대용 계산기를 사용할 수 있게 해준다."],
+["adorn", "꾸미다, 장식하다", "decorate, ornament", "", "The Christmas tree is beautifully adorned with many twinkling fairy lights.", "그 크리스마스트리는 반짝이는 많은 꼬마전구들로 아름답게 장식되어 있다."],
+["infamous", "악명 높은", "notorious", "", "This snake is infamous for causing the extinction of native bird species in Guam.", "이 뱀은 괌에 사는 토착 조류 종의 멸종을 초래한 것으로 악명이 높다."],
+["correspond", "일치[부합]하다; ((~to)) 해당[상응]하다; ((~with)) 서신을 주고받다", "agree, match, coincide", "", "His statement doesn't correspond with the fact that he went outside at the time.", "그의 진술은 그가 당시 외출했다는 사실과 일치하지 않는다."],
+["peculiar", "별난, 기이한; 고유한, 특유의", "odd, weird, unique, distinctive", "", "It is one of the most peculiar plants found in the desert.", "그것은 사막에서 발견되는 가장 별난 식물들 중 하나이다."],
+["compartment", "칸, 구획; (기차 등의) 객실", "section, division", "", "This suitcase contains a separate compartment for your shoes.", "이 여행 가방에는 신발을 넣는 별도의 칸이 있다."],
+["radical", "근본적인; 급진적인; 급진주의자", "fundamental, extreme", "", "She proposed a radical solution that addressed the root of the problem.", "그녀는 문제의 근원을 다루는 근본적인 해결책을 제안했다."],
+["conclude", "결론을 내리다; 끝나다; 끝내다; (조약 등을) 맺다", "determine, complete, terminate", "", "The study concluded that music had positive effects on the students' mental health.", "그 연구는 음악이 학생들의 정신 건강에 긍정적 영향을 미친다는 결론을 내렸다."],
+["debilitate", "(심신·조직 등을) 약화시키다", "weaken", "strengthen", "Those who claim burnout but are not debilitated by it are dealing with a partial form of it.", "번아웃을 주장하지만 그것에 의해 쇠약해지지 않은 사람들은 번아웃의 부분적인 형태를 다루고 있는 것이다."],
+["invoke", "(법 등을) 적용하다, 발동하다; (근거로) 언급[인용]하다; (느낌 등을) 불러일으키다", "apply, enforce, cite, quote, evoke, arouse", "", "The UN officially invoked strict economic sanctions on the country.", "유엔은 공식적으로 그 국가에 엄격한 경제 제재를 발동시켰다."],
+["skeleton", "골격, 해골; (건물의) 골조; (글 등의) 윤곽", "bones, framework, structure, outline", "", "The exhibit features a display of twenty full-size dinosaur skeletons.", "그 전시회에는 실제 크기의 공룡 골격 스무 개가 전시되어 있다."],
+["asthma", "천식", "", "", "The percentages of male children with asthma were higher in urban areas than in rural areas.", "천식이 있는 남자아이들의 비율은 시골 지역에서보다 도시 지역에서 더 높았다."],
+["resilience", "회복력; 탄력, 탄성", "elasticity, flexibility", "", "Children with emotional resilience are better at handling stress and setbacks in their lives.", "정서적 회복력을 지닌 아이들은 그들의 삶에서 스트레스와 좌절에 더 잘 대처한다."],
+["transit", "운송, 수송; (대중)교통; 통과, 통행", "shipment, transportation, passage", "", "Many pedestrians in a city can often be a sign of insufficient transit options.", "도시의 많은 보행자는 종종 불충분한 교통수단 선택권의 징표일 수 있다."],
+["inborn", "타고난, 선천적인", "natural, innate", "", "Erikson believes that a feature of adulthood is the emergence of an inborn desire to teach.", "Erikson은 성인기의 한 특징이 가르치고자 하는 타고난 욕구의 출현이라고 생각한다."],
+["proximity", "(거리·시간상으로) 가까움, 근접", "closeness, nearness", "", "The modified extended family does not necessarily require geographical proximity.", "변형된 확대 가족이 반드시 지리적 근접성을 필요로 하는 것은 아니다."],
+["pitch", "음의 높이; 투구; (감정의) 정도, 정점; 권유, 홍보; 던지다, 투구하다", "proposal", "", "The names of pitches are closely associated with particular frequency values.", "음 높이의 명칭은 특정 주파수 값과 밀접하게 연관되어 있다."],
+["hover", "(공중을) 맴돌다; 서성이다", "float, loiter", "", "A hawk slowly hovered over the hill, searching for prey.", "매 한 마리가 천천히 언덕 위를 맴돌며 사냥감을 찾고 있었다."],
+["quarrel", "다투다, 언쟁을 벌이다; 말다툼, 언쟁", "argue, argument, dispute", "", "Neighbors will sometimes quarrel with each other over parking spaces.", "이웃들은 때때로 주차 공간을 두고 서로 언쟁을 벌일 것이다."],
+["outlook", "전망, 예측; 관점; 조망, 경치", "prospect, perspective, viewpoint", "", "The company's outlook improved after the successful product launch.", "성공적인 제품 출시 후 그 회사의 전망이 좋아졌다."],
+["suppress", "진압[억압]하다; 참다, 억누르다; 은폐하다", "repress, subdue, restrain", "", "The police suppressed the protests by blocking the streets.", "경찰은 길을 막아 시위를 진압했다."],
+["oppress", "억압[탄압]하다; 압박감을 주다", "persecute, repress", "", "In some countries, minority groups are oppressed by the government.", "일부 국가에서는 소수 민족이 정부에게 억압받는다."],
+["beneficial", "유익한, 이로운", "advantageous, helpful", "harmful", "Broadly effective pesticides can have harmful effects on beneficial insects.", "광범위하게 효과적인 살충제는 이로운 곤충에 해로운 영향을 미칠 수 있다."],
+["beneficent", "자비로운, 인정 많은", "charitable, generous", "", "She was very beneficent in handing out food to the homeless.", "그녀는 노숙자들에게 음식을 나눠 줌에 있어 매우 인정이 많았다."],
+["alleviate", "완화하다, 경감시키다", "ease, relieve", "aggravate", "Doctors prescribe various treatments and medications to alleviate patients' pain.", "의사는 환자의 통증을 완화하기 위해 다양한 치료법과 약물을 처방한다."],
+["hold back", "(감정을) 억누르다, 참다; ~을 저지하다", "restrain, suppress, hinder, obstruct", "", "He tried to hold back his tears as he remembered the struggles of his past.", "그는 과거의 어려움들을 기억하며 눈물을 참으려고 애썼다."],
+["cut across", "~을 가로지르다; ~에 걸치다, ~을 아우르다", "cross, traverse, span", "", "If we quickly cut across the grassy field, it'll definitely save time.", "만약 우리가 그 풀밭을 빠르게 가로질러 간다면, 확실히 시간을 절약할 것이다."],
+["come away with", "(어떤 인상·느낌을) 갖고 떠나다", "", "", "To the extent that sufficient context is provided, readers come away with the author's intent.", "충분한 맥락이 제공되는 한, 독자들은 저자의 의도를 이해하고 떠나게 된다."]],
+35:[["empathy", "감정 이입, 공감", "understanding", "", "Anger and empathy almost never exist in the same place at the same time.", "분노와 공감은 거의 절대 같은 장소에 동시에 존재하지 않는다."],
+["defy", "반항[거역]하다; (설명·묘사 등이) 불가능하다", "resist, disobey", "", "Hundreds of people who defied the law were arrested.", "그 법을 거역한 수백 명의 사람들이 체포되었다."],
+["trustworthy", "신뢰할[믿을] 만한", "reliable, dependable", "untrustworthy", "I was afraid that he might not be a very trustworthy person.", "나는 그가 그다지 신뢰할 만한 사람이 아닐까 봐 두려웠다."],
+["laboratory", "연구실, 실험실", "lab", "", "The laboratory was mostly filled with glassware and sophisticated equipment.", "그 실험실은 주로 유리 제품들과 복잡한 장비로 가득 차 있었다."],
+["compulsion", "강제, 강요; 충동", "force, coercion, urge, impulse", "", "The confession was made under compulsion, not voluntarily.", "그 자백은 자발적으로가 아니라 강요에 의해 이루어졌다."],
+["mediate", "중재[조정]하다", "intervene", "", "He successfully mediated between the management and the workers.", "그는 경영진과 노동자 사이를 성공적으로 중재했다."],
+["disrupt", "지장을 주다, 방해하다", "interrupt, disturb", "", "Do you fear that crime or war will disrupt your security?", "당신은 범죄나 전쟁이 당신의 안전에 지장을 줄까 봐 두려워하는가?"],
+["cosmic", "우주의; 거대한, 어마어마한", "universal, vast, immense", "", "Scientists are trying to identify the cosmic particles in question.", "과학자들은 문제의 그 우주 입자들을 규명하려 하고 있다."],
+["convenience", "편의, 편리; 편리한 것, 편의 시설", "", "inconvenience", "Bundle pricing continues to appeal to customers who prefer the convenience of a package.", "묶음 가격은 패키지의 편리함을 선호하는 고객들의 관심을 계속 끌고 있다."],
+["spouse", "배우자", "partner", "", "Some spouses perceive marital roles somewhat differently from their partners.", "어떤 배우자들은 부부의 역할을 자신이 배우자와 다소 다르게 인식한다."],
+["cherish", "소중히 여기다; (기억·감정 등을) 간직하다", "treasure, value", "neglect", "Please know that your thoughtfulness will always be remembered and cherished.", "여러분의 사려 깊은 마음은 항상 기억되고 소중히 여겨질 것임을 알아주시기 바랍니다."],
+["organ", "(신체의) 장기, 기관; 오르간; (공식적인) 기관", "", "", "The organ of taste is not the tongue, but the brain.", "맛을 느끼는 신체 기관은 혀가 아니라 뇌이다."],
+["bump", "충돌하다; 덜컹거리며 가다; 혹, 타박상; (도로 등의) 융기, 턱", "collide, crash, jolt", "", "He accidentally bumped his car into a wall while he was parking.", "그는 주차하다가 실수로 그의 차를 벽에 박았다."],
+["chaotic", "혼돈[혼란] 상태인, 무질서한", "disorderly", "orderly", "She managed to get through the chaotic political situation.", "그녀는 혼돈 상태의 정치적 상황을 간신히 헤쳐 나갔다."],
+["acute", "극심한; 급성의; 예리한, 예민한", "severe, intense", "chronic", "He wanted to study the brains of individuals with an acute sense of loneliness.", "그는 극심한 외로움을 겪는 사람들의 뇌를 연구하고 싶어 했다."],
+["periodic", "주기적인, 정기적인", "regular, cyclical", "", "Periodic changes in temperatures can significantly affect the growth of crops.", "주기적인 기온 변화는 작물의 성장에 큰 영향을 미칠 수 있다."],
+["headquarters", "본사, 본부 (직원들)", "", "", "She was transferred to the corporate headquarters last month.", "그녀는 지난달에 회사 본사로 전근되었다."],
+["contemplate", "고려[숙고]하다; 응시하다", "consider, ponder, gaze, stare at", "", "When contemplating careers, it's important to know your strengths.", "진로를 고민할 때는, 당신의 강점을 아는 것이 중요하다."],
+["assault", "폭행(죄); 공격; 폭행하다; 공격하다", "violence, attack", "", "After getting into a violent fight, they were arrested for assault.", "폭력적인 싸움에 휘말린 뒤, 그들은 폭행죄로 체포되었다."],
+["magnificent", "웅장한, 장엄한, 훌륭한", "splendid, glorious, majestic", "", "They were watching a magnificent sunset at the beach.", "그들은 해변에서 장엄한 일몰을 보고 있었다."],
+["diploma", "수료증, 졸업장", "certificate, degree", "", "Diplomas are given to students who pass all of their courses.", "모든 과정을 이수하는 학생들에게는 수료증이 주어진다."],
+["contend", "겨루다, 다투다; 주장하다", "compete, claim, assert", "", "They contended for control over the company's financial decisions.", "그들은 회사의 재정 결정권을 두고 다퉜다."],
+["degrade", "(질적으로) 저하시키다; 비하하다; (화학적으로) 분해되다[하다]", "deteriorate, humiliate, break down", "", "Excessive pollution has been degrading the air quality in this city for many years.", "과도한 오염은 수년간 이 도시의 대기 질을 저하시켜 오고 있다."],
+["conservatory", "온실; 예술 학교, 음악 학교", "greenhouse", "", "The conservatory was filled with tropical plants and colorful exotic flowers.", "그 온실은 열대 식물과 형형색색의 이국적인 꽃들로 가득했다."],
+["administer", "관리[운영]하다; 집행하다; (약을) 투여하다", "manage, enforce", "", "The fund will be professionally administered by an accountant.", "그 기금은 회계사에 의해 전문적으로 관리될 것이다."],
+["persist", "집요하게[끈질기게] 계속하다; 지속되다", "last", "", "He persisted in improving and won an Olympic gold medal.", "그는 끈질기게 개선해 나가며 올림픽 금메달을 땄다."],
+["embrace", "포옹하다; 수용하다; 포옹; 수용", "hug, accept", "", "After the game, teammates embraced to celebrate their hard work.", "경기 후에 팀원들은 자신의 노고를 자축하며 서로 포옹했다."],
+["conquer", "정복하다, 물리치다; (어려움을) 극복하다", "defeat, subdue, overcome", "", "Alexander the Great conquered Persia and expanded his empire to India.", "알렉산더 대왕은 페르시아를 정복하고 그의 제국을 인도까지 확장했다."],
+["district", "지역, 구역", "area, zone", "", "Tomorrow he will go into the downtown district and find work.", "내일 그는 시내 지역으로 가서 일자리를 찾을 것이다."],
+["commemorate", "기념하다, 기리다", "celebrate, honor, memorialize", "", "Her recent film commemorates her mother, who passed away during its production.", "그녀의 최근 영화는 제작 중에 세상을 떠난 그녀의 어머니를 기린다."],
+["moderate", "보통의, 적당한; 중도의, 온건한; 완화하다[되다]", "abate, alleviate", "extreme, excessive, radical", "Moderate amounts of stress can foster resilience.", "적당한 양의 스트레스는 회복력을 촉진할 수 있다."],
+["clutch", "움켜잡다, 꽉 쥐다; 움켜쥠", "grip, grasp", "", "He felt dizzy and quickly clutched the handrail for support.", "그는 어지러움을 느껴 몸을 지탱하기 위해 재빨리 난간을 움켜잡았다."],
+["alternative", "대안; 대체 가능한, 대안의", "option", "", "Learning how to make decisions among alternatives requires good personal values.", "대안들 중에서 결정하는 방법을 배우는 것은 올바른 개인적 가치관을 필요로 한다."],
+["alternate", "번갈아 하는, 교대의; 번갈아 하다[일어나다]", "take turns", "", "The meeting is held on alternate Mondays throughout the semester.", "그 회의는 학기 내내 격주 월요일마다 열린다."],
+["practicable", "실행[실현] 가능한", "feasible", "impracticable", "We need to stop dreaming and start setting some practicable goals.", "우리는 꿈은 그만 꾸고 실현 가능한 목표를 세우기 시작해야 한다."],
+["lure", "유혹하다, 꾀다; 유혹(물), 매력; (낚시) 미끼", "tempt, attract, entice, temptation, attraction, bait", "", "Some predators copy the movements of insects to lure fish to the surface of the water.", "일부 포식자들은 물고기를 수면 위로 유인하기 위해 곤충의 움직임을 모방한다."],
+["startle", "깜짝 놀라게 하다, 깜짝 놀라다", "", "", "If one bird startles and flies off, others immediately follow without assessing the threat.", "한 마리 새가 놀라서 날아가면, 다른 새들은 위협을 판단하지 않고 즉시 따라간다."],
+["put in for", "~을 신청하다", "apply for", "", "When are you going to put in for a department transfer?", "부서 이동을 언제 신청하실 건가요?"],
+["let down", "~을 실망시키다", "disappoint", "", "This machine won't let you down, as it's known for being very reliable.", "이 기계는 매우 믿을 만하다고 알려져 있기 때문에 당신을 실망시키지 않을 겁니다."],
+["stick out", "~을 내밀다, ~가 튀어나오다; 눈에 띄다", "stand out", "", "The paper bag had leaves sticking out of the top.", "그 종이봉투의 윗부분에 잎사귀들이 튀어나와 있었다."]],
+36:[["elusive", "이해[규정]하기 어려운; 잡히지 않는", "evasive", "", "The poem's meaning remained elusive to him, even after several careful readings.", "그 시의 의미는 여러 번 주의 깊게 읽은 뒤에도 그에게 여전히 이해하기 어려웠다."],
+["reinforce", "강화하다, 보강하다", "strengthen, fortify", "weaken", "The article reinforces the idea that all people are equal.", "그 조항은 모든 사람이 동등하다는 생각을 강화한다."],
+["eternal", "영원한, 끝없는", "everlasting, permanent, endless", "", "Some people say that joy is found in worldly enjoyment, while others say it is found in eternal salvation.", "어떤 사람들은 기쁨이 세속적인 쾌락에서 발견된다고 말하는 반면, 다른 사람들은 그것이 영원한 구원에서 발견된다고 말한다."],
+["encompass", "포함하다, 아우르다; 둘러싸다", "cover, include, surround, encircle, enclose", "", "Investigations into the economics of information encompass a variety of categories.", "정보의 경제학에 대한 연구는 다양한 범주를 아우른다."],
+["prevail", "이기다, 승리하다; 만연[팽배]하다", "triumph, overcome, pervade, predominate", "", "Good always prevails against evil in classic fairy tales.", "고전 동화에서는 선이 항상 악을 이긴다."],
+["exemplary", "모범적인, 본이 되는", "ideal, model", "", "He received an award for his exemplary work with the mentoring program.", "그는 멘토링 프로그램에서의 모범적인 활동으로 상을 받았다."],
+["parliament", "의회, 국회", "congress, assembly", "", "The parliament voted to pass a new law to regulate social media.", "의회는 소셜 미디어를 규제하기 위한 새 법안을 통과시키기로 표결했다."],
+["restrain", "저지[제지]하다; 억누르다, 참다", "hold back, suppress", "", "Security quickly jumped in to restrain the fan who climbed onstage during the performance.", "안전 요원은 공연 도중 무대에 올라간 팬을 제지하기 위해 재빨리 뛰어들었다."],
+["exemplify", "전형적인 예를 보여 주다; 예를 들다", "represent, illustrate", "", "The cathedral exemplifies the Gothic style of the Middle Ages.", "그 대성당은 중세 시대 고딕 양식의 전형적인 예를 보여 준다."],
+["tendency", "경향, 추세; 성향", "trend, inclination, disposition", "", "In a virtual world, we have a tendency to be less defensive, as there appears to be no physical threat.", "가상 세계에서는 물리적인 위협이 없는 것처럼 보이기 때문에 우리는 덜 방어적인 경향이 있다."],
+["intent", "강한 관심을 보이는, 몰두하는; 작정한; 의도, 목적", "determined, purpose, aim, goal", "", "The company was intent on developing the scenic lake as a tourist destination.", "그 회사는 경치 좋은 호수를 관광지로 개발하는 데 강한 관심을 보였다."],
+["lament", "한탄하다, 애도하다; 애가, 한탄", "regret, bemoan, grieve, mourn", "", "He wrote a poem to lament the quiet passing of another year.", "그는 또 다른 한 해가 조용히 지나가는 것을 한탄하기 위해 시를 썼다."],
+["alien", "외국(인)의; 생경한; 외계의; 외국인; 외계인", "foreign, exotic, foreigner", "", "Foreign residents are required to carry their alien card at all times.", "외국인 거주자는 항상 외국인 등록증을 소지할 것이 요구된다."],
+["sacred", "성스러운, 신성한", "holy, divine", "", "He says that all forms of life are sacred and should be respected.", "그는 모든 형태의 생명이 신성하며 존중받아야 한다고 말한다."],
+["feat", "위업, 공적; (뛰어난) 솜씨, 재주", "achievement", "", "They achieved remarkable feats in spite of the hardships they faced.", "그들은 직면한 어려움에도 불구하고 놀라운 위업들을 달성했다."],
+["mount", "오르다, 올라타다; 증가하다; 시작[착수]하다", "climb, ascend, increase, arrange, launch", "", "He mounted the stage confidently as the audience applauded loudly.", "청중이 크게 박수 치는 가운데 그는 자신 있게 무대에 올랐다."],
+["via", "~을 경유하여[거쳐]; ~을 통하여", "through", "", "She booked a flight to London via New York for her business trip.", "그녀는 출장을 위해 뉴욕을 경유하여 런던으로 향하는 항공편을 예약했다."],
+["dismal", "음울한, 우울한; 형편없는", "gloomy, poor", "", "This dismal weather is likely to make people feel depressed.", "이 음울한 날씨는 사람들이 우울함을 느끼게 할 가능성이 있다."],
+["worship", "예배하다, 숭배하다; 예배, 숭배", "revere, reverence", "", "The people in the area all worship the same god.", "그 지역의 사람들은 모두 같은 신을 숭배한다."],
+["reputation", "평판, 명성", "standing, fame", "", "The hotel has a good reputation for friendly service.", "그 호텔은 친절한 서비스로 평판이 좋다."],
+["eligible", "자격이 있는, 적격[적임]의", "qualified, suitable", "", "Anyone over the age of eighteen is eligible to enter the contest.", "18세가 넘은 누구든 그 대회에 참가할 자격이 있다."],
+["obligation", "의무, 책임", "duty, responsibility, commitment", "", "You are under no obligation to answer that question.", "당신은 그 질문에 대답할 의무가 없다."],
+["timber", "목재, 재목", "wood, lumber", "", "Forests have been a source of timber and firewood.", "숲은 목재와 장작의 원천이 되어 왔다."],
+["forge", "(관계 등을) 구축하다; 위조하다", "build, form, counterfeit, falsify", "", "He attended the conference so that he could forge new relationships.", "그는 새 인맥을 구축하기 위해 학회에 참석했다."],
+["crack", "깨다[깨지다], 금이 가다, 해결하다, 풀다; (갈라진) 틈, 금", "break, split", "", "She cracked an egg and put it in the hot frying pan.", "그녀는 달걀을 깨서 뜨거운 프라이팬에 넣었다."],
+["evaporate", "증발하다[시키다]; (감정·희망 등이) 사라지다", "vaporize, disappear, vanish", "", "The water quickly evaporated because of the heat of the sun.", "태양의 열기 때문에 물이 빠르게 증발했다."],
+["undertake", "(책임 등을) 떠맡다, 착수하다; ((~ to)) 약속하다", "take on, set about, commence, promise", "", "She was asked to undertake the role of team leader for the new project.", "그녀는 새 프로젝트의 팀장 역할을 맡아 달라는 요청을 받았다."],
+["rational", "이성적인, 합리적인", "logical, reasonable", "irrational", "The most obvious feature of moral agents is a capacity for rational thought.", "도덕적 행위자의 가장 명백한 특징은 이성적인 사고 능력이다."],
+["medieval", "중세의, 중세풍의", "", "", "In ancient and medieval times, philosophy was everything.", "고대와 중세 시대에는 철학이 전부였다."],
+["fragile", "부서지기[깨지기] 쉬운; 취약한, 허약한", "breakable, vulnerable", "", "Fragile items must be packed with extra cushioning materials during shipping.", "깨지기 쉬운 물품은 운송 시 추가 완충재와 함께 포장되어야 한다."],
+["provoke", "(반응 등을) 유발하다; 화나게 하다, 도발하다", "arouse, induce, irritate, annoy", "", "The classic prisoner's dilemma uses distrust between prisoners to provoke criminal confessions.", "전형적인 죄수의 딜레마는 죄수들 사이의 불신을 이용하여 범죄 자백을 유발한다."],
+["optimistic", "낙관[낙천]적인, 낙관주의의", "positive", "pessimistic", "As I became more optimistic, my confidence grew, too.", "내가 더 낙관적으로 변하면서, 나의 자신감 또한 커졌다."],
+["pessimistic", "비관적인", "negative", "optimistic", "He was pessimistic about his chances of passing the test.", "그는 자신이 시험에 합격할 가능성에 대해 비관적이었다."],
+["hospitality", "환대, 후한 대접", "", "", "Though we had never met him before, the restaurant owner showed us great hospitality and service.", "비록 우리가 그를 이전에 만난 적은 없었지만, 그 식당 주인은 우리에게 훌륭한 환대와 서비스를 선보였다."],
+["hostility", "적대감, 적개심", "hatred", "", "The war is over, but there is hostility between the two nations.", "전쟁은 끝났지만, 두 나라 사이에 적개심이 있다."],
+["antibiotic", "항생제, 항생 물질", "", "", "Antibiotics are not effective against viral infections like the common cold or the flu.", "항생제는 일반 감기나 독감 같은 바이러스 감염에 효과적이지 않다."],
+["come through", "살아남다, 극복하다; (약속대로) 해내다; (정보 등이) 들어오다", "survive, overcome, succeed, pull through", "", "The company came through the recession without any major losses.", "그 회사는 어떠한 큰 손실도 없이 경기 침체를 극복했다."],
+["step up", "~을 강화하다, 올리다; (책임 등을) 맡다, 나서다", "intensify, increase", "", "Their bargaining became spirited, with Paul stepping up his price slightly and the seller lowering his slowly.", "Paul이 자신의 가격을 조금씩 올리고 판매자가 천천히 내리면서, 그들의 흥정은 활기를 띠게 되었다."],
+["cut off", "~을 잘라 내다; (공급 등을) 끊다; 고립시키다", "isolate", "", "Many major companies are changing their business models by cutting off less profitable projects.", "많은 주요 기업들은 수익성이 낮은 프로젝트를 정리함으로써 그들의 사업 모델을 변화시키고 있다."],
+["come down with", "(병에) 걸리다", "contract", "", "More people came down with the flu this year than last year.", "올해에 작년보다 더 많은 사람들이 독감에 걸렸다."]],
+37:[["ingrained", "뿌리 깊은, 몸에 깊이 밴", "deep-rooted", "", "The belief that music begins where verbal communication ends is ingrained in both collective and personal memory.", "음악이 언어적 의사소통이 끝나는 지점에서 시작된다는 믿음은 집단적 기억과 개인적 기억 모두에 깊이 새겨져 있다."],
+["minimal", "아주 적은, 최소의", "", "maximal", "She made only a minimal effort to complete the task on time.", "그녀는 그 일을 제시간에 끝내기 위해 최소한의 노력만 했다."],
+["glimpse", "언뜻 봄; 언뜻 보다", "glance", "", "As I turned my head, I caught a glimpse of a gray creature.", "내가 고개를 돌렸을 때 회색의 생명체를 언뜻 보았다."],
+["profess", "공언하다; 주장하다", "declare", "", "The politician professed support for environmental policies during his campaign.", "그 정치인은 선거 운동 중에 환경 정책에 대한 지지를 공언했다."],
+["salient", "핵심적인, 두드러진", "prominent, noticeable", "", "We presented the salient points of the new product one by one.", "우리는 신제품의 핵심적인 사항들을 하나씩 보여 주었다."],
+["aggregate", "합계, 총액; 총계의; 종합하다", "total, sum", "", "The aggregate of his monthly expenses was surprisingly high.", "그의 월별 지출 총액은 놀라울 정도로 높았다."],
+["invariably", "변함없이, 언제나", "consistently", "", "When a superior army fails, the causes invariably include unfamiliar terrain.", "우세한 군대가 실패할 때는 그 원인에 언제나 낯선 지형이 포함된다."],
+["regain", "회복하다, 되찾다", "recover, retrieve", "", "Cash crops are gradually regaining their competitiveness in the world market.", "환금 작물이 세계 시장에서 점차 경쟁력을 회복하고 있다."],
+["bulletin", "게시, 공고; 뉴스 단신", "announcement", "", "I was waiting outside when the exam grades were posted on the bulletin board.", "게시판에 시험 성적이 게시될 때 나는 밖에서 기다리고 있었다."],
+["pragmatic", "실용적인, 현실적인", "practical, realistic, sensible", "", "We need a more pragmatic approach to price stabilization.", "우리는 물가 안정에 대한 보다 현실적인 접근이 필요하다."],
+["presuppose", "전제로 하다, 가정하다", "presume, assume", "", "The norms of scientific communication presuppose that nature does not speak unambiguously.", "과학적 소통의 규범은 자연이 명확하게 말하지 않는다는 것을 전제로 한다."],
+["chronological", "연대순의, 시간순의", "sequential, consecutive", "", "The textbook detailed important historical events in chronological order.", "그 교과서는 중요한 역사적 사건들을 연대순으로 자세히 설명했다."],
+["litter", "쓰레기; 어지럽히다; (쓰레기 등을) 버리다", "trash, garbage, clutter, dump", "", "People who leave litter in this park will be subject to a fine.", "이 공원에 쓰레기를 버리는 사람은 벌금을 물게 될 것이다."],
+["factual", "사실에 기반한", "actual", "fictional", "The sign system of honeybees transmits specific factual information without any ambiguity.", "꿀벌의 신호 체계는 특정한 사실 기반 정보를 어떠한 모호함도 없이 전달한다."],
+["latitude", "(지리) 위도; ((~s)) (위도상의) 지역; (행동 등의) 자유, 재량권", "", "", "Regions with higher latitudes tend to have colder climates than those with lower latitudes.", "위도가 높은 지역은 위도가 낮은 지역보다 더 추운 기후를 지닌 경향이 있다."],
+["distribute", "나누어 주다, 분배하다; 유통시키다", "hand out, dispense, circulate", "", "We will distribute the food to our neighbors on Christmas Eve.", "우리는 크리스마스이브에 이웃들에게 음식을 나누어 줄 것이다."],
+["perpetual", "끊임없는; 영구적인, 종신의", "continuous, constant, continual, permanent, everlasting", "", "She is a perpetual learner, dedicated to the pursuit of wisdom.", "그녀는 끊임없이 배우는 사람으로, 지혜를 추구하는 데 헌신한다."],
+["temper", "(화를 잘 내는) 성질, 기질; 화, 분노; 완화하다", "temperament, rage, moderate", "", "The player was famous for his fits of temper on the court.", "그 선수는 코트에서 욱하는 성격으로 유명했다."],
+["improvise", "(연주 등을) 즉흥적으로 하다; 임시로 만들다", "ad-lib", "", "Much of ancient Greek music was probably improvised within certain rules and conventions.", "많은 고대 그리스 음악은 아마도 특정 규칙과 관습 내에서 즉흥적으로 연주되었을 것이다."],
+["prone", "~하기 쉬운; 엎드린", "liable, inclined", "", "Human reasoning is prone to confusion and error when causal questions become sufficiently complex.", "인간의 추론은 인과 관계의 문제가 충분히 복잡해지면 혼란과 오류에 빠지기 쉽다."],
+["tuition", "수업료, 등록금", "", "", "Please see the attached document for registration and tuition information.", "등록과 수업료 관련 정보는 첨부된 문서를 참조하십시오."],
+["accumulate", "축적하다[되다], 모으다[모이다]", "gather, amass, pile up", "", "Treasure hunters have accumulated valuable historical artifacts that can shed light on the past.", "보물 사냥꾼들은 과거를 밝힐 수 있는 귀중한 역사적 유물을 축적해 왔다."],
+["biosphere", "((the ~)) 생물권 (생물이 살 수 있는 지표면과 대기권)", "", "", "Organic farming is less damaging to the biosphere.", "유기 농법은 생물권에 덜 해롭다."],
+["analogy", "비유, 유추; 유사점", "comparison, similarity", "", "She drew an analogy between the life of a caterpillar and the changes made during personal development.", "그녀는 애벌레의 삶과 개인적 발달 과정에서 이루어지는 변화 사이의 비유를 들었다."],
+["seize", "붙잡다, 포착하다; 장악[점령]하다", "grab", "", "She was about to fall, but he seized her hand and pulled her to safety.", "그녀가 막 넘어지려던 참이었지만, 그는 그녀의 손을 붙잡아 안전한 곳으로 끌어냈다."],
+["influential", "영향력 있는", "powerful", "", "Hans Hofmann was one of the most influential art teachers of the 20th century.", "Hans Hofmann은 20세기의 가장 영향력 있는 미술 교사 중 한 사람이었다."],
+["nuisance", "성가신 사람[일], 골칫거리; 방해 행위", "annoyance, disturbance", "", "He didn't complain, as he didn't want to be perceived as a nuisance.", "그는 성가신 사람으로 여겨지고 싶지 않아서 불평하지 않았다."],
+["component", "(구성) 요소, 부품; 구성하는, 성분의", "element, constituent", "", "Acquiring information is a critical component for having a successful negotiation.", "정보를 획득하는 것은 성공적인 협상을 하는 데 중요한 요소이다."],
+["deserted", "사람이 없는, 텅 빈; 버려진", "empty, abandoned", "", "The downtown area of the city is deserted at night.", "그 도시의 도심 지역은 밤에 사람이 없다."],
+["submission", "제출; 복종, 항복, 굴복", "obedience, surrender", "", "Please note that there has been a change to the submission deadline.", "제출 기한이 변경되었음을 유의해 주시기 바랍니다."],
+["terrain", "지형, 지역", "ground, land", "", "The hike includes moderately difficult terrain for hikers.", "그 도보 여행에는 도보 여행자들에게 중간 정도 난이도의 지형이 포함되어 있다."],
+["longevity", "장수; 오래 지속됨", "", "", "The longevity of your pet depends on how well you take care of it.", "당신의 반려동물이 오래 사는 것은 당신이 얼마나 잘 돌보는지에 달려 있다."],
+["extrovert", "외향적인 사람", "", "introvert", "An extrovert usually enjoys talking with others, even when meeting them for the first time.", "외향적인 사람은 보통 남들을 처음 만날 때조차 대화하는 것을 즐긴다."],
+["introvert", "내성[내향]적인 사람", "", "extrovert", "An introvert tends to enjoy reflecting on his or her thoughts.", "내향적인 사람은 자기 생각을 성찰하는 것을 즐기는 경향이 있다."],
+["ancestor", "조상, 선조; (기계의) 원형, 전신", "forefather", "descendant", "Modern technology has provided people with opportunities that are beyond the wildest dreams of our ancestors.", "현대 기술은 우리 조상들이 꿈에도 생각해 보지 못한 기회를 사람들에게 제공해 왔다."],
+["descendant", "자손, 후손; 유래한 것", "successor, offspring", "ancestor", "The first groups belonging to the Homo category and their descendants were hunter-gatherers.", "'호모' 범주에 속하는 최초의 무리와 그 후손들은 수렵 채집민이었다."],
+["sermon", "설교", "preaching, lecture", "", "He delivered a powerful sermon about the importance of forgiveness.", "그는 용서의 중요성에 관한 영향력 있는 설교를 했다."],
+["get over", "~을 극복하다; ~에서 회복하다", "overcome, recover from", "", "Get over the past, or it will prevent you from moving forward.", "과거를 극복하라, 그렇지 않으면 과거는 네가 앞으로 나아가지 못하게 할 것이다."],
+["slip out", "(말이) 무심코 튀어나오다; 몰래 빠져나가다", "blurt out", "", "I didn't mean to mention your absence, but it just slipped out.", "당신의 부재를 언급하려던 건 아니었는데, 그 말이 무심코 튀어나왔다."],
+["live with", "(어려움·불안 등을) 감수하다, 안고 살다", "", "", "They learned to live with each other's imperfections.", "그들은 서로의 단점들을 안고 살아가는 법을 배웠다."]]};
+/* 여러 뜻이 있는 단어: 예문의 뜻에 맞는 유의어만 정답. sense=예문에서의 뜻, other=다른 뜻일 때만 맞는 유의어 */
+var V={
+"abide":{ok:["obey","follow","comply with"],sense:"(규칙 등을) 준수하다",other:{"tolerate":"참다, 견디다"}},
+"intense":{ok:["extreme"],sense:"강렬한",other:{"passionate":"열정적인"}},
+"internal":{ok:["inner"],sense:"내부의",other:{"domestic":"국내의"}},
+"decay":{ok:["rot","decomposition"],sense:"부패, 부식(명사)",other:{"decompose":"부패하다(동사)","decline":"쇠퇴"}},
+"discriminate":{ok:["segregate"],sense:"차별하다",other:{"distinguish":"식별[구별]하다"}},
+"convict":{ok:[],sense:"유죄를 선고하다",other:{"prisoner":"죄수, 수감자"}},
+"fierce":{ok:["harsh"],sense:"사나운, 험악한",other:{"intense":"격렬한, 맹렬한","severe":"격렬한, 맹렬한"}},
+"blast":{ok:["explosion"],sense:"폭발",other:{"explode":"폭파하다"}},
+"interfere":{ok:["intervene","meddle in","intrude"],sense:"(~ in) 간섭[참견]하다",other:{"disrupt":"(~ with) 방해하다","impede":"(~ with) 방해하다"}},
+"sovereign":{ok:["autonomous"],sense:"주권을 가진, 자주적인",other:{"monarch":"군주, 국왕"}},
+"enforce":{ok:["implement","execute"],sense:"(법률 등을) 시행[집행]하다",other:{"compel":"강요하다","force":"강요하다"}},
+"explode":{ok:["blow up"],sense:"폭발[폭파]하다",other:{"surge":"급격히 증가하다"}},
+"parallel":{ok:[],sense:"평행한",other:{"similar":"유사한","equivalent":"유사한"}},
+"take over":{ok:[],sense:"~을 넘겨받다, 인수하다",other:{"seize":"(정권 등을) 장악하다"}},
+"dynamics":{ok:["interaction", "relationship"],sense:"역학(관계)",other:{"force": "동력, 원동력"}},
+"expel":{ok:["dismiss"],sense:"퇴학시키다, 제명하다",other:{"banish": "추방하다, 내쫓다"}},
+"scheme":{ok:[],sense:"계획, 제도",other:{"plot": "음모, 책략", "conspiracy": "음모, 책략"}},
+"victim":{ok:["sufferer"],sense:"희생자, 피해자",other:{"sacrifice": "제물, 희생물"}},
+"abstract":{ok:[],sense:"추상적인",other:{"summary": "개요, 요약", "extract": "추출하다", "summarize": "요약하다"}},
+"portion":{ok:["part", "share"],sense:"부분, 일부",other:{"serving": "(음식의) 1인분"}},
+"mend":{ok:["repair", "fix"],sense:"수선하다, 고치다",other:{"improve": "(상황·관계 등을) 개선하다", "resolve": "(상황·관계 등을) 해결하다"}},
+"elastic":{ok:["resilient"],sense:"탄력 있는, 탄성의",other:{"flexible": "융통성 있는"}},
+"settle down":{ok:["establish oneself"],sense:"정착하다",other:{"calm down": "진정하다[되다]"}},
+"herd":{ok:["flock", "group"],sense:"떼, 무리",other:{"crowd": "군중"}},
+"demonstrate":{ok:["illustrate"],sense:"입증하다",other:{"protest": "시위하다"}},
+"discipline":{ok:["regulation"],sense:"규율, 훈육",other:{"training": "훈련, 단련", "punish": "징계하다"}},
+"decisive":{ok:["crucial", "critical", "conclusive"],sense:"결정적인, 중대한",other:{"determined": "결단력 있는", "resolute": "단호한"}},
+"minimize":{ok:[],sense:"최소화하다; (중요성 등을) 축소하다",other:{},aok:["maximize"]},
+"dimension":{ok:["measurement"],sense:"크기, 치수",other:{"aspect": "측면, 관점"}},
+"plague":{ok:["epidemic", "pandemic"],sense:"전염병, 역병",other:{"torment": "괴롭히다", "afflict": "시달리게 하다"}},
+"friction":{ok:[],sense:"(물리) 마찰",other:{"conflict": "갈등, 불화", "discord": "갈등, 불화"}},
+"entitle":{ok:["authorize", "qualify"],sense:"권리[자격]를 주다",other:{}},
+"refine":{ok:["purify"],sense:"정제하다",other:{"improve": "개선하다", "polish": "다듬다"}},
+"objective":{ok:[],sense:"객관적인",other:{"goal": "목표", "purpose": "목적", "aim": "목표"}},
+"multiple":{ok:["numerous"],sense:"다수의, 다양한",other:{}},
+"supreme":{ok:["paramount", "ultimate", "premier"],sense:"최고의",other:{}},
+"guarantee":{ok:["assure"],sense:"보장하다",other:{}},
+"recess":{ok:["break"],sense:"휴회, 휴정",other:{}},
+"affiliate":{ok:["associate"],sense:"제휴하다",other:{"branch": "계열사, 지부"}},
+"dictate":{ok:[],sense:"받아쓰게 하다",other:{"command": "지시[명령]하다"}},
+"boundary":{ok:["border", "frontier"],sense:"경계(선)",other:{"limit": "한계, 범위"}},
+"regime":{ok:["government"],sense:"정권",other:{"system": "제도, 체제"}},
+"assure":{ok:["guarantee"],sense:"장담하다",other:{"ensure": "확실하게 하다"}},
+"pinpoint":{ok:[],sense:"정확히 찾아내다",other:{"precise": "정확한"}},
+"probe":{ok:["investigate", "examine", "explore"],sense:"조사하다",other:{}},
+"secure":{ok:["obtain", "acquire"],sense:"확보하다",other:{"protect": "안전하게 하다", "safe": "안전한", "assured": "확실한"}},
+"dispute":{ok:["disagreement", "argument"],sense:"논쟁, 분쟁",other:{"challenge": "반박하다", "argue": "다투다"}},
+"consult":{ok:["counsel", "confer"],sense:"상담하다",other:{"refer to": "참고하다"}},
+"transform":{ok:["revolutionize", "alter"],sense:"변형시키다",other:{}},
+"loan":{ok:[],sense:"대출(금)",other:{"lend": "빌려주다"}},
+"banish":{ok:["exile", "expel"],sense:"추방하다",other:{"dispel": "떨쳐 버리다"}},
+"valid":{ok:["legitimate", "effective"],sense:"유효한",other:{"reasonable": "타당한", "logical": "타당한"}},
+"commitment":{ok:["promise", "obligation"],sense:"약속",other:{"dedication": "전념", "devotion": "헌신"}},
+"severe":{ok:["serious"],sense:"심각한",other:{"harsh": "혹독한", "strict": "엄한"}},
+"faculty":{ok:["staff"],sense:"교수진",other:{"department": "학부", "ability": "재능", "capability": "능력"}},
+"compete":{ok:["contest", "contend"],sense:"경쟁하다",other:{"take part in": "참가하다", "participate in": "참가하다"}},
+"inclusive":{ok:[],sense:"포함한",other:{"comprehensive": "포괄적인", "tolerant": "포용적인"}},
+"publicize":{ok:["announce"],sense:"알리다",other:{"promote": "홍보하다", "advertise": "광고하다"}},
+"sabotage":{ok:["damage", "destroy", "disrupt"],sense:"파괴하다, 방해하다",other:{"disruption": "방해 행위"}},
+"put down":{ok:["write down", "set down"],sense:"적어 두다",other:{"subdue": "진압하다", "suppress": "진압하다"}},
+"soak":{ok:["drench"],sense:"흠뻑 적시다",other:{"immerse": "담그다"}},
+"acquisition":{ok:[],sense:"습득",other:{"takeover": "인수", "buyout": "인수"}},
+"deficit":{ok:[],sense:"적자",other:{"shortage": "부족", "lack": "부족"}},
+"span":{ok:["period", "duration"],sense:"기간, 시간",other:{"extent": "폭", "range": "범위", "cover": "걸치다", "extend": "걸치다"}},
+"verse":{ok:["poetry", "poem"],sense:"시, 운문",other:{"stanza": "(시의) 연", "line": "(노래의) 절"}},
+"protest":{ok:["demonstration", "objection"],sense:"시위, 항의",other:{"object": "항의하다", "complain": "항의하다"}},
+"discrepancy":{ok:["difference", "disparity"],sense:"차이, 불일치",other:{"contrast": "대조"}},
+"diplomatic":{ok:[],sense:"외교(상의)",other:{"tactful": "요령 있는"}},
+"disdain":{ok:["despise", "scorn", "look down on"],sense:"업신여기다",other:{"contempt": "경멸(명사)"}},
+"recruit":{ok:["hire", "enlist"],sense:"모집하다",other:{"draft": "징집하다", "newcomer": "신입 사원"}},
+"psychic":{ok:["supernatural"],sense:"초자연적인",other:{"mental": "정신의"}},
+"substitute":{ok:["replacement"],sense:"대용품",other:{"replace": "대체하다"}},
+"fabricate":{ok:["invent", "make up", "forge"],sense:"조작하다",other:{"manufacture": "제작하다"}},
+"clutter":{ok:["mess", "disorder", "litter"],sense:"어수선함",other:{"mess up": "어지럽히다"}},
+"nominal":{ok:[],sense:"명목상의",other:{"minimal": "아주 적은", "trivial": "하찮은"}},
+"attribute":{ok:["ascribe"],sense:"결과로 보다",other:{"trait": "속성", "feature": "특성"}},
+"contribute":{ok:[],sense:"기여하다",other:{"donate": "기부하다", "endow": "기증하다"}},
+"spell out":{ok:[],sense:"철자를 하나하나 말하다",other:{"clarify": "분명히 설명하다", "specify": "분명히 설명하다"}},
+"liberal":{ok:[],sense:"자유주의의",other:{"tolerant": "관대한", "generous": "후한"}},
+"dissent":{ok:["disagreement"],sense:"반대(의견)",other:{"disagree with": "반대하다"},aok:["agreement"]},
+"convert":{ok:["transform"],sense:"전환하다",other:{"switch": "바꾸다", "alter": "변경하다"}},
+"germ":{ok:["bacterium", "microbe"],sense:"세균, 미생물",other:{"origin": "기원", "root": "시초"}},
+"peculiar":{ok:["odd", "weird"],sense:"별난, 기이한",other:{"unique": "고유한", "distinctive": "특유의"}},
+"radical":{ok:["fundamental"],sense:"근본적인",other:{"extreme": "급진적인"}},
+"conclude":{ok:["determine"],sense:"결론을 내리다",other:{"complete": "끝내다", "terminate": "끝내다"}},
+"invoke":{ok:["apply", "enforce"],sense:"적용하다, 발동하다",other:{"cite": "인용하다", "quote": "인용하다", "evoke": "불러일으키다", "arouse": "불러일으키다"}},
+"skeleton":{ok:["bones"],sense:"골격",other:{"framework": "골조", "structure": "골조", "outline": "윤곽"}},
+"transit":{ok:["transportation"],sense:"(대중)교통",other:{"shipment": "운송", "passage": "통과"}},
+"pitch":{ok:[],sense:"음의 높이",other:{"proposal": "권유, 홍보"}},
+"hover":{ok:["float"],sense:"맴돌다",other:{"loiter": "서성이다"}},
+"quarrel":{ok:["argue"],sense:"다투다",other:{"argument": "말다툼", "dispute": "말다툼"}},
+"outlook":{ok:["prospect"],sense:"전망",other:{"perspective": "관점", "viewpoint": "관점"}},
+"suppress":{ok:["repress", "subdue"],sense:"진압하다",other:{"restrain": "억누르다"}},
+"hold back":{ok:["restrain", "suppress"],sense:"억누르다",other:{"hinder": "저지하다", "obstruct": "저지하다"}},
+"cut across":{ok:["cross", "traverse"],sense:"가로지르다",other:{"span": "걸치다"}},
+"cosmic":{ok:["universal"],sense:"우주의",other:{"vast": "거대한", "immense": "어마어마한"}},
+"compulsion":{ok:[],sense:"강제, 강요",other:{"force": "강제", "coercion": "강요", "urge": "충동", "impulse": "충동"}},
+"bump":{ok:["collide", "crash"],sense:"충돌하다",other:{"jolt": "덜컹거리며 가다"}},
+"acute":{ok:["severe", "intense"],sense:"극심한",other:{},aok:[]},
+"contemplate":{ok:["consider", "ponder"],sense:"고려하다",other:{"gaze": "응시하다", "stare at": "응시하다"}},
+"assault":{ok:["violence"],sense:"폭행(죄)",other:{"attack": "공격"}},
+"diploma":{ok:["certificate"],sense:"수료증",other:{"degree": "학위"}},
+"contend":{ok:["compete"],sense:"겨루다, 다투다",other:{"claim": "주장하다", "assert": "주장하다"}},
+"degrade":{ok:["deteriorate"],sense:"저하시키다",other:{"humiliate": "비하하다", "break down": "분해되다"}},
+"administer":{ok:["manage"],sense:"관리하다",other:{"enforce": "집행하다"}},
+"persist":{ok:[],sense:"끈질기게 계속하다",other:{"last": "지속되다"}},
+"embrace":{ok:["hug"],sense:"포옹하다",other:{"accept": "수용하다"}},
+"conquer":{ok:["defeat", "subdue"],sense:"정복하다",other:{"overcome": "극복하다"}},
+"moderate":{ok:[],sense:"보통의, 적당한",other:{"abate": "완화하다", "alleviate": "완화하다"},aok:["extreme", "excessive"]},
+"lure":{ok:["tempt", "attract", "entice"],sense:"유혹하다, 꾀다",other:{"temptation": "유혹(물)", "attraction": "매력", "bait": "미끼"}},
+"encompass":{ok:["cover", "include"],sense:"포함하다, 아우르다",other:{"surround": "둘러싸다", "encircle": "둘러싸다", "enclose": "둘러싸다"}},
+"prevail":{ok:["triumph", "overcome"],sense:"이기다, 승리하다",other:{"pervade": "만연하다", "predominate": "우세하다"}},
+"restrain":{ok:["hold back"],sense:"저지하다",other:{"suppress": "억누르다"}},
+"intent":{ok:["determined"],sense:"몰두하는",other:{"purpose": "의도", "aim": "목적", "goal": "목적"}},
+"alien":{ok:["foreign"],sense:"외국(인)의",other:{"exotic": "생경한", "foreigner": "외국인"}},
+"mount":{ok:["climb", "ascend"],sense:"오르다",other:{"increase": "증가하다", "arrange": "개최하다", "launch": "시작하다"}},
+"dismal":{ok:["gloomy"],sense:"음울한",other:{"poor": "형편없는"}},
+"worship":{ok:["revere"],sense:"숭배하다",other:{"reverence": "숭배(명사)"}},
+"obligation":{ok:["duty", "responsibility"],sense:"의무, 책임",other:{"commitment": "약속"}},
+"forge":{ok:["build", "form"],sense:"구축하다",other:{"counterfeit": "위조하다", "falsify": "위조하다"}},
+"crack":{ok:["break"],sense:"깨다",other:{"split": "금이 가다"}},
+"evaporate":{ok:["vaporize"],sense:"증발하다",other:{"disappear": "사라지다", "vanish": "사라지다"}},
+"undertake":{ok:["take on"],sense:"떠맡다",other:{"set about": "착수하다", "commence": "착수하다", "promise": "약속하다"}},
+"fragile":{ok:["breakable"],sense:"깨지기 쉬운",other:{"vulnerable": "취약한"}},
+"provoke":{ok:["arouse", "induce"],sense:"유발하다",other:{"irritate": "화나게 하다", "annoy": "화나게 하다"}},
+"litter":{ok:["trash", "garbage"],sense:"쓰레기",other:{"clutter": "어지럽히다", "dump": "버리다"}},
+"distribute":{ok:["hand out", "dispense"],sense:"나누어 주다",other:{"circulate": "유통시키다"}},
+"perpetual":{ok:["continuous", "constant", "continual"],sense:"끊임없는",other:{"permanent": "영구적인", "everlasting": "영구적인"}},
+"temper":{ok:["rage"],sense:"화, 분노",other:{"temperament": "기질", "moderate": "완화하다"}},
+"analogy":{ok:["comparison"],sense:"비유, 유추",other:{"similarity": "유사점"}},
+"nuisance":{ok:["annoyance"],sense:"성가신 사람[일]",other:{"disturbance": "방해 행위"}},
+"deserted":{ok:["empty"],sense:"사람이 없는",other:{"abandoned": "버려진"}},
+"submission":{ok:[],sense:"제출",other:{"obedience": "복종", "surrender": "굴복"}}
+};
+var IDM=[
+{d:26,w:"bombard someone with questions",m:"질문 공세를 퍼붓다",b:"bombard",x:"",k:""},
+{d:26,w:"discriminate between A and B",m:"A와 B를 구별하다",b:"discriminate",x:"",k:""},
+{d:26,w:"have no parallel",m:"유례가 없다, 비할 데 없다",b:"parallel",x:"",k:""},
+{d:26,w:"put a premium on ~",m:"~을 특히 중요하게 여기다",b:"premium",x:"",k:""},
+{d:26,w:"put up with",m:"~을 참다, 참고 견디다",b:"put up with",x:"We couldn't put up with the noise from next door any longer.",k:"우리는 옆집에서 들려오는 소음을 더 이상 참을 수 없었다."},
+{d:26,w:"back off",m:"뒤로 물러나다; (간섭하지 않고) 물러서다, 그만두다",b:"back off",x:"The boy got frightened and backed off as soon as he saw the dog.",k:"그 남자아이는 개를 보자마자 겁이 먹고 뒤로 물러났다."},
+{d:26,w:"take over",m:"~을 넘겨받다, 인수하다; (정권 등을) 장악하다",b:"take over",x:"His brother recently took over the running of the business.",k:"그의 형은 최근에 사업 운영권을 넘겨받았다."},
+{d:26,w:"convince A of B",m:"A에게 B를 납득시키다",b:"convince A of B",x:"I had written a position paper trying to convince the city council of the need to hire security personnel for the library.",k:"나는 시의회에 도서관의 보안 요원을 고용할 필요성을 납득시키려는 의견서를 작성했다."},
+{d:29,w:"go with one's gut",m:"직감을 따르다",b:"gut",x:"",k:""},
+{d:33,w:"substitute A for B",m:"B를 A로 대체하다",b:"substitute",x:"",k:""},
+{d:33,w:"attribute A to B",m:"A를 B의 결과[덕분]로 보다",b:"attribute",x:"",k:""},
+{d:35,w:"alternate between A and B",m:"A와 B를 번갈아 하다",b:"alternate",x:"",k:""},
+{d:27,w:"leave out",m:"~을 빼놓다, 제외[생략]하다",b:"leave out",x:"The right hemisphere of the brain that intuitively processes information is left out of the planning process.",k:"정보를 직관적으로 처리하는 뇌의 우반구는 계획 수립 과정에서 제외된다."},
+{d:27,w:"break away",m:"((from))(~에서) 달아나다, 벗어나다; (정당·국가 등에서) 독립하다, 탈퇴하다",b:"break away",x:"He broke away from the group to take pictures.",k:"그는 사진을 찍으려고 무리에서 빠져나왔다."},
+{d:27,w:"see about",m:"~을 알아보다, 처리하다",b:"see about",x:"I'll contact the company to see about your refund.",k:"당신의 환불을 알아보기 위해 제가 회사에 연락해보겠습니다."},
+{d:27,w:"settle down",m:"정착하다; 진정하다[되다]",b:"settle down",x:"After years abroad, she finally settled down near her family.",k:"수년간 해외에 있다가, 그녀는 마침내 가족과 가까운 곳에 정착했다."},
+{d:28,w:"launch into",m:"(갑자기 혹은 열정적으로) 시작하다",b:"launch into",x:"Photocopiers' complicated features give people natural reasons to launch into conversation.",k:"복사기의 복잡한 기능들은 사람들에게 대화를 시작할 자연스러운 계기를 제공한다."},
+{d:28,w:"break up",m:"(관계 등이) 끝나다; 부서지다; (신호 등이) 끊기다",b:"break up",x:"The partnership broke up due to financial disagreements.",k:"그 동업 관계는 재정적 의견 충돌로 인해 끝났다."},
+{d:28,w:"carry off",m:"(어려운 일을) 잘 해내다; (상을) 받다, 차지하다",b:"carry off",x:"She's the only designer I know with enough talent to carry this off.",k:"그녀는 이 일을 해낼 수 있을 만큼 충분한 재능이 있는지 내가 아는 유일한 디자이너이다."},
+{d:28,w:"look through",m:"~을 살펴보다, 훑어보다",b:"look through",x:"I've looked through all my papers and have not found anything that would work.",k:"나는 내 모든 서류를 살펴보았지만 효과가 있을 만한 것을 찾지 못했다."},
+{d:29,w:"refrain from",m:"~을 삼가다, 자제하다",b:"refrain from",x:"Visitors were asked to refrain from taking photographs inside the museum.",k:"방문객들은 박물관 내부에서 사진 촬영을 자제해 달라는 요청을 받았다."},
+{d:29,w:"hold down",m:"~을 억제하다; (일자리 등을) 계속 유지하다",b:"hold down",x:"There can be influential factors that hold down the performance of everyone being judged.",k:"평가를 받는 모든 이의 성과를 억제하는 영향력 있는 요인들이 있을 수 있다."},
+{d:29,w:"amount to",m:"(합계가) ~에 달하다; ~와 같다, ~에 해당하다",b:"amount to",x:"The savings would amount to several thousand dollars per family.",k:"그 절감액은 가구당 수천 달러에 달할 것이다."},
+{d:29,w:"ease off",m:"~을 완화하다, 완화되다",b:"ease off",x:"The pain in her leg slowly eased off after taking the medicine.",k:"그녀의 다리 통증은 약을 먹은 후 서서히 완화되었다."},
+{d:30,w:"step in",m:"(문제 해결을 위해) 개입하다",b:"step in",x:"When consumers lack adequate information, governments step in to require that firms provide information.",k:"소비자들에게 충분한 정보가 없으면, 정부가 개입하여 회사에게 정보를 제공하도록 요구한다."},
+{d:30,w:"carry through",m:"~을 완수하다, 해내다",b:"carry through",x:"We are determined to carry our plans through to completion.",k:"우리는 우리의 계획을 완수하기로 결심했다."},
+{d:30,w:"put A into B",m:"A를 B에 들이다",b:"put A into B",x:"All that time, I put my whole heart into looking for work.",k:"그 시간 내내 나는 일자리를 찾는 데 온 마음을 쏟았다."},
+{d:30,w:"live out",m:"(예전에 생각만 하던 것을) 실현하다",b:"live out",x:"It is possible to live out a lie or fantasy logically and consistently on the internet.",k:"인터넷상에서는 거짓말이나 환상을 논리적이고 일관되게 실현하는 것이 가능하다."},
+{d:31,w:"speak for",m:"~을 대변하다, 대신하여 말하다",b:"speak for",x:"She spoke for the entire company at the medical conference.",k:"그녀는 의료 학회에서 회사 전체를 대변했다."},
+{d:31,w:"kick in",m:"작동하기 시작하다, 효과가 나타나기 시작하다",b:"kick in",x:"When we are disturbed by outside forces, our inner machinery kicks in and returns us to a balanced state.",k:"우리가 외부의 힘에 의해 방해를 받을 때, 우리의 내부 조직이 작동하기 시작하여 우리를 균형 잡힌 상태로 돌아오게 한다."},
+{d:31,w:"put down",m:"~을 적어 두다; ~을 진압하다",b:"put down",x:"I need to put down my thoughts on paper before I forget them.",k:"나는 잊어버리기 전에 내 생각을 종이에 적어 두어야 한다."},
+{d:31,w:"ascribe A to B",m:"A를 B의 원인[탓]으로 돌리다",b:"ascribe A to B",x:"He ascribed his failure to bad luck rather than a lack of skill.",k:"그는 자신의 실패를 실력 부족보다는 불운의 탓으로 돌렸다."},
+{d:32,w:"scale up",m:"(규모·양 등을) 확대하다, 늘리다",b:"scale up",x:"Scaling up from small to large is often accompanied by an evolution from simplicity to complexity.",k:"작은 것에서 큰 것으로 규모를 확대하는 것은 흔히 단순함에서 복잡함으로의 진화를 수반한다."},
+{d:32,w:"put across",m:"(생각·의견 등을) 전달하다, 이해시키다",b:"put across",x:"Environmental journalists have to put across their perspective on the environment to lawmakers.",k:"환경 저널리스트들은 입법자들에게 환경에 대한 그들의 관점을 이해시켜야 한다."},
+{d:32,w:"give in",m:"굴복[항복]하다",b:"give in",x:"They never gave in during the tough negotiations last week.",k:"그들은 지난주 힘든 협상 동안 절대 굴복하지 않았다."},
+{d:32,w:"track down",m:"~을 (추적하여) 찾아내다",b:"track down",x:"The police expected it would take longer to track down the criminal.",k:"경찰은 범인을 찾아내는 데 시간이 더 오래 걸릴 것으로 예상했다."},
+{d:33,w:"tell on",m:"~을 고자질하다; ~에 (안 좋은) 영향을 미치다",b:"tell on",x:"Since opponents will attack, the advantages of being proactive and \"telling on oneself\" are too significant to ignore.",k:"상대는 공격할 것이기 때문에, 상황을 앞서서 주도하며 '스스로의 잘못을 밝히는 것'의 이점은 너무 중요해서 무시할 수 없다."},
+{d:33,w:"spell out",m:"철자를 하나하나 말하다[쓰다]; ~을 분명히 설명하다",b:"spell out",x:"Please spell out your name so that I can confirm your reservation.",k:"제가 당신의 예약을 확인할 수 있도록 성함을 철자 하나하나 말씀해 주세요."},
+{d:33,w:"deprive A of B",m:"A에게서 B를 빼앗다",b:"deprive A of B",x:"Humans are the only species that will deliberately deprive themselves of sleep.",k:"인간은 의도적으로 스스로에게서 잠을 박탈하려는 유일한 종이다."},
+{d:34,w:"hold back",m:"(감정을) 억누르다, 참다; ~을 저지하다",b:"hold back",x:"He tried to hold back his tears as he remembered the struggles of his past.",k:"그는 과거의 어려움들을 기억하며 눈물을 참으려고 애썼다."},
+{d:34,w:"cut across",m:"~을 가로지르다; ~에 걸치다, ~을 아우르다",b:"cut across",x:"If we quickly cut across the grassy field, it'll definitely save time.",k:"만약 우리가 그 풀밭을 빠르게 가로질러 간다면, 확실히 시간을 절약할 것이다."},
+{d:34,w:"come away with",m:"(어떤 인상·느낌을) 갖고 떠나다",b:"come away with",x:"To the extent that sufficient context is provided, readers come away with the author's intent.",k:"충분한 맥락이 제공되는 한, 독자들은 저자의 의도를 이해하고 떠나게 된다."},
+{d:35,w:"put in for",m:"~을 신청하다",b:"put in for",x:"When are you going to put in for a department transfer?",k:"부서 이동을 언제 신청하실 건가요?"},
+{d:35,w:"let down",m:"~을 실망시키다",b:"let down",x:"This machine won't let you down, as it's known for being very reliable.",k:"이 기계는 매우 믿을 만하다고 알려져 있기 때문에 당신을 실망시키지 않을 겁니다."},
+{d:35,w:"stick out",m:"~을 내밀다, ~가 튀어나오다; 눈에 띄다",b:"stick out",x:"The paper bag had leaves sticking out of the top.",k:"그 종이봉투의 윗부분에 잎사귀들이 튀어나와 있었다."},
+{d:36,w:"come through",m:"살아남다, 극복하다; (약속대로) 해내다; (정보 등이) 들어오다",b:"come through",x:"The company came through the recession without any major losses.",k:"그 회사는 어떠한 큰 손실도 없이 경기 침체를 극복했다."},
+{d:36,w:"step up",m:"~을 강화하다, 올리다; (책임 등을) 맡다, 나서다",b:"step up",x:"Their bargaining became spirited, with Paul stepping up his price slightly and the seller lowering his slowly.",k:"Paul이 자신의 가격을 조금씩 올리고 판매자가 천천히 내리면서, 그들의 흥정은 활기를 띠게 되었다."},
+{d:36,w:"cut off",m:"~을 잘라 내다; (공급 등을) 끊다; 고립시키다",b:"cut off",x:"Many major companies are changing their business models by cutting off less profitable projects.",k:"많은 주요 기업들은 수익성이 낮은 프로젝트를 정리함으로써 그들의 사업 모델을 변화시키고 있다."},
+{d:36,w:"come down with",m:"(병에) 걸리다",b:"come down with",x:"More people came down with the flu this year than last year.",k:"올해에 작년보다 더 많은 사람들이 독감에 걸렸다."},
+{d:37,w:"get over",m:"~을 극복하다; ~에서 회복하다",b:"get over",x:"Get over the past, or it will prevent you from moving forward.",k:"과거를 극복하라, 그렇지 않으면 과거는 네가 앞으로 나아가지 못하게 할 것이다."},
+{d:37,w:"slip out",m:"(말이) 무심코 튀어나오다; 몰래 빠져나가다",b:"slip out",x:"I didn't mean to mention your absence, but it just slipped out.",k:"당신의 부재를 언급하려던 건 아니었는데, 그 말이 무심코 튀어나왔다."},
+{d:37,w:"live with",m:"(어려움·불안 등을) 감수하다, 안고 살다",b:"live with",x:"They learned to live with each other's imperfections.",k:"그들은 서로의 단점들을 안고 살아가는 법을 배웠다."}
+];
+var VK='baeyeol_word_vault_v1',HK='baeyeol_word_hellwrong_v1',ALL=[],vault={},HW={},G=null,S=null,raf=0,last=0,sel='all',MODE='n',CNT=20;try{var cs=localStorage.getItem('baeyeol_word_cnt');CNT=cs===null?20:+cs;if(isNaN(CNT)||[0,10,20,30,40].indexOf(CNT)<0)CNT=20}catch(e){CNT=20}
+Object.keys(D).forEach(function(d){D[d].forEach(function(r){ALL.push({d:+d,w:r[0],m:r[1],s:r[2],a:r[3],x:r[4],k:r[5]})})});
+try{vault=JSON.parse(localStorage.getItem(VK))||{}}catch(e){}
+try{HW=JSON.parse(localStorage.getItem(HK))||{}}catch(e){}
+function saveHW(){try{localStorage.setItem(HK,JSON.stringify(HW))}catch(e){}}
+function saveV(){try{localStorage.setItem(VK,JSON.stringify(vault))}catch(e){}}
+function sbc(){return window.studySupabase||null}
+async function uid(){var s=sbc();if(!s)return null;try{var r=await s.auth.getSession();return r.data.session?r.data.session.user.id:null}catch(e){return null}}
+async function pull(){
+ var s=sbc(),u=await uid();
+ if(!u){syncLbl(false);return}
+ try{
+  var r=await s.from('word_vault').select('word,wrong_count').eq('user_id',u);
+  if(r.error){console.warn('[word_vault]',r.error.message);syncLbl(false,true);return}
+  var cv={},chw={},up=[],now=new Date().toISOString();
+  (r.data||[]).forEach(function(x){if(x.word.indexOf('H:')===0)chw[x.word.slice(2)]=x.wrong_count||1;else cv[x.word]=x.wrong_count||1});
+  Object.keys(vault).forEach(function(w){if(!(w in cv))up.push({user_id:u,word:w,wrong_count:vault[w].n||1,updated_at:now})});
+  Object.keys(HW).forEach(function(w){if(!(w in chw))up.push({user_id:u,word:'H:'+w,wrong_count:HW[w].n||1,updated_at:now})});
+  if(up.length)await s.from('word_vault').upsert(up,{onConflict:'user_id,word'});
+  Object.keys(cv).forEach(function(w){if(!vault[w])vault[w]={n:cv[w]}});
+  Object.keys(chw).forEach(function(w){if(!HW[w])HW[w]={n:chw[w]}});
+  saveV();saveHW();syncLbl(true);
+ }catch(e){console.warn('[word_vault]',e);syncLbl(false,true)}
+}
+async function push(w,hw){
+ var s=sbc(),u=await uid();if(!u)return;
+ var o=hw?HW[w]:vault[w],key=hw?'H:'+w:w;
+ try{
+  var r=o?await s.from('word_vault').upsert({user_id:u,word:key,wrong_count:o.n||1,updated_at:new Date().toISOString()},{onConflict:'user_id,word'}):await s.from('word_vault').delete().eq('user_id',u).eq('word',key);
+  if(r&&r.error)console.warn('[word_vault]',r.error.message);
+ }catch(e){console.warn('[word_vault]',e)}
+}
+function syncLbl(on,err){
+ var v=$('#rnVault'),m=$('#rnSync');
+ if(v)v.textContent='📕 보관함 복습 ('+Object.keys(vault).length+')';
+ var hw=$('#rnHW');if(hw)hw.textContent='🔥 헬에서 틀린 문장 학습 ('+Object.keys(HW).length+')';
+ if(m)m.textContent=err?'계정 저장 실패: 이 기기에만 저장돼요':on?'☁️ 계정에 저장 중 (다른 기기에서도 이어져요)':'로그인하면 보관함이 계정에 저장돼요';
+}
+function $(s){return document.querySelector(s)}
+function rnd(n){return Math.floor(Math.random()*n)}
+function shuf(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=rnd(i+1),t=a[i];a[i]=a[j];a[j]=t}return a}
+function esc(s){return String(s).replace(/[&<>]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;'}[c]})}
+
+var W=$('.w'),auth=$('#authBar');
+var ov=document.createElement('div');ov.id='rainOv';ov.hidden=true;
+ov.innerHTML='<div class="rn-top"><button id="rnX">✕</button><span id="rnHud"></span></div>'
++'<div id="rnPlay" class="rn-pane" hidden><div id="rnQ"></div><div id="rnArena"></div></div>'
++'<div id="rnStudy" class="rn-pane" hidden></div>'
++'<div id="rnRes" class="rn-pane" hidden></div>';
+document.body.appendChild(ov);
+var panel=document.createElement('div');panel.id='wordPanel';panel.hidden=true;
+panel.innerHTML='<h2>단어모드</h2>'
++'<div class="wp-sec"><div class="wp-t"><i>1</i>범위</div><select id="rnDay"></select>'
++'<div class="wp-t2">몇 문제로 학습할까요?</div><div id="rnCnt" class="wp-cnt"><button data-c="10">10</button><button data-c="20">20</button><button data-c="30">30</button><button data-c="40">40</button><button data-c="0">전체</button></div>'
++'<small id="rnPool" class="wp-hint"></small></div>'
++'<div class="wp-sec"><div class="wp-t"><i>2</i>방식</div><div class="rn-lv">'
++'<div class="wp-g">⚡ 게임형 <span>떨어지는 단어 터치</span></div><div class="wp-row">'
++'<button data-lv="n">보통<small>뜻 보고 단어 고르기</small></button>'
++'<button data-lv="h" class="hell-level"><span style="color:#ff453a">🔥 HELL</span><small>예문 빈칸 · 더 빠르게</small></button></div>'
++'<div class="wp-g">📖 학습형 <span>시간 제한 없음</span></div><div class="wp-row">'
++'<button data-lv="s" class="study-level">📖 예문학습<small>빈칸 5지선다</small></button>'
++'<button data-lv="i" class="idiom-level">🧩 숙어<small>숙어·구동사 뜻 고르기</small></button></div></div></div>'
++'<button id="rnStart" class="rn-big">시작</button>'
++'<div class="wp-sec wp-rev"><div class="wp-t"><i>3</i>복습</div><div class="wp-row"><button id="rnVault" class="rn-alt"></button><button id="rnHW" class="rn-alt"></button></div></div>'
++'<small id="rnSync"></small>';
+W.appendChild(panel);
+var sw=document.createElement('div');sw.id='topSw';
+sw.innerHTML='<button data-m="arr">📝 배열모드</button><button data-m="word">📚 단어모드</button>';
+if(auth)auth.after(sw);else W.insertBefore(sw,W.children[1]);
+
+if(sbc())sbc().auth.onAuthStateChange(function(){setTimeout(pull,0)});
+function show(id){['rnPlay','rnStudy','rnRes'].forEach(function(p){$('#'+p).hidden=p!==id});$('#rnHud').textContent=''}
+function openHome(){cancelAnimationFrame(raf);G=null;S=null;ov.hidden=true;lvUI();syncLbl(false);pull()}
+var dsel=$('#rnDay');dsel.innerHTML='<option value="all">전체 DAY</option>'+Object.keys(D).map(function(d){return'<option value="'+d+'">DAY '+d+'</option>'}).join('');dsel.value=sel;
+dsel.onchange=function(){sel=this.value;lvUI()};
+$('#rnCnt').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;CNT=+b.dataset.c;try{localStorage.setItem('baeyeol_word_cnt',CNT)}catch(x){}lvUI()});
+$('#rnX').onclick=openHome;
+function lvUI(){
+ var b=panel.querySelectorAll('.rn-lv button');for(var i=0;i<b.length;i++)b[i].classList.toggle('on',b[i].dataset.lv===MODE);
+ var nm={n:'보통',h:'HELL',s:'예문학습',i:'숙어'},cb=$('#rnCnt').querySelectorAll('button');for(var j=0;j<cb.length;j++)cb[j].classList.toggle('on',+cb[j].dataset.c===CNT);
+ var pn=MODE==='i'?IDM.filter(function(o){return sel==='all'||o.d==sel}).length:ALL.filter(function(o){return(sel==='all'||o.d==sel)&&(MODE==='n'||blankQ(o))}).length,qn=CNT?Math.min(CNT,pn):pn;
+ $('#rnPool').textContent='선택 범위 '+pn+(MODE==='i'?'개 표현':'단어')+' 중 '+qn+'문제 출제';
+ $('#rnStart').textContent=nm[MODE]+' 시작 ('+qn+'문제)';
+ $('#rnVault').style.display=$('#rnHW').style.display=MODE==='i'?'none':'';
+}
+panel.querySelector('.rn-lv').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;MODE=b.dataset.lv;lvUI()});
+$('#rnStart').onclick=function(){MODE==='i'?startIdiom():MODE==='s'?startStudy('day'):start(false,MODE==='h')};
+$('#rnVault').onclick=function(){MODE==='s'?startStudy('vault'):start(true,MODE==='h')};
+$('#rnHW').onclick=function(){startStudy('hw')};
+function setTop(m){
+ var w=m==='word';W.classList.toggle('wm',w);panel.hidden=!w;
+ var bs=sw.querySelectorAll('button');for(var i=0;i<bs.length;i++)bs[i].classList.toggle('on',bs[i].dataset.m===m);
+ try{localStorage.setItem('baeyeol_top_mode',m)}catch(e){}
+ if(w){lvUI();syncLbl(false);pull()}
+}
+sw.addEventListener('click',function(e){var b=e.target.closest('button');if(b)setTop(b.dataset.m)});
+var m0='arr';try{m0=localStorage.getItem('baeyeol_top_mode')||'arr'}catch(e){}
+setTop(m0==='word'?'word':'arr');
+
+function start(review,hell){
+ var pool=ALL.filter(function(o){return review?vault[o.w]:(sel==='all'||o.d==sel)});
+ if(!pool.length){alert(review?'보관함이 비어 있어요.':'단어가 없어요.');return}
+ S=null;G={qs:shuf(pool).slice(0,CNT||pool.length),i:0,hearts:3,score:0,combo:0,best:0,log:[],speed:(hell?260:200),hell:!!hell,review:review,chips:[],spawnAt:0,since:0,need:0,done:false,cur:null};
+ $('#rnArena').innerHTML='';ov.hidden=false;show('rnPlay');nextQ();last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(loop);
+}
+function hud(){$('#rnHud').textContent='❤️'.repeat(Math.max(G.hearts,0))+'🖤'.repeat(3-Math.max(G.hearts,0))+'  '+G.score+'점'+(G.combo>1?'  🔥'+G.combo:'')}
+var SP={"fling":/fl(?:ing|ung)\w*/i,"leave out":/(?:leave|left|leaves|leaving)\s+out/i,"break away":/(?:break|broke|broken|breaks|breaking)\s+away/i,"see about":/see\w*\s+about/i,"settle down":/settl\w*\s+down/i,"specify":/specif\w*/i,"casualty":/casualt\w*/i,"defy":/defi\w*/i,"exemplify":/exemplif\w*/i,"carry off":/carr\w*\s+\w+\s+off/i,"look through":/look\w*\s+through/i,"break up":/(?:break|broke|broken|breaks|breaking)\s+up/i,"launch into":/launch\w*\s+into/i,"refrain from":/refrain\w*\s+from/i,"hold down":/(?:hold|held|holds|holding)\s+down/i,"amount to":/amount\w*\s+to/i,"ease off":/eas\w+\s+off/i,"step in":/step\w*\s+in\b/i,"carry through":/carr\w*\s+(?:\w+\s+){0,3}through/i,"put A into B":/put\w*\s+(?:\w+\s+){1,5}into/i,"live out":/liv\w*\s+out/i,"speak for":/(?:speak|speaks|spoke|spoken|speaking)\s+for/i,"kick in":/kick\w*\s+in\b/i,"put down":/(?:put|puts|putting)\s+down/i,"ascribe A to B":/ascrib\w*\s+(?:\w+\s+){1,6}?to/i,"scale up":/scal\w*\s+up/i,"put across":/(?:put|puts|putting)\s+across/i,"give in":/(?:give|gave|given|gives|giving)\s+in\b/i,"track down":/track\w*\s+down/i,"tell on":/tell\w*\s+on\b/i,"spell out":/spell\w*\s+out/i,"deprive A of B":/depriv\w*\s+\w+\s+of/i,"hold back":/(?:hold|held|holds|holding)\s+back/i,"cut across":/cut\w*\s+across/i,"come away with":/com\w*\s+away\s+with/i,"put in for":/put\w*\s+in\s+for/i,"let down":/let\w*\s+(?:\w+\s+)?down/i,"stick out":/stick\w*\s+out/i,"come through":/(?:come|came|comes|coming)\s+through/i,"step up":/(?:step|steps|stepped|stepping)\s+up/i,"cut off":/(?:cut|cuts|cutting)\s+off/i,"come down with":/(?:come|came|comes|coming)\s+down\s+with/i,"get over":/(?:get|got|gets|getting|gotten)\s+over/i,"slip out":/(?:slip|slips|slipped|slipping)\s+out/i,"live with":/(?:live|lives|lived|living)\s+with/i,"put up with":/put up with/i,"back off":/back(ed)? off/i,"take over":/(take|took|taken|takes|taking) over/i,"convince A of B":/convince .+? of/i};
+function blankQ(o){
+ var re=SP[o.w]||new RegExp('\\b'+o.w.replace(/e$/,'')+'\\w*','i'),m=re.exec(o.x);
+ if(!m)return null;
+ return esc(o.x.slice(0,m.index))+'<span class="rn-blank"></span>'+esc(o.x.slice(m.index+m[0].length));
+}
+function nextQ(){
+ if(G.i>=G.qs.length||G.hearts<=0)return finish();
+ G.chips.forEach(function(c){c.el.remove()});G.chips=[];G.cur=G.qs[G.i];G.cur.wrong=false;G.since=0;G.need=rnd(7);G.spawnAt=performance.now()+400;
+ $('#rnQ').innerHTML='<small>'+(G.i+1)+' / '+G.qs.length+(G.hell?' · 🔥 헬':'')+'</small><b>'+((G.hell&&blankQ(G.cur))||esc(G.cur.m))+'</b>';hud();
+}
+function sameM(w,q){var o=ALL.filter(function(z){return z.w===w})[0];if(!o)return false;if(o.m===q.m)return true;var a=sp(o.s).concat(sp(o.a)).map(function(t){return t.toLowerCase()}),b=sp(q.s).concat(sp(q.a)).map(function(t){return t.toLowerCase()});return a.indexOf(q.w.toLowerCase())>=0||b.indexOf(w.toLowerCase())>=0}
+function rm(c){c.el.remove();var k=G.chips.indexOf(c);if(k>=0)G.chips.splice(k,1)}
+function flash(ok){var A=$('#rnArena');A.className=ok?'ok':'no';setTimeout(function(){A.className=''},220)}
+function spawn(A){
+ var q=G.cur,ans=!G.chips.some(function(c){return c.ans})&&G.since>=G.need,w,n=0;
+ if(ans){w=q.w;G.since=0;G.need=rnd(7)}else{G.since++;do{w=ALL[rnd(ALL.length)].w;n++}while(n<30&&(w===q.w||sameM(w,q)||G.chips.some(function(c){return c.w===w})))}
+ var el=document.createElement('div');el.className='rn-chip';el.textContent=w;A.appendChild(el);
+ var cw=el.offsetWidth,max=Math.max(1,A.clientWidth-cw),x=rnd(max),t=0;
+ while(t++<5&&G.chips.some(function(c){return c.y<60&&Math.abs(c.x-x)<cw+10}))x=rnd(max);
+ el.style.left=x+'px';
+ var c={el:el,w:w,ans:ans,x:x,y:-50};G.chips.push(c);el.style.transform='translateY(-50px)';
+ el.addEventListener('pointerdown',function(e){e.preventDefault();tap(c)});
+}
+function tap(c){
+ if(!G||G.done||G.chips.indexOf(c)<0)return;
+ if(c.ans){flash(true);answer(!G.cur.wrong,G.cur.wrong)}
+ else{G.hearts--;G.combo=0;G.cur.wrong=true;flash(false);rm(c);hud();if(G.hearts<=0)answer(false,true)}
+}
+function answer(ok,heartDone){
+ var q=G.cur;G.log.push({q:q,ok:ok});
+ if(ok){G.combo++;G.best=Math.max(G.best,G.combo);G.score+=10+Math.min(G.combo,10)*2;G.speed*=1.10;if(G.review)delete vault[q.w]}
+ else{G.combo=0;if(!heartDone)G.hearts--;vault[q.w]={n:((vault[q.w]||{}).n||0)+1};if(G.hell){HW[q.w]={n:((HW[q.w]||{}).n||0)+1};saveHW();push(q.w,true)}}
+ saveV();push(q.w);G.i++;nextQ();
+}
+function loop(t){
+ if(!G||G.done)return;
+ var dt=Math.min(.05,(t-last)/1000),A=$('#rnArena'),H=A.clientHeight,missed=false;last=t;
+ if(t>=G.spawnAt){spawn(A);G.spawnAt=t+Math.max(200,700-G.i*30)*(0.4+Math.random()*1.2)}
+ var cs=G.chips.slice();
+ for(var i=0;i<cs.length;i++){var c=cs[i];c.y+=G.speed*dt;c.el.style.transform='translateY('+c.y+'px)';
+  if(c.y>H){if(c.ans){missed=true;break}rm(c)}}
+ if(missed){flash(false);answer(false,false)}
+ if(G&&!G.done)raf=requestAnimationFrame(loop);
+}
+function card(q,ok){
+ return '<div class="rn-card'+(ok?'':' bad')+'"><div class="rn-w">'+(ok?'✅ ':'❌ ')+esc(q.w)+'</div><div class="rn-m">'+esc(q.m)+'</div>'
+ +'<div class="rn-x">'+esc(q.x)+'<br><span>'+esc(q.k)+'</span></div>'
+ +(q.s?'<div class="rn-r"><em>유</em> '+esc(q.s)+'</div>':'')+(q.a?'<div class="rn-r"><em>반</em> '+esc(q.a)+'</div>':'')+'</div>';
+}
+/* ---------- 예문학습: 시간 제한 없음, 빈칸 5지선다, 유의어·반의어도 정답 ---------- */
+function sp(x){return x?x.split(',').map(function(t){return t.trim()}).filter(Boolean):[]}
+function eun(w){w=w.trim().replace(/[^a-z]+$/i,'');if(/tal$/i.test(w))return'는';return /[mnl]$/i.test(w)?'은':'는'}
+function accOf(o){
+ var out=[{t:o.w,k:'h'}],v=V[o.w];
+ sp(o.s).forEach(function(t){if(!v||v.ok.indexOf(t)>=0)out.push({t:t,k:'s'})});
+ sp(o.a).forEach(function(t){if(!v||!v.aok||v.aok.indexOf(t)>=0)out.push({t:t,k:'a'})});
+ return out;
+}
+function otherOf(o){var v=V[o.w];return v?v.other:{}}
+function buildChoices(o){
+ var acc=accOf(o),set={};acc.forEach(function(a){set[a.t.toLowerCase()]=1});
+ var base=acc.filter(function(a){return a.k!=='a'}),first=base[rnd(base.length)],C=[first];
+ var rest=shuf(acc.filter(function(a){return a!==first}));
+ if(rest.length&&Math.random()<.5)C.push(rest[0]);
+ var ch=C.map(function(a){return{t:a.t,ok:true}});
+ var oth=otherOf(o),ok2=Object.keys(oth);
+ if(ok2.length&&Math.random()<.6){var tr=ok2[rnd(ok2.length)];ch.push({t:tr,ok:false,trap:oth[tr]})}
+ var dis=shuf(ALL.filter(function(o2){
+  if(o2.w===o.w||o2.m===o.m||set[o2.w.toLowerCase()]||oth[o2.w.toLowerCase()])return false;
+  return sp(o2.s).concat(sp(o2.a)).map(function(t){return t.toLowerCase()}).indexOf(o.w.toLowerCase())<0;
+ }));
+ for(var i=0;ch.length<5&&i<dis.length;i++)ch.push({t:dis[i].w,ok:false,m:dis[i].m});
+ return shuf(ch);
+}
+function startStudy(kind){
+ var pool=ALL.filter(function(o){
+  if(!blankQ(o))return false;
+  return kind==='vault'?vault[o.w]:kind==='hw'?HW[o.w]:(sel==='all'||o.d==sel);
+ });
+ if(!pool.length){alert(kind==='vault'?'보관함이 비어 있어요.':kind==='hw'?'헬에서 틀린 문장이 아직 없어요.':'문제가 없어요.');return}
+ cancelAnimationFrame(raf);G=null;
+ S={qs:shuf(pool).slice(0,CNT||pool.length),i:0,log:[],kind:kind,done:false,miss:false,ch:[]};
+ ov.hidden=false;show('rnStudy');renderStudy();
+}
+function renderStudy(){
+ if(S.idm)return renderIdiom();
+ var q=S.qs[S.i];S.ch=buildChoices(q);S.miss=false;S.done=false;S.found=0;
+ $('#rnHud').textContent='📖 예문학습'+(S.kind==='hw'?' · 헬 오답':S.kind==='vault'?' · 보관함':'');
+ var h='<div class="st-n">'+(S.i+1)+' / '+S.qs.length+'</div><div class="st-s">'+blankQ(q)+'</div>'
+ +'<div class="st-h">빈칸에 들어갈 수 있는 말을 고르세요. 정답이 2개일 수도 있어요. 하나씩 골라보세요.</div><div id="stCh">';
+ S.ch.forEach(function(c,i){h+='<button class="st-c" data-i="'+i+'">'+esc(c.t)+'</button>'});
+ h+='</div><div id="stMsg"></div><div id="stNext"></div>';
+ var P=$('#rnStudy');P.innerHTML=h;P.scrollTop=0;
+}
+document.addEventListener('click',function(e){
+ if(!S||ov.hidden)return;
+ var b=e.target.closest&&e.target.closest('#stCh .st-c');
+ if(b&&!S.done&&!b.disabled)return pickStudy(+b.dataset.i,b);
+ if(e.target.id==='stNextBtn'){S.i++;S.i>=S.qs.length?finishStudy():renderStudy()}
+});
+function pickStudy(i,btn){
+ if(S.idm)return pickIdiom(i,btn);
+ var q=S.qs[S.i],c=S.ch[i],M=$('#stMsg');
+ if(!c.ok){
+  S.miss=true;btn.disabled=true;btn.classList.add('bad');
+  vault[q.w]={n:((vault[q.w]||{}).n||0)+1};saveV();push(q.w);
+  M.className='st-no';
+  M.innerHTML=c.trap?'‘'+esc(c.t)+'’'+eun(c.t)+' “'+esc(c.trap)+'”의 의미를 갖고 있어요. 이 문장은 “'+esc(V[q.w].sense)+'” 뜻이라서 안 맞아요. 다시 골라보세요.'
+   :'‘'+esc(c.t)+'’'+eun(c.t)+' “'+esc(c.m)+'”의 의미를 갖고 있어요. 다시 골라보세요.';
+  return;
+ }
+ btn.disabled=true;btn.classList.add('ok');S.found++;
+ var need=S.ch.filter(function(x){return x.ok}).length;
+ if(S.found<need){
+  M.className='st-part';M.innerHTML='<b>정답이에요!</b> ‘'+esc(c.t)+'’ 말고도 정답이 더 있어요. 마저 골라보세요.';
+  return;
+ }
+ S.done=true;
+ var btns=$('#stCh').children;
+ for(var k=0;k<btns.length;k++)btns[k].disabled=true;
+ S.log.push({q:q,ok:!S.miss});
+ if(!S.miss&&S.kind==='hw'&&HW[q.w]){delete HW[q.w];saveHW();push(q.w,true)}
+ var L={h:'표제어',s:'유의어',a:'반의어'},acc=accOf(q);
+ M.className='st-yes';
+ M.innerHTML='<b>'+(S.miss?'정답이에요':'정답!')+'</b> '+accOf(q).map(function(a){return '<span class="st-t"><em>'+L[a.k]+'</em> '+esc(a.t)+'</span>'}).join('')
+  +'<div class="st-x">'+esc(q.x)+'<br><span>'+esc(q.k)+'</span></div><div class="st-m">'+esc(q.w)+' · '+esc(q.m)+'</div>'
+  +(V[q.w]?'<div class="st-o">이 문장의 뜻: <b>'+esc(V[q.w].sense)+'</b><br>'+Object.keys(V[q.w].other).map(function(k){return '‘'+esc(k)+'’는 “'+esc(V[q.w].other[k])+'” 뜻일 때만 유의어예요'}).join('<br>')+'</div>':'');
+ $('#stNext').innerHTML='<button id="stNextBtn" class="rn-big">'+(S.i+1>=S.qs.length?'결과 보기':'다음 문제')+'</button>';
+ M.scrollIntoView({block:'nearest'});
+}
+function startIdiom(){
+ var pool=IDM.filter(function(o){return sel==='all'||o.d==sel});
+ if(!pool.length){alert('이 DAY에는 숙어가 아직 없어요.');return}
+ cancelAnimationFrame(raf);G=null;
+ S={idm:true,qs:shuf(pool).slice(0,CNT||pool.length),i:0,log:[],kind:'idm',done:false,miss:false,ch:[]};
+ ov.hidden=false;show('rnStudy');renderIdiom();
+}
+function renderIdiom(){
+ var q=S.qs[S.i];S.miss=false;S.done=false;
+ var others=shuf(IDM.filter(function(o){return o.w!==q.w&&o.m!==q.m})).slice(0,4);
+ S.ch=shuf([{t:q.w,ok:true}].concat(others.map(function(o){return{t:o.w,ok:false,m:o.m}})));
+ $('#rnHud').textContent='🧩 숙어';
+ var h='<div class="st-n">'+(S.i+1)+' / '+S.qs.length+'</div><div class="st-s">'+esc(q.m)+'</div>'
+ +'<div class="st-h">이 뜻에 맞는 숙어·표현을 고르세요.</div><div id="stCh">';
+ S.ch.forEach(function(c,i){h+='<button class="st-c" data-i="'+i+'">'+esc(c.t)+'</button>'});
+ h+='</div><div id="stMsg"></div><div id="stNext"></div>';
+ var P=$('#rnStudy');P.innerHTML=h;P.scrollTop=0;
+}
+function pickIdiom(i,btn){
+ var q=S.qs[S.i],c=S.ch[i],M=$('#stMsg');
+ if(!c.ok){
+  S.miss=true;btn.disabled=true;btn.classList.add('bad');
+  M.className='st-no';M.innerHTML='‘'+esc(c.t)+'’'+eun(c.t)+' “'+esc(c.m)+'”의 의미를 갖고 있어요. 다시 골라보세요.';
+  return;
+ }
+ S.done=true;btn.classList.add('ok');
+ var btns=$('#stCh').children;for(var k=0;k<btns.length;k++)btns[k].disabled=true;
+ S.log.push({q:{w:q.w,m:q.m,x:q.x,k:q.x?q.k:'표제어: '+q.b,s:'',a:''},ok:!S.miss});
+ M.className='st-yes';
+ M.innerHTML='<b>'+(S.miss?'정답이에요':'정답!')+'</b> <span class="st-t">'+esc(q.w)+'</span>'
+  +(q.x?'<div class="st-x">'+esc(q.x)+'<br><span>'+esc(q.k)+'</span></div>':'<div class="st-m">표제어: '+esc(q.b)+'</div>');
+ $('#stNext').innerHTML='<button id="stNextBtn" class="rn-big">'+(S.i+1>=S.qs.length?'결과 보기':'다음 문제')+'</button>';
+ M.scrollIntoView({block:'nearest'});
+}
+function finishStudy(){
+ var ok=S.log.filter(function(l){return l.ok}).length,bad=S.log.length-ok;
+ var h='<div class="rn-sum"><b>'+ok+' / '+S.log.length+'</b> 한 번에 정답</div>'
+ +'<p class="rn-note">'+(S.kind==='hw'?'한 번에 맞힌 문장은 헬 오답에서 빠졌어요.':'')+(bad?(S.idm?' 틀린 숙어 '+bad+'개를 아래에서 다시 확인하세요.':' 틀린 단어 '+bad+'개는 보관함에 저장됐어요.'):' 모두 한 번에 맞혔어요!')+'</p>';
+ S.log.forEach(function(l){h+=card(l.q,l.ok)});
+ h+='<div class="rn-btns"><button id="rnAgain" class="rn-big">다시 하기</button><button id="rnBack" class="rn-alt">처음으로</button></div>';
+ var R=$('#rnRes');R.innerHTML=h;show('rnRes');R.scrollTop=0;
+ var k=S.kind,im=S.idm;$('#rnAgain').onclick=function(){im?startIdiom():startStudy(k)};$('#rnBack').onclick=openHome;
+ $('#rnHud').textContent='';
+}
+function finish(){
+ G.done=true;cancelAnimationFrame(raf);$('#rnArena').innerHTML='';G.chips=[];var ok=G.log.filter(function(l){return l.ok}).length,bad=G.log.length-ok;
+ var h='<div class="rn-sum"><b>'+ok+' / '+G.log.length+'</b> 정답 · '+G.score+'점 · 최고 콤보 '+G.best+'</div>'
+ +'<p class="rn-note">'+(G.review?'맞힌 단어는 보관함에서 빠졌어요.':'')+(bad?' 틀린 단어 '+bad+'개는 보관함에 저장됐어요.'+(G.hell?' 틀린 문장은 예문학습에서 다시 볼 수 있어요.':''):' 모두 맞혔어요!')+'</p>';
+ G.log.forEach(function(l){h+=card(l.q,l.ok)});
+ h+='<div class="rn-btns"><button id="rnAgain" class="rn-big">다시 하기</button>'+(G.hell&&bad?'<button id="rnToStudy" class="rn-alt">📖 틀린 문장 예문학습으로 보기</button>':'')+'<button id="rnBack" class="rn-alt">처음으로</button></div>';
+ var R=$('#rnRes');R.innerHTML=h;show('rnRes');R.scrollTop=0;
+ var rv=G.review,hl=G.hell;$('#rnAgain').onclick=function(){start(rv,hl)};$('#rnBack').onclick=openHome;
+ var ts=$('#rnToStudy');if(ts)ts.onclick=function(){startStudy('hw')};
+}
+})();
+</script>
+<script>
+(function(){
+ var g=document.getElementById('loginGate');if(!g)return;
+ var sb=window.studySupabase,signup=false,busy=false;
+ var E=document.getElementById('lgEmail'),P=document.getElementById('lgPw'),M=document.getElementById('lgMsg'),Go=document.getElementById('lgGo'),Sw=document.getElementById('lgSw'),Sub=document.getElementById('lgSub');
+ function msg(t,good){M.textContent=t||'';M.className=good?'good':''}
+ function lock(){g.style.display='flex';document.documentElement.style.overflow='hidden';E.hidden=P.hidden=Go.hidden=Sw.hidden=false;Sub.textContent=signup?'계정을 만들어야 이용할 수 있어요.':'로그인해야 이용할 수 있어요.'}
+ function unlock(){g.style.display='none';document.documentElement.style.overflow=''}
+ if(!sb){Sub.textContent='로그인 서버에 연결하지 못했어요. 인터넷 연결을 확인하고 새로고침해 주세요.';return}
+ var settled=false;
+ sb.auth.getSession().then(function(r){settled=true;r&&r.data&&r.data.session?unlock():lock()}).catch(function(){settled=true;lock()});
+ setTimeout(function(){if(!settled){lock();msg('서버 응답이 느려요. 그래도 로그인은 시도할 수 있어요.')}},6000);
+ sb.auth.onAuthStateChange(function(_e,session){session?unlock():lock()});
+ Sw.onclick=function(){signup=!signup;Go.textContent=signup?'회원가입':'로그인';Sw.textContent=signup?'이미 계정이 있어요 · 로그인':'처음이에요 · 회원가입';P.autocomplete=signup?'new-password':'current-password';msg('');lock()};
+ function ko(m){m=String(m||'');
+  if(/invalid login/i.test(m))return'이메일 또는 비밀번호가 맞지 않아요.';
+  if(/not confirmed/i.test(m))return'이메일 인증을 먼저 해주세요. 메일함을 확인해 보세요.';
+  if(/already registered|already been/i.test(m))return'이미 가입된 이메일이에요. 로그인해 주세요.';
+  if(/password/i.test(m)&&/6/.test(m))return'비밀번호는 6자 이상이어야 해요.';
+  if(/rate|too many/i.test(m))return'시도가 너무 많아요. 잠시 뒤에 다시 해주세요.';
+  if(/failed to fetch|networkerror|load failed/i.test(m))return'서버에 연결하지 못했어요. 인터넷을 확인하고 크롬에서 배포 주소로 열어 보세요. ('+m+')';
+  return'실패했어요: '+m}
+ document.getElementById('lgForm').addEventListener('submit',async function(e){
+  e.preventDefault();if(busy)return;
+  var em=E.value.trim(),pw=P.value;
+  if(!em||!pw){msg('이메일과 비밀번호를 입력해 주세요.');return}
+  busy=true;Go.disabled=true;msg('');
+  try{
+   var redirect=(location.protocol==='file:')?undefined:(location.origin+location.pathname);
+   var call=signup?sb.auth.signUp({email:em,password:pw,options:{emailRedirectTo:redirect}}):sb.auth.signInWithPassword({email:em,password:pw});
+   var r=await Promise.race([call,new Promise(function(res){setTimeout(function(){res({timeout:true})},15000)})]);
+   if(r.timeout)msg('서버가 응답하지 않아요. 인터넷 연결을 확인하고, Claude 앱 미리보기가 아니라 크롬에서 배포 주소로 열어 보세요.');
+   else if(r.error)msg(ko(r.error.message));
+   else if(r.data&&r.data.session)unlock();
+   else if(signup)msg('가입 완료! 이메일 인증이 필요하면 메일함에서 인증한 뒤 로그인해 주세요.',true);
+  }catch(err){msg(ko(err&&err.message))}
+  busy=false;Go.disabled=false;
+ });
+})();
+</script>
+</body></html>
